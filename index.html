@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimatrix</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <h1>The Ultimate World</h1>
+      <nav>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <!-- <button id="theme-toggle" class="dark-toggle">Toggle Dark Mode</button> -->
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h2>Bored? Snap out of it—your ultimate escape is here!</h2>
+      <p>From games and news to blogs, photos, and inspiration—your next favorite thing is waiting.</p>
+      <img class="hero-img" src="/assets/img/your-image.jpg" alt="Passion fruit and floral drink on a surface" />
+    </section>
+
+    <section class="daily-dose">
+      <h3>Fuel for the Soul</h3>
+      <p>🌞 A motivational quote, meme, or fact to brighten your day.</p>
+      <blockquote>“The best way to predict the future is to invent it.” – Alan Kay</blockquote>
+      <p>For More Inspiring Quotes <span style="font-size:1.5em;">&#8594;</span></p><button class="toggle" onclick=""></button>
+
+    </section>
+
+    <!-- Game Teaser -->
+    <section class="games-section">
+      <h3>Play to Relax</h3>
+      <div class="games-section-menu">
+        <div id="sudoku" class="games-div">
+          <img class="games-section-img" src="/assets/img/sudoku.jpeg" alt="">
+          <a href="/games/sudoku.html" class="games-section-heading">Sudoku</a>
+          <p class="games-section-desc">One grid, nine lives! Sudoku: where logic meets serenity.</p>
+        </div>
+        <div id="whereswaldo">
+          <img class="games-section-img" src="/assets/img/waldo.jpeg" alt="">
+          <a href="games.html" class="games-section-heading">Where's Waldo?</a>
+          <p class="games-section-desc">Blink and you’ll miss him! Waldo’s a masterclass in vanishing acts.</p>
+        </div>
+        <div id="tictactoe">
+          <img class="games-section-img" src="/assets/img/tictactoe.jpeg" alt="">
+          <a href="/games/xo.html" class="games-section-heading">Tic-Tac-Toe</a>
+          <p class="games-section-desc">Three in a row, one mind to outsmart! Tic Tac Toe’s a battle of wits.</p>
+        </div>
+      </div>
+      <a href="games.html" class="btn">Go to Games</a>
+    </section>
+
+    <!-- News Highlights -->
+    <section class="news-flash">
+      <h3>What’s buzzing?</h3>
+      <p>Stay updated with our daily digest of world and pop culture news.</p>
+      <div class="news-section-menu">
+        <div>
+          <div id="worldNews">
+            <!-- <img class = "news-section-img"src="" alt=""> -->
+            <a href="news.html" class="news-section-heading">World News</a>
+            <p class="news-section-desc">Stay in the know with global headlines that matter.</p>
+          </div>
+          <div id="sportsNews">
+            <!-- <img class = "news-section-img"src="" alt=""> -->
+            <a href="news.html" class="news-section-heading">Sports News</a>
+            <p class="news-section-desc">Big plays. Bigger moments. Whether it's a match-winning six or a buzzer-beater, we’ve got the highlights, heartbreaks, and heroics.</p>
+          </div>
+          <div id="trending">
+            <!-- <img class = "news-section-img"src="" alt=""> -->
+            <a href="news.html" class="news-section-heading">Trending</a>
+            <p class="news-section-desc">From viral videos to cultural shakeups, here’s what the internet can't stop talking about.</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <img class="news-section-img" src="/assets/img/news2.jpeg" alt="">
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <a href="news.html" class="btn">Go to News</a>
+    </section>
+
+    <!-- Featured Blog -->
+    <section class="blog-preview">
+      <h3>Reader’s Realm</h3>
+      <p>Explore trending thoughts, smart ideas, and original articles you’ll love.</p>
+
+      <div class="blogs-section-menu">
+        <div id="sudoku">
+          <img class="blogs-section-img" src="" alt="">
+          <a href="blogs.html" class="blogs-section-heading">Nature and You</a>
+          <p class="blogs-section-desc">Sustainable living is need of the hour.</p>
+        </div>
+        <div id="whereswaldo">
+          <img class="blogs-section-img" src="" alt="">
+          <a href="blogs.html" class="blogs-section-heading">Your Style Speaks for You</a>
+          <p class="blogs-section-desc">Latest styling ideas to reinvent your wardrobe.</p>
+        </div>
+      </div>
+      <a href="blogs.html" class="btn">Go to blogs</a>
+    </section>
+
+    <!-- Tools -->
+    <section class="daily-dose">
+      <h3>Tools</h3>
+      <p>Find Useful daily use tools to make life Easy .</p>
+      <blockquote>“The best way to predict the future is to invent it.” – Alan Kay</blockquote>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Ultimatix. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

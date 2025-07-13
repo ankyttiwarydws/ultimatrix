@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games | Ultimatix</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <h1>The Ultimate World</h1>
+      <nav>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="search-bar">
+      <p>Find Your Next Game</p>
+      <!-- <p>Search for games, news, blogs, or tools.</p> -->
+      <input type="text" placeholder="Search..." class="search-bar" />
+    </div>
+    <section class="hero">
+      <h2>Play to Relax</h2>
+      <p>Step into a curated world of chill games—designed to soothe, entertain, and refresh. From calming puzzles and ambient adventures to low-stress play modes, this zone is your escape from the grind. No timers, no pressure, just pure relaxing fun.</p>
+    </section>
+    <section class="games-section">
+      <div class="games-section-menu">
+        <div id="sudoku" class="games-div">
+          <img class="games-section-img" src="\assets\img\sudoku.jpeg" alt="">
+          <a href="/games/sudoku.html" class="games-section-heading">Sudoku</a>
+          <p class="games-section-desc">One grid, nine lives! Sudoku: where logic meets serenity.<br>Sharpen your mind!</p>
+        </div>
+        <div id="whereswaldo">
+          <img class="games-section-img" src="\assets\img\waldo.jpeg" alt="">
+          <a href="games.html" class="games-section-heading">Where's Waldo?</a>
+          <p class="games-section-desc">Blink and you’ll miss him! Waldo’s a masterclass in vanishing acts.</p>
+        </div>
+        <div id="tictactoe">
+          <img class="games-section-img" src="\assets\img\tictactoe.jpeg" alt="">
+          <a href="/games/xo.html" class="games-section-heading">Tic-Tac-Toe</a>
+          <p class="games-section-desc">Three in a row, one mind to outsmart! Tic Tac Toe’s a battle of wits.<br>Challenge yourself or a friend.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Ultimatix. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

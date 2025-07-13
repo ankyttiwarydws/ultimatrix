@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Universal Code Editor – Compare, Highlight, Save</title>
+  <meta name="description" content="Free universal code editor with syntax highlighting, compare/diff mode, language detection, and theme toggle. No ads. Works offline." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;">
+
+  <!-- Highlight.js -->
+  <link id="theme-style" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e1e;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      flex: 1;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    select, button {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .editors {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .editor {
+      flex: 1 1 100%;
+      background: #282c34;
+      border-radius: 10px;
+      padding: 15px;
+      overflow: auto;
+      white-space: pre;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      min-height: 280px;
+      outline: none;
+      color: white;
+    }
+
+    .editor[contenteditable="true"]:focus {
+      outline: 2px solid #6ab7ff;
+    }
+
+    .compare-mode .editor {
+      flex: 1 1 48%;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button a {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      background: #111;
+      color: #aaa;
+      padding: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🧠 Universal Code Editor</h1>
+
+    <div class="controls">
+      <select id="languageSelect">
+        <option value="">Auto Detect</option>
+        <option value="javascript">JavaScript</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="python">Python</option>
+        <option value="bash">Bash</option>
+        <option value="json">JSON</option>
+        <option value="xml">XML</option>
+        <option value="plaintext">Plain Text</option>
+      </select>
+      <button onclick="highlightAll()">🔄 Highlight</button>
+      <button onclick="toggleTheme()">🌙 Theme</button>
+      <button onclick="toggleCompare()">🆚 Compare Mode</button>
+      <button onclick="copyCode()">📋 Copy</button>
+      <button onclick="downloadCode()">⬇ Download</button>
+      <button onclick="clearCode()">🧼 Clear</button>
+    </div>
+
+    <div class="editors" id="editorArea">
+      <pre><code id="editor1" class="editor" contenteditable="true" spellcheck="false"></code></pre>
+    </div>
+
+    <div class="back-button">
+      <a href="/ultimatrix/index.html">⬅ Back to Ultimatrix</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 YourSiteName. Secure, fast, and made with ❤️
+  </div>
+
+  <script>
+    const themeLink = document.getElementById('theme-style');
+    let darkMode = true;
+    let compareMode = false;
+
+    const editorArea = document.getElementById("editorArea");
+    const languageSelect = document.getElementById("languageSelect");
+
+    const editor1 = document.createElement('code');
+    editor1.classList.add("editor");
+    editor1.setAttribute("contenteditable", "true");
+    editor1.setAttribute("spellcheck", "false");
+    editor1.id = "editor1";
+
+    function highlightAll() {
+      const lang = languageSelect.value;
+      document.querySelectorAll('.editor').forEach(codeBox => {
+        codeBox.className = 'editor';
+        if (lang && lang !== "plaintext") codeBox.classList.add(lang);
+        hljs.highlightElement(codeBox);
+      });
+    }
+
+    function toggleTheme() {
+      darkMode = !darkMode;
+      themeLink.href = darkMode
+        ? "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+        : "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css";
+    }
+
+    function toggleCompare() {
+      compareMode = !compareMode;
+      editorArea.classList.toggle("compare-mode", compareMode);
+      editorArea.innerHTML = ""; // clear
+      const editorA = editor1.cloneNode();
+      const editorB = editor1.cloneNode();
+      editorA.id = "editor1";
+      editorB.id = "editor2";
+      editorArea.appendChild(wrapEditor(editorA));
+      if (compareMode) editorArea.appendChild(wrapEditor(editorB));
+      highlightAll();
+    }
+
+    function wrapEditor(codeEl) {
+      const pre = document.createElement('pre');
+      pre.appendChild(codeEl);
+      return pre;
+    }
+
+    function copyCode() {
+      const editor = document.getElementById("editor1");
+      navigator.clipboard.writeText(editor.innerText).then(() => alert("Copied!"));
+    }
+
+    function clearCode() {
+      document.querySelectorAll('.editor').forEach(el => el.textContent = '');
+    }
+
+    function downloadCode() {
+      const editor = document.getElementById("editor1");
+      const content = editor.innerText;
+      const filename = `code-${new Date().toISOString().slice(0,16).replace(/[:T]/g,"-")}.txt`;
+      const blob = new Blob([content], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+    }
+
+    // Initial load
+    toggleCompare(); // show one editor initially
+  </script>
+
+</body>
+</html>
+

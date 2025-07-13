@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Speed Test</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .side-buttons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 20px;
+      z-index: 10;
+    }
+    .game-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+    .game-box {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+      z-index: 1;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <div class="side-buttons">
+      <a href="/ultimatrix/index.html" class="btn btn-outline-dark btn-sm">⬅ Back to Ultimatrix</a>
+      <a href="/more-games" class="btn btn-primary btn-sm">Explore Other Games ➡</a>
+    </div>
+    <div class="game-box">
+      <div class="title">Typing Speed Test</div>
+
+      <div id="word" class="mb-3 fs-4 fw-bold"></div>
+      <input id="input" class="form-control" placeholder="Type the word..." />
+      <div class="mt-2">Time: <span id="time">0</span>s</div>
+      <script>
+        const words = ['apple','banana','carrot','dragon','energy','fruit','giant','hello','idea'];
+        const wordEl = document.getElementById('word');
+        const inputEl = document.getElementById('input');
+        const timeEl = document.getElementById('time');
+        let start, currentWord;
+
+        function newWord() {
+          currentWord = words[Math.floor(Math.random() * words.length)];
+          wordEl.textContent = currentWord;
+          inputEl.value = '';
+          start = Date.now();
+        }
+
+        inputEl.addEventListener('input', () => {
+          if (inputEl.value === currentWord) {
+            const timeTaken = ((Date.now() - start) / 1000).toFixed(2);
+            timeEl.textContent = timeTaken;
+            newWord();
+          }
+        });
+
+        newWord();
+      </script>
+    
+    </div>
+  </div>
+</body>
+</html>

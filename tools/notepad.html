@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Notepad – Free Text Editor with Journal Mode</title>
+  <meta name="description" content="Free online notepad to write, save, and edit notes with word and character count. Switch to journal mode for a paper-like writing experience. Secure, fast, and private." />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fefcea, #f1da36);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .notepad-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+    }
+
+    .intro {
+      font-size: 1rem;
+      background: #fffced;
+      padding: 12px 16px;
+      border-left: 5px solid #ffe169;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    input[type="text"] {
+      font-size: 1.5rem;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+
+    textarea {
+      flex: 1;
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      border: 1px solid #bbb;
+      resize: vertical;
+      min-height: 300px;
+      line-height: 1.6;
+      background: white;
+      transition: background 0.3s ease;
+    }
+
+    .journal-mode textarea {
+      background: url('https://www.transparenttextures.com/patterns/lined-paper.png'), #fef7e5;
+      font-family: 'Georgia', serif;
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 2;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      gap: 10px;
+    }
+
+    .controls label {
+      font-size: 0.9rem;
+    }
+
+    .buttons button {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      opacity: 0.9;
+    }
+
+    .buttons .copy {
+      background: #1e90ff;
+      color: white;
+    }
+
+    .buttons .clear {
+      background: #ff6347;
+      color: white;
+    }
+
+    .buttons .download {
+      background: #28a745;
+      color: white;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stats {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button a {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 10px;
+      color: #333;
+    }
+
+    @media (max-width: 600px) {
+      .controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .buttons {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="notepad-container" id="notepadContainer">
+    <div class="intro">
+      ✍️ This free <strong>online notepad</strong> lets you quickly write, save, and edit text directly in your browser. It works offline, auto-saves, and includes a journal-style writing mode for a more personal feel.
+    </div>
+
+    <input type="text" id="noteTitle" placeholder="Note Title" />
+    <textarea id="noteBody" placeholder="Start typing your note..."></textarea>
+
+    <div class="controls">
+      <div class="toggle">
+        <input type="checkbox" id="preserveFormatting" checked />
+        <label for="preserveFormatting">Preserve formatting on paste</label>
+      </div>
+
+      <div class="buttons">
+        <button class="copy" onclick="copyText()">📋 Copy</button>
+        <button class="clear" onclick="clearNote()">🧼 Clear</button>
+        <button class="download" onclick="downloadNote()">⬇ Download</button>
+        <button onclick="toggleJournal()">📓 Switch to Journal</button>
+      </div>
+
+      <div class="stats" id="stats">Words: 0 | Characters: 0</div>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <a href="/ultimatrix/index.html">⬅ Back to Ultimatrix</a>
+  </div>
+
+  <script>
+    const titleEl = document.getElementById("noteTitle");
+    const bodyEl = document.getElementById("noteBody");
+    const statsEl = document.getElementById("stats");
+    const preserveToggle = document.getElementById("preserveFormatting");
+    const container = document.getElementById("notepadContainer");
+
+    // Load saved content
+    window.onload = () => {
+      titleEl.value = localStorage.getItem("note-title") || "";
+      bodyEl.value = localStorage.getItem("note-body") || "";
+      updateStats();
+    };
+
+    // Save changes
+    [titleEl, bodyEl].forEach(el => {
+      el.addEventListener("input", () => {
+        localStorage.setItem("note-title", titleEl.value);
+        localStorage.setItem("note-body", bodyEl.value);
+        updateStats();
+      });
+    });
+
+    // Word/char counter
+    function updateStats() {
+      const text = bodyEl.value.trim();
+      const words = text.length > 0 ? text.split(/\s+/).length : 0;
+      const chars = text.length;
+      statsEl.textContent = `Words: ${words} | Characters: ${chars}`;
+    }
+
+    // Copy note
+    function copyText() {
+      navigator.clipboard.writeText(bodyEl.value)
+        .then(() => alert("Copied to clipboard!"));
+    }
+
+    // Clear note
+    function clearNote() {
+      if (confirm("Clear all note content?")) {
+        titleEl.value = "";
+        bodyEl.value = "";
+        updateStats();
+        localStorage.removeItem("note-title");
+        localStorage.removeItem("note-body");
+      }
+    }
+
+    // Toggle journal mode
+    function toggleJournal() {
+      container.classList.toggle("journal-mode");
+    }
+
+    // Download note
+    function downloadNote() {
+      const title = titleEl.value.trim() || `note-${new Date().toISOString().slice(0,16).replace(/[:T]/g, '-')}`;
+      const text = `${titleEl.value.trim() ? 'Title: ' + titleEl.value + '\n\n' : ''}${bodyEl.value}`;
+      const blob = new Blob([text], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${title.replace(/[^\w\-]+/g, '_')}.txt`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Paste handler
+    bodyEl.addEventListener("paste", (e) => {
+      if (!preserveToggle.checked) {
+        e.preventDefault();
+        const text = e.clipboardData.getData("text/plain");
+        const start = bodyEl.selectionStart;
+        const end = bodyEl.selectionEnd;
+        const original = bodyEl.value;
+        bodyEl.value = original.slice(0, start) + text + original.slice(end);
+        bodyEl.selectionStart = bodyEl.selectionEnd = start + text.length;
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku Game</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body.light {
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      color: black;
+    }
+    body.dark {
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+    }
+    a.btn {
+      color: inherit !important;
+      background-color: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .side-buttons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 20px;
+      z-index: 10;
+    }
+    .game-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+    .game-box {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 900px;
+      width: 100%;
+      z-index: 1;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .rules {
+      font-size: 0.9rem;
+      text-align: left;
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    .sudoku-board {
+      display: grid;
+      grid-template-columns: repeat(16, 1fr);
+      gap: 2px;
+      justify-content: center;
+    }
+    .sudoku-cell {
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    .sudoku-cell.prefilled {
+      background-color: #eee;
+      font-weight: bold;
+      pointer-events: none;
+    }
+    .check-btn {
+      margin-top: 10px;
+      margin-right: 5px;
+    }
+    #difficulty {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body class="light">
+  <div class="game-container">
+    <div class="side-buttons">
+      <a href="/ultimatrix/index.html" class="btn btn-outline-light btn-sm">⬅ Back to Ultimatrix</a>
+      <a href="/more-games" class="btn btn-outline-light btn-sm">Explore Other Games ➡</a>
+    </div>
+    <div class="game-box">
+      <div class="title">16x16 Sudoku</div>
+      <select id="difficulty" class="form-select form-select-sm w-25 mx-auto">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <div class="sudoku-board" id="board"></div>
+      <div class="d-flex justify-content-center flex-wrap">
+        <button class="btn btn-success check-btn" onclick="checkSudoku()">Check</button>
+        <button class="btn btn-secondary check-btn" onclick="startNewGame()">New Puzzle</button>
+        <button class="btn btn-warning check-btn" onclick="togglePause()">Pause/Resume</button>
+        <button class="btn btn-dark check-btn" onclick="toggleTheme()">Toggle Theme</button>
+        <button class="btn btn-info check-btn" onclick="showHint()">Show Hint</button>
+        <button class="btn btn-danger check-btn" onclick="showSolution()">Show Solution</button>
+      </div>
+      <div class="mt-2" id="message"></div>
+      <div class="mt-2"><strong>Best Time:</strong> <span id="best-time">N/A</span></div>
+      <div class="mt-1"><strong>Current Time:</strong> <span id="current-time">0</span> sec</div>
+      <div class="mt-1"><strong>Hints Used:</strong> <span id="hints-used">0</span></div>
+      <div class="rules mt-4">
+        <strong>How to Play:</strong>
+        <ul>
+          <li>Fill each cell with a character (1-9 or A-G) without repeating in any row, column, or 4×4 block.</li>
+          <li>Click "New Puzzle" to start a new game with selected difficulty.</li>
+          <li>Use "Show Hint" to fill one correct cell — hints are tracked!</li>
+          <li>Click "Check" to validate your solution.</li>
+          <li>Use "Show Solution" if you’re stuck, but it ends your challenge!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <audio id="click-sound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+  <script>
+    const size = 16;
+    const symbols = '123456789ABCDEFG'.split('');
+    let puzzle = [], solution = [], hintsUsed = 0;
+    let timer, seconds = 0, paused = false;
+
+    const clickSound = document.getElementById('click-sound');
+
+    function generateSudoku16x16(difficulty) {
+      const board = Array.from({ length: size }, () => Array(size).fill(''));
+      function isSafe(board, row, col, char) {
+        for (let x = 0; x < size; x++) {
+          if (board[row][x] === char || board[x][col] === char) return false;
+        }
+        const startRow = row - row % 4, startCol = col - col % 4;
+        for (let i = 0; i < 4; i++) {
+          for (let j = 0; j < 4; j++) {
+            if (board[startRow + i][startCol + j] === char) return false;
+          }
+        }
+        return true;
+      }
+      function fillBoard(board) {
+        for (let row = 0; row < size; row++) {
+          for (let col = 0; col < size; col++) {
+            if (board[row][col] === '') {
+              let shuffled = symbols.slice().sort(() => Math.random() - 0.5);
+              for (let val of shuffled) {
+                if (isSafe(board, row, col, val)) {
+                  board[row][col] = val;
+                  if (fillBoard(board)) return true;
+                  board[row][col] = '';
+                }
+              }
+              return false;
+            }
+          }
+        }
+        return true;
+      }
+      fillBoard(board);
+      solution = board.map(row => [...row]);
+      let removeRate = 0.5;
+      if (difficulty === 'medium') removeRate = 0.65;
+      else if (difficulty === 'hard') removeRate = 0.8;
+      return board.map(row => row.map(cell => (Math.random() < removeRate ? '' : cell)));
+    }
+
+    function drawBoard() {
+      const boardDiv = document.getElementById('board');
+      boardDiv.innerHTML = '';
+      for (let row = 0; row < size; row++) {
+        for (let col = 0; col < size; col++) {
+          const cell = document.createElement('input');
+          cell.maxLength = 1;
+          cell.className = 'sudoku-cell';
+          cell.dataset.row = row;
+          cell.dataset.col = col;
+          cell.addEventListener('input', () => {
+            clickSound.play();
+            cell.value = cell.value.toUpperCase().replace(/[^1-9A-G]/, '');
+          });
+          if (puzzle[row][col] !== '') {
+            cell.value = puzzle[row][col];
+            cell.classList.add('prefilled');
+          }
+          boardDiv.appendChild(cell);
+        }
+      }
+    }
+
+    function showHint() {
+      for (let row = 0; row < size; row++) {
+        for (let col = 0; col < size; col++) {
+          const cell = document.querySelector(`.sudoku-cell[data-row='${row}'][data-col='${col}']`);
+          if (!cell.classList.contains('prefilled') && cell.value === '') {
+            cell.value = solution[row][col];
+            hintsUsed++;
+            document.getElementById('hints-used').textContent = hintsUsed;
+            return;
+          }
+        }
+      }
+    }
+
+    function showSolution() {
+      const inputs = document.querySelectorAll('.sudoku-cell');
+      inputs.forEach(input => {
+        const row = +input.dataset.row;
+        const col = +input.dataset.col;
+        input.value = solution[row][col];
+      });
+    }
+
+    function checkSudoku() {
+      const grid = Array.from({ length: size }, () => Array(size).fill(''));
+      const inputs = document.querySelectorAll('.sudoku-cell');
+      inputs.forEach(input => {
+        const val = input.value.toUpperCase();
+        const row = +input.dataset.row;
+        const col = +input.dataset.col;
+        grid[row][col] = val;
+      });
+      let valid = true;
+      for (let i = 0; i < size; i++) {
+        const rowSet = new Set(), colSet = new Set(), boxSet = new Set();
+        for (let j = 0; j < size; j++) {
+          const r = grid[i][j];
+          const c = grid[j][i];
+          const bi = 4 * Math.floor(i / 4) + Math.floor(j / 4);
+          const bj = 4 * (i % 4) + (j % 4);
+          const b = grid[bi][bj];
+          if (r && rowSet.has(r)) valid = false; else rowSet.add(r);
+          if (c && colSet.has(c)) valid = false; else colSet.add(c);
+          if (b && boxSet.has(b)) valid = false; else boxSet.add(b);
+        }
+      }
+      const msg = document.getElementById('message');
+      msg.textContent = valid ? '✅ Correct!' : '❌ Incorrect, try again.';
+      msg.style.color = valid ? 'green' : 'red';
+      if (valid) updateBestTime();
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      document.body.classList.toggle('light');
+    }
+
+    function togglePause() {
+      if (paused) {
+        timer = setInterval(() => {
+          seconds++;
+          document.getElementById('current-time').textContent = seconds;
+        }, 1000);
+      } else {
+        clearInterval(timer);
+      }
+      paused = !paused;
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      seconds = 0;
+      document.getElementById('current-time').textContent = seconds;
+      document.getElementById('hints-used').textContent = 0;
+      hintsUsed = 0;
+      timer = setInterval(() => {
+        seconds++;
+        document.getElementById('current-time').textContent = seconds;
+      }, 1000);
+    }
+
+    function updateBestTime() {
+      const best = localStorage.getItem('best16x16Time');
+      if (!best || seconds < best) {
+        localStorage.setItem('best16x16Time', seconds);
+        document.getElementById('best-time').textContent = seconds + ' sec';
+      }
+    }
+
+    function loadBestTime() {
+      const best = localStorage.getItem('best16x16Time');
+      if (best) document.getElementById('best-time').textContent = best + ' sec';
+    }
+
+    function startNewGame() {
+      const difficulty = document.getElementById('difficulty').value;
+      puzzle = generateSudoku16x16(difficulty);
+      drawBoard();
+      document.getElementById('message').textContent = '';
+      resetTimer();
+    }
+
+    startNewGame();
+    loadBestTime();
+  </script>
+</body>
+</html>

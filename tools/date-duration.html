@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Date Duration Calculator – Days Between Two Dates</title>
+  <meta name="description" content="Calculate how many days, weeks, or years are between two dates. Simple and accurate date duration calculator with instant results." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #d4fc79, #96e6a1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+
+    .tool-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .intro {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    input[type="date"] {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin: 5px;
+    }
+
+    .output {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .related {
+      margin-top: 30px;
+      font-size: 0.95rem;
+    }
+
+    .related a {
+      margin: 5px;
+      display: inline-block;
+      color: #0d6efd;
+      text-decoration: none;
+    }
+
+    .related a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      background: #f9f9f9;
+      border-top: 1px solid #ddd;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer a {
+      color: #0d6efd;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tool-container">
+    <div class="tool-box">
+      <div class="title">Date Duration Calculator</div>
+      <div class="intro">Find out how many days are between two dates. Choose start and end date below.</div>
+
+      <div>
+        <input type="date" id="startDate" />
+        <input type="date" id="endDate" />
+        <div class="form-check mt-2">
+          <input class="form-check-input" type="checkbox" id="includeEnd" />
+          <label class="form-check-label" for="includeEnd">Include end date</label>
+        </div>
+      </div>
+
+      <div class="output" id="result"></div>
+
+      <div class="related">
+        <strong>Related tools:</strong><br>
+        <a href="/tools/age-calculator/">🧮 Age Calculator</a>
+        <a href="/tools/date-adder/">📅 Add Days to Date</a>
+        <a href="/tools/countdown/">⏳ Countdown Timer</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <a href="/tools/">All Tools</a> |
+      <a href="/privacy.html">Privacy</a> |
+      <a href="/terms.html">Terms</a> |
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div>&copy; 2025 YourSiteName. Built with care and JavaScript ♥</div>
+  </footer>
+
+  <script>
+    const startDate = document.getElementById("startDate");
+    const endDate = document.getElementById("endDate");
+    const result = document.getElementById("result");
+    const includeEnd = document.getElementById("includeEnd");
+
+    const today = new Date().toISOString().split('T')[0];
+    startDate.value = today;
+    endDate.value = today;
+
+    function parseDate(val) {
+      const d = new Date(val);
+      return isNaN(d) ? null : d;
+    }
+
+    function calculateDuration() {
+      const start = parseDate(startDate.value);
+      const end = parseDate(endDate.value);
+
+      if (!start || !end) {
+        result.textContent = "Please select both valid dates.";
+        return;
+      }
+
+      if (end < start) {
+        result.textContent = "End date must be after start date.";
+        return;
+      }
+
+      let totalDays = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+      if (includeEnd.checked) totalDays += 1;
+
+      const weeks = Math.floor(totalDays / 7);
+      const extraDays = totalDays % 7;
+
+      let years = end.getFullYear() - start.getFullYear();
+      let months = end.getMonth() - start.getMonth();
+      let days = end.getDate() - start.getDate();
+
+      if (days < 0) {
+        months -= 1;
+        const prevMonth = new Date(end.getFullYear(), end.getMonth(), 0).getDate();
+        days += prevMonth;
+      }
+
+      if (months < 0) {
+        years -= 1;
+        months += 12;
+      }
+
+      result.innerHTML = `
+        <p>Total duration: <strong>${totalDays}</strong> day${totalDays !== 1 ? "s" : ""}</p>
+        <p>That’s <strong>${weeks}</strong> week${weeks !== 1 ? "s" : ""} and <strong>${extraDays}</strong> day${extraDays !== 1 ? "s" : ""}</p>
+        <p>Or: <strong>${years} year${years !== 1 ? "s" : ""}, ${months} month${months !== 1 ? "s" : ""}, ${days} day${days !== 1 ? "s" : ""}</strong></p>
+      `;
+    }
+
+    startDate.addEventListener("change", calculateDuration);
+    endDate.addEventListener("change", calculateDuration);
+    includeEnd.addEventListener("change", calculateDuration);
+
+    calculateDuration();
+  </script>
+</body>
+</html>

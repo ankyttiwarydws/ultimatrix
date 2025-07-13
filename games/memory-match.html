@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Match</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .side-buttons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 20px;
+      z-index: 10;
+    }
+    .game-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+    .game-box {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+      z-index: 1;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <div class="side-buttons">
+      <a href="/ultimatrix/index.html" class="btn btn-outline-dark btn-sm">⬅ Back to Ultimatrix</a>
+      <a href="/more-games" class="btn btn-primary btn-sm">Explore Other Games ➡</a>
+    </div>
+    <div class="game-box">
+      <div class="title">Memory Match</div>
+
+      <style>
+        .memory-board {
+          display: grid;
+          grid-template-columns: repeat(4, 60px);
+          gap: 10px;
+          justify-content: center;
+        }
+        .card {
+          width: 60px;
+          height: 60px;
+          background: #ddd;
+          font-size: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+      </style>
+      <div class="memory-board" id="board"></div>
+      <script>
+        const emojis = ['🐶','🐱','🐰','🦊','🐶','🐱','🐰','🦊'];
+        let selections = [];
+        let matched = [];
+
+        function shuffle(arr) {
+          return arr.sort(() => Math.random() - 0.5);
+        }
+
+        function renderBoard() {
+          const board = document.getElementById('board');
+          while (board.firstChild) {
+            board.removeChild(board.firstChild);
+          }
+          emojis.forEach((emoji, index) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.index = index;
+            card.onclick = () => flipCard(index);
+            card.innerHTML = matched.includes(index) || selections.includes(index) ? emoji : '';
+            board.appendChild(card);
+          });
+        }
+
+        function flipCard(index) {
+          if (selections.length < 2 && !selections.includes(index) && !matched.includes(index)) {
+            selections.push(index);
+            renderBoard();
+            if (selections.length === 2) {
+              setTimeout(checkMatch, 600);
+            }
+          }
+        }
+
+        function checkMatch() {
+          const [i, j] = selections;
+          if (emojis[i] === emojis[j]) {
+            matched.push(i, j);
+          }
+          selections = [];
+          renderBoard();
+        }
+
+        shuffle(emojis);
+        renderBoard();
+      </script>
+    
+    </div>
+  </div>
+</body>
+</html>
