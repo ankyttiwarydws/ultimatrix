@@ -1,0 +1,301 @@
+
+
+.blogs-main-category {
+  background: linear-gradient(90deg, #ade9f4 0%, #57c4ff 100%);
+  border-radius: 12px;
+  /* padding: 1.2em 0.5em; */
+  margin-bottom: 0.7em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+}
+/* Blogs category menu bar */
+.blogs-main-category-menu {
+  /* width: 100%; */
+  background: linear-gradient(90deg, #b7f8db 0%, #50a7c2 100%);
+  border-radius: 8px;
+  margin: 0 auto 0 auto;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+  max-width: 700px;
+}
+.blogs-main-category-menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2em;
+  list-style: none;
+  margin: 0;
+  padding: 0 0;
+}
+.blogs-main-category-menu li {
+  margin: 0;
+}
+.blogs-main-category-menu a {
+  color: #185a9d;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  padding: 0.3em 1em;
+  border-radius: 20px;
+  transition: background 0.18s, color 0.18s;
+}
+.blogs-main-category-menu a:hover,
+.blogs-main-category-menu a:focus {
+  background: #fff;
+  color: #0077cc;
+  outline: none;
+}
+
+
+
+.blogs-month-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a4d2e;
+  text-shadow: 1px 2px 8px rgba(44,62,80,0.10);
+  letter-spacing: 2px;
+  /* margin-bottom: 0.3em;
+  margin-top: 0.2em; */
+  margin: 0.5em 0 0em 0;
+  background: linear-gradient(90deg, #b7f8db 0%, #50a7c2 100%);
+  display: inline-block;
+  padding: 0.2em 1.2em;
+  border-radius: 12px 0 12px 0;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+.blogs-month-subheading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2e8b57;
+  margin: 0.5em 0 0em 0;
+  letter-spacing: 1px;
+  background: rgba(255,255,255,0.7);
+  display: inline-block;
+  padding: 0.2em 1.2em;
+  border-left: 5px solid #2e8b57;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 1px 2px 8px rgba(44,62,80,0.07);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+.blogs-month-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0b3d91;
+  margin: 0.5em 0 0em 0;
+  letter-spacing: 1.2px;
+  background: linear-gradient(90deg, #000000 0%, #4e4e4e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  text-shadow: 0 2px 8px rgba(255, 78, 80, 0.08);
+  padding: 0.1em 1em;
+}
+.blogs-month-desc {
+  font-size: 1.08rem;
+  color: #234;
+  /* background: rgba(255,255,255,0.85); */
+  border-left: 4px solid #50a7c2;
+  padding: 0.1em 1em;
+  margin: 0.5em 0 0em 0;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 2px 8px rgba(80, 167, 194, 0.07);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+.blogs-amazon-heading {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #0077cc;
+  background: linear-gradient(90deg, #b7f8db 0%, #50a7c2 100%);
+  display: inline-block;
+  padding: 0.2em 1.2em;
+  border-radius: 12px 0 12px 0;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  letter-spacing: 2px;
+  margin-bottom: 0.1em;
+  margin-top: 0.1em;
+  text-shadow: 1px 2px 8px rgba(44,62,80,0.10);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+.blogs-amazon-heading-text {
+  font-size: 1rem;
+  color: #234;
+  margin: 0.5em 0 0.5em 0;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+}
+.blogs-amazon-subheading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #185a9d;
+    width: 100%;
+  margin: 0.5em 0 0em 0;
+  letter-spacing: 1px;
+  background: rgba(255,255,255,0.7);
+  display: inline-block;
+  padding: 0.3em 1em;
+  border-left: 5px solid  #185a9d;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 1px 2px 8px rgba(44,62,80,0.07);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/* Blogs Section */
+.product-list {
+  list-style: none;
+  padding: 0.2em 1.2em;
+  margin: 0.5em 0 0em 0;
+  display: flex;
+  flex-direction: column;   /* Stack items vertically */
+  gap: 1.5em;
+  justify-content: flex-start;
+  align-items: center;      /* Center items horizontally */
+}
+.product-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(80,167,194,0.10);
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  width: 99%;          
+  /* max-width: 1500px;    */
+  padding: 0.2em 1.2em; 
+  margin: 0.5em 0 0em 0;
+  transition: box-shadow 0.2s;
+}
+.product-item:hover {
+  box-shadow: 0 6px 24px rgba(80,167,194,0.18);
+}
+.product-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.7em;
+}
+.product-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.2em 0;
+  color: #0077cc;
+}
+.product-desc {
+  font-size: 0.98rem;
+  color: #234;
+  margin-bottom: 0.7em;
+  text-align: left;
+}
+.product-row {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+.product-row .product-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0;
+}
+.product-row .product-info {
+  flex: 1;
+}
+
+.travel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.2em 0;
+  color: #ffffff;
+}
+.travel-desc {
+  font-size: 0.98rem;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0.7em;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .blogs-main-category {
+    max-width: 98vw;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .blogs-main-category {
+    padding: 0.7em 0.2em;
+    max-width: 98vw;
+  }
+  .blogs-main-category-menu {
+    max-width: 98vw;
+    border-radius: 6px;
+  }
+  .blogs-main-category-menu ul {
+    gap: 0.5em;
+    flex-wrap: wrap;
+    padding: 0.3em 0.1em;
+  }
+  .blogs-main-category-menu a {
+    font-size: 0.95rem;
+    padding: 0.2em 0.7em;
+  }
+  .blogs-amazon-heading {
+    font-size: 1.2rem;
+    padding: 0.2em 0.5em;
+  }
+  .blogs-month-subheading,
+  .blogs-amazon-subheading {
+    font-size: 1rem;
+    padding: 0.2em 0.5em;
+  }
+  .blogs-month-title,
+  .blogs-amazon-title {
+    font-size: 1.1rem;
+    padding: 0.1em 0.5em;
+  }
+  .blogs-month-desc,
+  .blogs-amazon-heading-text {
+    font-size: 0.95rem;
+    padding: 0.5em 0.5em;
+  }
+  .product-list {
+    gap: 1em;
+  }
+  .product-item {
+    width: 98%;
+    padding: 0.7em 0.5em;
+  }
+  .product-img {
+    width: 80px;
+    height: 80px;
+  }
+  .category-cards {
+    flex-direction: column;
+    gap: 1em;
+    margin: 0.5em 0 0em 0;
+  }
+  .category-card {
+    width: 18vw;
+    max-width: 340px;
+    height: 10px;
+    margin: 0 auto;
+  }
+  .category-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .blogs-main-category-menu ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2em;
+  }
+}
