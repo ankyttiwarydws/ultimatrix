@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blogs | Ultimatix</title>
   <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
 </head>
 
@@ -25,10 +26,10 @@
     </div>
   </header>
   <main>
-    <section class="hero mini-hero">
+    <section class="blogs-main-category">
       <h3>Reader’s Realm</h3>
       <p>Explore trending thoughts, smart ideas, and original articles you’ll love.</p>
-      <nav class="category-menu">
+      <nav class="blogs-main-category-menu">
         <ul>
           <li><a href="#amazon-picks">Amazon Picks</a></li>
           <li><a href="#inspiration">Inspiration</a></li>
@@ -41,7 +42,7 @@
 
 
     <!-- Blog of the Month -->
-    <section class="blog-preview"
+    <section class="blogs-section"
       style="background-image: url('/assets/img/blog-month-bg.jpg'); background-size: cover; background-position: center;">
       <div class="blogs-section-menu">
         <div id="month">
@@ -58,7 +59,7 @@
             innovation, and responsibility. The future we envision starts today—with thoughtful action and a deep
             respect for the world we inhabit.
           </p>
-          <div class="blog-btn-wrapper">
+          <div class="blogs-btn-wrapper">
             <a class="btn" href="blogs.html">Read here</a>
           </div>
         </div>
@@ -66,9 +67,9 @@
     </section>
 
     <!-- Amazon Picks -->
-    <section class="blog-preview">
+    <section class="blogs-preview">
       <div class="blogs-section-menu">
-        <div id="fashion">
+        <div id="amazon">
           <!-- <img class="blogs-section-img" src="" alt=""> -->
           <h2 class="blogs-amazon-heading">Amazon Picks</h2>
           <p class="blogs-amazon-heading-text">
@@ -85,7 +86,7 @@
                     <h4 class="product-title">Eco-Friendly Water Bottle</h4>
                     <p class="product-desc">Stay hydrated and reduce plastic waste with this reusable, BPA-free water
                       bottle. Perfect for travel, gym, and daily use.</p>
-                    <div class="blog-btn-wrapper">
+                    <div class="blogs-btn-wrapper">
                       <a href="https://www.amazon.com/dp/example1" class="btn" target="_blank">View on Amazon</a>
                     </div>
                   </div>
@@ -98,7 +99,7 @@
                     <h4 class="product-title">Organic Cotton Tote Bag</h4>
                     <p class="product-desc">A stylish and sustainable alternative to plastic bags. Great for shopping,
                       work, or a day out.</p>
-                    <div class="blog-btn-wrapper">
+                    <div class="blogs-btn-wrapper">
                       <a href="https://www.amazon.com/dp/example2" class="btn" target="_blank">View on Amazon</a>
                     </div>
                   </div>
@@ -111,7 +112,7 @@
                     <h4 class="product-title">Solar Power Bank</h4>
                     <p class="product-desc">Charge your devices on the go with clean solar energy. Ideal for outdoor
                       adventures and emergencies.</p>
-                    <div class="blog-btn-wrapper">
+                    <div class="blogs-btn-wrapper">
                       <a href="https://www.amazon.com/dp/example3" class="btn" target="_blank">View on Amazon</a>
                     </div>
                   </div>
@@ -129,7 +130,7 @@
                     <h4 class="product-title">Eco-Friendly Water Bottle</h4>
                     <p class="product-desc">Stay hydrated and reduce plastic waste with this reusable, BPA-free water
                       bottle. Perfect for travel, gym, and daily use.</p>
-                    <div class="blog-btn-wrapper">
+                    <div class="blogs-btn-wrapper">
                       <a href="https://www.amazon.com/dp/example1" class="btn" target="_blank">View on Amazon</a>
                     </div>
                   </div>
@@ -142,7 +143,7 @@
                     <h4 class="product-title">Organic Cotton Tote Bag</h4>
                     <p class="product-desc">A stylish and sustainable alternative to plastic bags. Great for shopping,
                       work, or a day out.</p>
-                    <div class="blog-btn-wrapper">
+                    <div class="blogs-btn-wrapper">
                       <a href="https://www.amazon.com/dp/example2" class="btn" target="_blank">View on Amazon</a>
                     </div>
                   </div>
@@ -155,7 +156,7 @@
                     <h4 class="product-title">Solar Power Bank</h4>
                     <p class="product-desc">Charge your devices on the go with clean solar energy. Ideal for outdoor
                       adventures and emergencies.</p>
-                    <div class="blog-btn-wrapper">
+                    <div class="blogs-btn-wrapper">
                       <a href="https://www.amazon.com/dp/example3" class="btn" target="_blank">View on Amazon</a>
                     </div>
                   </div>
@@ -203,15 +204,110 @@
 
         </div>
         <p class="blogs-amazon-subheading">Want to see more?</p>
-        <div class="blog-btn-wrapper">
+        <div class="blogs-btn-wrapper">
           <a class="btn" href="blogs.html">See All</a>
         </div>
       </div>
+    </section>
+
+    <!-- Travel Blog -->
+    <section class="blogs-preview">
+      <div class="blogs-section-menu">
+        <div id="travel">
+          <!-- <img class="blogs-section-img" src="" alt=""> -->
+          <h2 class="blogs-amazon-heading">Travel Blog</h2>
+          <p class="blogs-amazon-heading-text">
+            Wander far, live deep, and let every journey tell a story worth sharing.
+          </p>
+          <div class="blogs-amazon-section">
+          <p class="blogs-amazon-subheading">Latest</p>
+          <ul class="product-list">
+              <li class="product-item" style="background-image: url('/assets/img/blogs/bg-fireflies.png'); background-size: cover; background-position: center;">
+                <div class="product-row">
+                  <div class="product-info">
+                    <h4 class="travel-title">Dancing with The Fireflies</h4>
+                    <p class="travel-desc">Beneath the hush of nightfall, tiny lanterns flicker to life, guiding wanderers through stories nature whispers. Chasing flickers in the twilight, where nature’s glow writes stories on the wind. Each spark a memory, each night a new page.</p>
+                    <div class="blogs-btn-wrapper">
+                      <a href="\blogs\travel\fireflies.html" class="btn">Read More</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="product-item" style="background-image: url('/assets/img/blogs/bg-goa.png'); background-size: cover; background-position: center;">
+                <div class="product-row">
+                  <div class="product-info">
+                    <h4 class="travel-title">The Peaceful Shores of Goa</h4>
+                    <p class="travel-desc">Where waves murmur secrets into the sand and sunsets paint stories across the sea. Each tide cradles a memory, each breeze hums a melody of wanderlust and wonder.</p>
+                    <div class="blogs-btn-wrapper">
+                      <a href="\blogs\travel\goa.html" class="btn">Read More</a> 
+                       <!-- target="_blank" -->
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="product-item" style="background-image: url('/assets/img/blogs/bg-lonavala.png'); background-size: cover; background-position: center;">
+                <div class="product-row">
+                  <div class="product-info">
+                    <h4 class="travel-title">Mystery of Clouds in Lonavala</h4>
+                    <p class="travel-desc">Mist wraps the hills like a secret, and the clouds drift low, whispering tales only silence understands. Each breath of fog feels like a hidden chapter unfolding across the ridges.</p>
+                    <div class="blogs-btn-wrapper">
+                      <a href="\blogs\travel\lonavala.html" class="btn">Read More</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          
+          </div>
+        </div>
       </div>
+      <div class="blogs-amazon-section">
+            <p class="blogs-amazon-subheading">Explore Categories</p>
+            <div class="category-cards">
+              <div class="category-card category-gradient eco">
+                <a href="\blogs\travel\beaches.html" class="category-link">
+                  <span>Beaches</span>
+                </a>
+              </div>
+              <div class="category-card category-gradient gadgets">
+                <a href="\blogs\travel\mountains.html" class="category-link">
+                  <span>Mountains</span>
+                </a>
+              </div>
+              <div class="category-card category-gradient wellness">
+                <a href="\blogs\travel\wilderness.html" class="category-link">
+                  <span>Wilderness</span>
+                </a>
+              </div>
+            </div>
+            <div class="category-cards">
+              <div class="category-card category-gradient books">
+                <a href="\blogs\travel\rivers.html" class="category-link">
+                  <span>Rivers</span>
+                </a>
+              </div>
+              <div class="category-card category-gradient tech">
+                <a href="\blogs\travel\historic.html" class="category-link">
+                  <span>Historic</span>
+                </a>
+              </div>
+              <div class="category-card category-gradient kitchen">
+                <a href="\blogs\travel\romantic.html" class="category-link">
+                  <span>Romantic</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <p class="blogs-amazon-subheading">Want to see more?</p>
+        <div class="blogs-btn-wrapper">
+          <a class="btn" href="blogs.html">See All</a>
+        </div>
     </section>
 
     <!-- Fashion Forward -->
-    <section class="blog-preview">
+    <section class="blogs-preview">
       <div class="blogs-section-menu">
         <div id="fashion">
           <!-- <img class="blogs-section-img" src="" alt=""> -->
@@ -226,7 +322,7 @@
             or unexpected textures—styling today is about confidence and experimentation. In this post, we’ll explore
             how to curate looks that reflect you, while keeping things fresh, functional, and fashion-forward.
           </p>
-          <div class="blog-btn-wrapper">
+          <div class="blogs-btn-wrapper">
             <a class="btn" href="blogs.html">Read here</a>
           </div>
         </div>
@@ -234,7 +330,7 @@
     </section>
 
     <!-- Nature and You -->
-    <section class="blog-preview">
+    <section class="blogs-preview">
       <div class="blogs-section-menu">
         <div id="nature">
           <!-- <img class="blogs-section-img" src="" alt=""> -->
@@ -251,7 +347,7 @@
             innovation, and responsibility. The future we envision starts today—with thoughtful action and a deep
             respect for the world we inhabit.
           </p>
-          <div class="blog-btn-wrapper">
+          <div class="blogs-btn-wrapper">
             <a href="blogs.html" class="btn">Read here</a>
           </div>
         </div>
@@ -259,7 +355,7 @@
     </section>
 
     <!-- Fashion Forward (Duplicate?) -->
-    <section class="blog-preview">
+    <section class="blogs-preview">
 
     </section>
   </main>
