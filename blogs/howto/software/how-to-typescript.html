@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Use Git | Ultimatix</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/blogs.css" />
+  <script src="/js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
+  <main>
+    
+    <section class="blogs-section"
+      style="background-image: url('/assets/img/blog-month-bg.jpg'); background-size: cover; background-position: center;">
+  <div class="blogs-section-menu">
+    <div id="month">
+      <h2 class="blogs-month-heading">TypeScript Cheatsheet</h2>
+      <p class="blogs-month-desc">
+        <strong>TypeScript</strong><br><br>
+        <strong>Install globally</strong><br>
+        <code>npm install -g typescript</code><br><br>
+        Within your npm project, run the following command to install the compiler:<br>
+        <code>npm install typescript --save-dev</code><br><br>
+        The compiler is installed in the node_modules directory and can be run with:<br>
+        <code>npx tsc</code><br><br>
+        <strong>Check Version</strong><br>
+        <code>tsc --version</code><br><br>
+        The compiler can be configured using a <code>tsconfig.json</code> file.<br>
+        <pre>
+  target: es2016
+  module: commonjs
+  strict: true
+  esModuleInterop: true
+  skipLibCheck: true
+  forceConsistentCasingInFileNames: true
+        </pre>
+        <pre>
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "./build"
+  }
+}
+        </pre>
+        This behavior can be disabled by enabling <code>noImplicitAny</code> as an option in a TypeScript's project tsconfig.json.<br><br>
+        <strong>Primitives in TypeScript</strong><br>
+        boolean - true or false values<br>
+        number - whole numbers and floating point values<br>
+        string - text values like "TypeScript Rocks"<br>
+        bigint - allows larger numbers<br>
+        symbol - used to create a globally unique identifier<br><br>
+        <strong>Explicit Type</strong> - writing out the type:<br>
+        <code>let firstName: string = "Dylan";</code><br><br>
+        <strong>Implicit Type</strong> - TypeScript will "guess" the type, based on the assigned value:<br>
+        <code>let firstName = "Dylan";</code><br><br>
+        <strong>Type: any</strong><br>
+        Setting any to the special type any disables type checking:<br>
+        <code>let v: any = true;</code><br>
+        <code>v = "string";</code> // no error<br>
+        <code>Math.round(v);</code> // no error<br><br>
+        <strong>Type: unknown</strong><br>
+        unknown is best used when you don't know the type of data being typed. To add a type later, you'll need to cast it.<br>
+        <code>let w: unknown = 1;</code><br>
+        <code>w = "string";</code> // no error<br>
+        Casting is when we use the "as" keyword to say property or variable is of the casted type.<br><br>
+        <strong>Type: never</strong><br>
+        never effectively throws an error whenever it is defined.<br>
+        <code>let x: never = true;</code><br><br>
+        <strong>Type: undefined & null</strong><br>
+        <code>let y: undefined = undefined;</code><br>
+        <code>let z: null = null;</code><br><br>
+        <strong>Arrays</strong><br>
+        <code>const names: string[] = [];</code><br>
+        <code>names.push("Dylan");</code> // no error<br>
+        // names.push(3); // Error<br><br>
+        <strong>Readonly</strong><br>
+        The readonly keyword can prevent arrays from being changed.<br>
+        <code>const names: readonly string[] = ["Dylan"];</code><br>
+        // names.push("Jack"); // Error<br><br>
+        <strong>Type Inference</strong><br>
+        TypeScript can infer the type of an array if it has values.<br>
+        <code>const numbers = [1, 2, 3];</code> // inferred to type number[]<br>
+        <code>numbers.push(4);</code> // no error<br>
+        // numbers.push("2"); // Error<br>
+        <code>let head: number = numbers[0];</code> // no error<br><br>
+        <strong>Typed Arrays (Tuples)</strong><br>
+        A tuple is a typed array with a pre-defined length and types for each index.<br>
+        <code>let ourTuple: [number, boolean, string];</code><br>
+        <code>ourTuple = [5, false, 'Coding God was here'];</code><br><br>
+        <strong>Readonly Tuple Example</strong><br>
+        <code>const ourReadonlyTuple: readonly [number, boolean, string] = [5, true, 'The Real Coding God'];</code><br>
+        // ourReadonlyTuple.push('Coding God took a day off'); // Error<br>
+      </p>
+      <div class="blogs-btn-wrapper">
+        <a class="btn" href="/blogs/blogs.html">Go Back</a>
+      </div>
+    </div>
+  </div>
+</section>
+<main>
+</main>
+<footer class="site-footer"><div class="container"><p>&copy; 2025 Ultimatix. All rights

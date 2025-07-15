@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Use Git | Ultimatix</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/blogs.css" />
+  <script src="/js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
+  <main>
+    
+    <section class="blogs-section"
+      style="background-image: url('/assets/img/blog-month-bg.jpg'); background-size: cover; background-position: center;">
+  <div class="blogs-section-menu">
+    <div id="month">
+      <h2 class="blogs-month-heading">Cucumber Automation Project Cheatsheet</h2>
+      <p class="blogs-month-desc">
+        <strong>1. Create a Maven project</strong> - A folder structure is already created<br><br>
+        <strong>2. pom.xml</strong> - Add basic dependencies: selenium, java, testng, cucumber, json, apache poi<br><br>
+        <strong>3. testng.xml</strong> - Manage the execution of test cases.<br>
+        Create test suites, create groups, specify whether the execution should be parallel<br><br>
+        <strong>4. Start writing Test Cases</strong><br>
+        <code>src/test/resources</code> - cucumber<br><br>
+        <strong>5. Common methods for all test cases to reduce code redundancy</strong><br>
+        <code>src/test/java/base</code><br>
+        <code>src/test/java/steps</code><br>
+        <code>src/test/java/hooks</code><br>
+        <code>src/test/java/runner</code><br>
+        Create driver instance, setup driver specifications<br>
+        Write before and after methods<br>
+        Create listeners<br>
+        Reporting functions<br><br>
+        <strong>6. Project specific configs</strong><br>
+        <code>src/test/resources</code><br>
+        - URL for different environments<br>
+        - test users<br>
+        - environment configs<br>
+        - feature configs<br><br>
+        <strong>7. Execution configs</strong><br>
+        <code>src/test/resources</code><br>
+        - browser<br>
+        - browser version<br>
+        - other browser specifications<br>
+        - wait<br>
+        - driver path<br>
+        - test data paths<br><br>
+        <strong>8. Start writing the code</strong><br>
+        <code>src/main/java</code><br>
+        <code>src/main/java/pages</code> - Page Object Classes (webelements, operations: sendKeys, click, getText, select)<br>
+        <code>src/main/java/wrapper</code> - Abstract pages, child classes<br>
+        <code>src/main/java/managers</code> - PageObjectManager (create instance of each Page Object Class)<br>
+        <code>src/main/java/managers</code> - FileManager (initialize all test data files: json, excel, properties)<br>
+        <code>src/main/java/utilities</code> - Browser, DataBase, Excel, Json, Gmail, Kafka, AWS<br>
+        <code>src/main/java/enums</code> - enums<br>
+        <code>src/main/java/pojo</code> - pojo<br><br>
+        <strong>9. Application based test data</strong> - translations, labels, button texts, UI error messages, API status codes, API error codes, API error messages<br>
+        <code>src/main/resources</code><br><br>
+        <strong>10. Reports</strong><br>
+        - html<br>
+        - testng<br>
+        - screenshots<br>
+        - allure<br>
+      </p>
+      <div class="blogs-btn-wrapper">
+        <a class="btn" href="/blogs/blogs.html">Go Back</a>
+      </div>
+    </div>
+  </div>
+</section>
+<main>
+</main>
+<footer class="site-footer"><div class="container"><p>&copy; 2025 Ultimatix. All
+</body>
+</html>
