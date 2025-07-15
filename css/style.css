@@ -220,42 +220,31 @@ section h3:hover {
   min-width: 0;
 }
 
-@media (max-width: 600px) {
-  .product-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5em;
-  }
-  .product-row .product-img {
-    width: 80px;
-    height: 80px;
-  }
-}
 
-/* Add to your style.css */
+
 .category-cards {
   display: flex;
   gap: 2em;
   justify-content: center;
   margin: 0.9em 0 0em 0;
-}/* Add to your style.css */
+}
 .category-gradient.eco {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  background: linear-gradient(135deg, #f6c5b5 0%, #38f9d7 100%);
 }
 .category-gradient.gadgets {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #b2bff9 0%, #764ba2 100%);
 }
 .category-gradient.wellness {
-  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  background: linear-gradient(135deg, #efe0cf 0%, #3b7db8 100%);
 }
 .category-gradient.books {
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  background: linear-gradient(135deg, #eddbc2 0%, #fcb69f 100%);
 }
 .category-gradient.tech {
   background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
 }
 .category-gradient.kitchen {
-  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  background: linear-gradient(135deg, #f3acb3 0%, #72363e 100%);
 }
 .category-card {
   /* Remove background-image if present */
@@ -292,9 +281,8 @@ section h3:hover {
 }
 .category-card:hover .category-link {
   background: rgba(0,0,0,0.55);
-  color: #ffe066;
+  color: #aaeaf3;
 }
-
 
 /* Footer */
 footer {
@@ -305,6 +293,67 @@ footer {
   margin-top: 2rem;
 }
 
+@media (max-width: 600px) {
+  main {
+    padding: 0.5rem 0.2rem;
+    max-width: 100vw;
+  }
+  section {
+    padding: 0.5rem 0.2rem;
+    margin: 0.3rem 0;
+    max-width: 100vw;
+  }
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    padding: 0 0.5rem;
+  }
+  .header-container h1 {
+    font-size: 1.2rem;
+    margin-right: 0;
+    margin-bottom: 0.2rem;
+    text-align: left;
+  }
+  nav ul {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.3rem;
+    width: 100%;
+    margin-bottom: 0.2rem;
+    overflow-x: auto;
+    padding: 0.1rem 0.2rem;
+  }
+  nav a {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .category-cards {
+    flex-direction: column;
+    gap: 1em;
+    margin: 0.5em 0 0em 0;
+    align-items: stretch;
+  }
+  .category-card {
+    width: 100%;
+    min-width: 0;
+    height: 70px;
+    font-size: 1rem;
+  }
+  .category-link {
+    font-size: 1rem;
+    padding: 0.2em 0.5em;
+  }
+  footer {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.2rem;
+  }
+}
+
+
 /* 📱 Mobile Styles First */
 @media (max-width: 800px) {
   main {
@@ -313,6 +362,33 @@ footer {
   section {
     padding: 1rem 0.5rem;
     margin: 0.5rem 0;
+  }
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+  .header-container h1 {
+    font-size: 1.5rem;
+    margin-right: 0;
+    margin-bottom: 0.2rem;
+    text-align: left;
+  }
+  nav ul {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 0.2rem;
+    overflow-x: auto;
+    padding: 0.2rem 0.5rem;
+  }
+  nav a {
+    font-size: 0.98rem;
+    padding: 0.35rem 0.7rem;
   }
   .hero-img,
   .games-section-menu {
@@ -340,37 +416,28 @@ footer {
   display: block; */
     margin: 0 auto 0.5rem auto;
   }
-}
 
-
-
-@media (max-width: 800px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 0 1rem;
-  }
-  .header-container h1 {
-    font-size: 1.5rem;
-    margin-right: 0;
-    margin-bottom: 0.2rem;
-    text-align: left;
-  }
-  nav ul {
+  .category-cards {
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-    margin-bottom: 0.2rem;
-    overflow-x: auto;
-    padding: 0.2rem 0.5rem;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 0.7em 0 0em 0;
+    justify-content: center;
   }
-  nav a {
-    font-size: 0.98rem;
-    padding: 0.35rem 0.7rem;
+  .category-card {
+    width: 52%;
+    min-width: 120px;
+    height: 40px;
+    font-size: 1.1rem;
+    /* margin-bottom: 0.5em; */
+  }
+  .category-link {
+    font-size: 1.1rem;
+    padding: 0.2em 0.7em;
+  }
+  footer {
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
   }
 }
 
@@ -487,46 +554,6 @@ body.dark-mode .daily-dose blockquote {
 body.dark-mode .games-section-menu img,
 body.dark-mode .news-section-img {
   filter: brightness(0.85) contrast(1.1);
-}
-
-/* 📱 Mobile Styles First */
-@media (max-width: 600px) {
-  main {
-    padding: 0.5rem 0.2rem;
-    max-width: 100vw;
-  }
-  section {
-    padding: 0.5rem 0.2rem;
-    margin: 0.3rem 0;
-    max-width: 100vw;
-  }
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.3rem;
-    padding: 0 0.5rem;
-  }
-  .header-container h1 {
-    font-size: 1.2rem;
-    margin-right: 0;
-    margin-bottom: 0.2rem;
-    text-align: left;
-  }
-  nav ul {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.3rem;
-    width: 100%;
-    margin-bottom: 0.2rem;
-    overflow-x: auto;
-    padding: 0.1rem 0.2rem;
-  }
-  nav a {
-    font-size: 0.9rem;
-    padding: 0.25rem 0.5rem;
-  }
 }
 
 

@@ -57,6 +57,22 @@
   letter-spacing: 2px;
   /* margin-bottom: 0.3em;
   margin-top: 0.2em; */
+  .product-title {
+    font-size: 0.98rem;
+    padding: 0.1em 0.2em;
+  }
+  .product-desc {
+    font-size: 0.92rem;
+    padding: 0.1em 0.2em;
+  }
+  .travel-title {
+    font-size: 0.98rem;
+    padding: 0.1em 0.2em;
+  }
+  .travel-desc {
+    font-size: 0.92rem;
+    padding: 0.1em 0.2em;
+  }
   margin: 0.5em 0 0em 0;
   background: linear-gradient(90deg, #b7f8db 0%, #50a7c2 100%);
   display: inline-block;
@@ -65,6 +81,18 @@
   box-shadow: 0 2px 12px rgba(44,62,80,0.08);
   font-family: 'Segoe UI', 'Arial', sans-serif;
 }
+  .product-title {
+    font-size: 1rem;
+  }
+  .product-desc {
+    font-size: 0.95rem;
+  }
+  .travel-title {
+    font-size: 1rem;
+  }
+  .travel-desc {
+    font-size: 0.95rem;
+  }
 .blogs-month-subheading {
   font-size: 1.4rem;
   font-weight: 600;
@@ -265,6 +293,15 @@
     font-size: 0.95rem;
     padding: 0.5em 0.5em;
   }
+  .product-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
+  .product-row .product-img {
+    width: 80px;
+    height: 80px;
+  }
   .product-list {
     gap: 1em;
   }
@@ -276,20 +313,7 @@
     width: 80px;
     height: 80px;
   }
-  .category-cards {
-    flex-direction: column;
-    gap: 1em;
-    margin: 0.5em 0 0em 0;
-  }
-  .category-card {
-    width: 18vw;
-    max-width: 340px;
-    height: 10px;
-    margin: 0 auto;
-  }
-  .category-link {
-    font-size: 1rem;
-  }
+  
 }
 
 @media (max-width: 800px) {
