@@ -1,20 +1,19 @@
 
-document.getElementById("theme-toggle").addEventListener("click", () => {
-  const root = document.documentElement;
-  const current = root.getAttribute("data-theme");
-  root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-});
 
+// Unified dark mode toggle for all pages
 function toggleDarkMode() {
-  const body = document.body;
-  body.classList.toggle("dark-mode");
-  localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
+  const isDark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('ultimatrix-dark-mode', isDark ? 'dark' : 'light');
 }
 
-// Auto-apply saved mode
-document.addEventListener("DOMContentLoaded", () => {
-  const saved = localStorage.getItem("theme");
-  if (saved === "dark") document.body.classList.add("dark-mode");
+// On page load, apply dark mode if set in localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  const mode = localStorage.getItem('ultimatrix-dark-mode');
+  if (mode === 'dark') {
+    document.body.classList.add('dark-mode');
+  } else {
+    document.body.classList.remove('dark-mode');
+  }
 });
 
 
