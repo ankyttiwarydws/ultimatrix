@@ -187,13 +187,36 @@ section h3:hover {
   display: block;
   margin: 0 auto;
 }
-
+.search-section {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 1rem auto; */
+}
+.search-bar-text {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 1rem auto;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  border-radius: 20px;
+  width: 300px;
+  height: 30px;
+  font-size: 1rem;
+  margin: 1rem 2rem 1rem 2rem;
+}
 .games-section-menu {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
   justify-content: space-between;
   align-items: stretch;
+  margin: 1rem auto 1rem auto;
 }
 .games-section-menu > div {
   flex: 1 1 0;
