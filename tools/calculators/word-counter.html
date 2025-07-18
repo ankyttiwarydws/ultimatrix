@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Word Counter – Count Words and Characters Instantly</title>
+  <title>Word Counter | Ultimatrix</title>
   <meta name="description" content="Free online word counter tool that helps you count words, characters, and spaces in real-time. Perfect for writers, students, and social media posts.">
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
@@ -88,18 +90,59 @@
       margin-top: 15px;
       text-align: center;
     }
+
+    .tool-description, .tool-howto {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+    }
+    .tool-description strong, .tool-howto strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #2193b0;
+    }
   </style>
 </head>
 <body>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
   <div class="tool-container">
     <div class="side-buttons">
-     <a href="/../index.html" class="btn btn-outline-dark btn-sm">⬅ Back to Ultimatrix</a>
-      <a href="/tools/tools.html" class="btn btn-primary btn-sm">Explore Other Tools ➡</a>
     </div>
 
     <div class="tool-box">
       <div class="title">Word Counter</div>
       <div class="intro">Paste or type your text below to instantly count words and characters. Great for essays, tweets, SEO writing, or assignments.</div>
+      <div class="tool-description">
+        <strong>About Word Counter</strong>
+        <p>
+          Use this free <b>Word Counter</b> tool to instantly count words and characters in your text. Perfect for writers, students, bloggers, and anyone needing accurate word and character counts for essays, tweets, SEO, or assignments.
+        </p>
+      </div>
+      <div class="tool-howto">
+        <strong>How to Use:</strong>
+        <ul>
+          <li>Paste or type your text in the box above.</li>
+          <li>See the word and character count update in real time.</li>
+          <li>No data is stored or sent—your privacy is protected.</li>
+        </ul>
+      </div>
       <textarea id="inputText" placeholder="Start typing or paste your text here..."></textarea>
       <div class="output">
         Words: <span id="wordCount">0</span> &nbsp; | &nbsp;

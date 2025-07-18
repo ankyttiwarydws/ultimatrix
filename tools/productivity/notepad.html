@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Online Notepad – Free Text Editor with Journal Mode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notepad | Ultimatrix</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js"></script>
   <meta name="description" content="Free online notepad to write, save, and edit notes with word and character count. Switch to journal mode for a paper-like writing experience. Secure, fast, and private." />
   <style>
     body {
@@ -131,6 +133,21 @@
       color: #333;
     }
 
+    .tool-description, .tool-howto {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+    }
+    .tool-description strong, .tool-howto strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #2193b0;
+    }
+
     @media (max-width: 600px) {
       .controls {
         flex-direction: column;
@@ -147,10 +164,39 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
 
   <div class="notepad-container" id="notepadContainer">
     <div class="intro">
       ✍️ This free <strong>online notepad</strong> lets you quickly write, save, and edit text directly in your browser. It works offline, auto-saves, and includes a journal-style writing mode for a more personal feel.
+    </div>
+    <div class="tool-description">
+      <strong>About Notepad</strong>
+      <p>
+        Use this free <b>Online Notepad</b> to write, save, and edit notes instantly in your browser. Enjoy features like auto-save, word/character count, and a journal mode for distraction-free writing.
+      </p>
+    </div>
+    <div class="tool-howto">
+      <strong>How to Use:</strong>
+      <ul>
+        <li>Type your note and title in the fields above.</li>
+        <li>Your note is auto-saved in your browser (no data leaves your device).</li>
+        <li>Switch to journal mode for a paper-like writing experience.</li>
+        <li>Copy, clear, or download your note with one click.</li>
+      </ul>
     </div>
 
     <input type="text" id="noteTitle" placeholder="Note Title" />
@@ -171,10 +217,6 @@
 
       <div class="stats" id="stats">Words: 0 | Characters: 0</div>
     </div>
-  </div>
-
-  <div class="back-button">
-    <a href="/../index.html">⬅ Back to Ultimatrix</a>
   </div>
 
   <script>

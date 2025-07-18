@@ -6,14 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Memory Match</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to right, #74ebd5, #acb6e5);
-      min-height: 100vh;
+      /* Remove flex centering from body */
+    }
+    .game-wrapper {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      margin-top: 80px;
+    }
+    .game-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
     }
     .side-buttons {
       position: absolute;
@@ -24,14 +38,6 @@
       width: 100%;
       padding: 0 20px;
       z-index: 10;
-    }
-    .game-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      position: relative;
     }
     .game-box {
       text-align: center;
@@ -48,84 +54,127 @@
       font-weight: bold;
       margin-bottom: 20px;
     }
+    .game-description, .game-rules {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+    }
+    .game-description strong, .game-rules strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #2193b0;
+    }
   </style>
 </head>
 <body>
-  <div class="game-container">
-    <div class="side-buttons">
-      <a href="/../index.html" class="btn btn-outline-dark btn-sm">⬅ Back to Ultimatrix</a>
-      <a href="/games/games.html" class="btn btn-primary btn-sm">Explore Other Games ➡</a>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
     </div>
-    <div class="game-box">
-      <div class="title">Memory Match</div>
-
-      <style>
-        .memory-board {
-          display: grid;
-          grid-template-columns: repeat(4, 60px);
-          gap: 10px;
-          justify-content: center;
-        }
-        .card {
-          width: 60px;
-          height: 60px;
-          background: #ddd;
-          font-size: 1.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 8px;
-          cursor: pointer;
-        }
-      </style>
-      <div class="memory-board" id="board"></div>
-      <script>
-        const emojis = ['🐶','🐱','🐰','🦊','🐶','🐱','🐰','🦊'];
-        let selections = [];
-        let matched = [];
-
-        function shuffle(arr) {
-          return arr.sort(() => Math.random() - 0.5);
-        }
-
-        function renderBoard() {
-          const board = document.getElementById('board');
-          while (board.firstChild) {
-            board.removeChild(board.firstChild);
+  </header>
+  <div class="game-wrapper">
+    <div class="game-container">
+      <div class="side-buttons">
+      </div>
+      <div class="game-box">
+        <div class="title">Memory Match</div>
+        <style>
+          .memory-board {
+            display: grid;
+            grid-template-columns: repeat(4, 60px);
+            gap: 10px;
+            justify-content: center;
           }
-          emojis.forEach((emoji, index) => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.dataset.index = index;
-            card.onclick = () => flipCard(index);
-            card.innerHTML = matched.includes(index) || selections.includes(index) ? emoji : '';
-            board.appendChild(card);
-          });
-        }
+          .card {
+            width: 60px;
+            height: 60px;
+            background: #ddd;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+          }
+        </style>
+        <div class="memory-board" id="board"></div>
+        <div class="footer-buttons">
+        </div>
+        <div class="game-description">
+          <strong>About Memory Match</strong>
+          <p>
+            Play <b>Memory Match</b> online for free! Flip cards to find matching pairs and train your memory. This fun and relaxing game is great for all ages and helps boost your concentration and recall skills.
+          </p>
+        </div>
+        <div class="game-rules">
+          <strong>How to Play:</strong>
+          <ul>
+            <li>Click on cards to flip them over and reveal the emoji.</li>
+            <li>Find and match pairs of identical cards.</li>
+            <li>Match all pairs to win. Try to use as few moves as possible!</li>
+          </ul>
+        </div>
+        <script>
+          const emojis = ['🐶','🐱','🐰','🦊','🐱','🐰','🦊'];
+          let selections = [];
+          let matched = [];
 
-        function flipCard(index) {
-          if (selections.length < 2 && !selections.includes(index) && !matched.includes(index)) {
-            selections.push(index);
-            renderBoard();
-            if (selections.length === 2) {
-              setTimeout(checkMatch, 600);
+          function shuffle(arr) {
+            return arr.sort(() => Math.random() - 0.5);
+          }
+
+          function renderBoard() {
+            const board = document.getElementById('board');
+            while (board.firstChild) {
+              board.removeChild(board.firstChild);
+            }
+            emojis.forEach((emoji, index) => {
+              const card = document.createElement('div');
+              card.className = 'card';
+              card.dataset.index = index;
+              card.onclick = () => flipCard(index);
+              card.innerHTML = matched.includes(index) || selections.includes(index) ? emoji : '';
+              board.appendChild(card);
+            });
+          }
+
+          function flipCard(index) {
+            if (selections.length < 2 && !selections.includes(index) && !matched.includes(index)) {
+              selections.push(index);
+              renderBoard();
+              if (selections.length === 2) {
+                setTimeout(checkMatch, 600);
+              }
             }
           }
-        }
 
-        function checkMatch() {
-          const [i, j] = selections;
-          if (emojis[i] === emojis[j]) {
-            matched.push(i, j);
+          function checkMatch() {
+            const [i, j] = selections;
+            if (emojis[i] === emojis[j]) {
+              matched.push(i, j);
+            }
+            selections = [];
+            renderBoard();
           }
-          selections = [];
-          renderBoard();
-        }
 
-        shuffle(emojis);
-        renderBoard();
-      </script>
-    
+          shuffle(emojis);
+          renderBoard();
+        </script>
+      
+      </div>
     </div>
   </div>
 </body>

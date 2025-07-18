@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Universal Code Editor – Compare, Highlight, Save</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Editor | Ultimatrix</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js"></script>
   <meta name="description" content="Free universal code editor with syntax highlighting, compare/diff mode, language detection, and theme toggle. No ads. Works offline." />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;">
 
@@ -103,6 +105,20 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
 
   <div class="container">
     <h1>🧠 Universal Code Editor</h1>
@@ -131,9 +147,6 @@
       <pre><code id="editor1" class="editor" contenteditable="true" spellcheck="false"></code></pre>
     </div>
 
-    <div class="back-button">
-      <a href="/../index.html">⬅ Back to Ultimatrix</a>
-    </div>
   </div>
 
   <div class="footer">

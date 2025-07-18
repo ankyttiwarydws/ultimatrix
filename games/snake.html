@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Snake Game</title>
   <meta name="description" content="Play the classic Snake game online. Grow the snake, avoid collisions, and beat your high score. Fully secure, AdSense-friendly, and stylish.">
+  <link rel="stylesheet" href="/css/style.css" />
   <style>
     :root {
       --bg: #f7f7f7;
@@ -20,9 +21,15 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: var(--bg);
+      /* Remove flex centering from body */
+    }
+
+    .game-wrapper {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      min-height: 80vh;
+      margin-top: 80px;
     }
 
     .navigation {
@@ -90,19 +97,59 @@
       margin-top: 25px;
       color: #555;
     }
+
+    .game-description, .game-rules {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+    }
+    .game-description strong, .game-rules strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #2193b0;
+    }
   </style>
 </head>
 <body>
-  <div class="navigation">
-    <a href="/../index.html">⬅ Back to Ultimatrix</a>
-    <a href="/games/games.html">Explore Other Games ➡</a>
-  </div>
-
-  <div class="game-container">
-    <canvas id="game" width="600" height="600"></canvas>
-    <div class="score">Score: <span id="score">0</span></div>
-    <div class="controls">
-      <button onclick="restartGame()">🔁 Restart</button>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
+  <div class="game-wrapper">
+    <div class="game-container">
+      <canvas id="game" width="600" height="600"></canvas>
+      <div class="score">Score: <span id="score">0</span></div>
+      <div class="controls">
+        <button onclick="restartGame()">🔁 Restart</button>
+      </div>
+      <div class="game-description">
+        <strong>About Snake</strong>
+        <p>
+          Play the classic <b>Snake game</b> online! Guide the snake to eat food, grow longer, and avoid crashing into yourself or the walls. This retro arcade game is perfect for quick fun and improving your reflexes. Compete for the highest score!
+        </p>
+      </div>
+      <div class="game-rules">
+        <strong>How to Play:</strong>
+        <ul>
+          <li>Use the arrow keys to move the snake around the board.</li>
+          <li>Eat the red food to grow longer and increase your score.</li>
+          <li>Don't run into the walls or your own tail, or the game is over!</li>
+        </ul>
+      </div>
     </div>
   </div>
 
