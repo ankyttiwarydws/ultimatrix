@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Countdown Timer – Count Down to Any Date</title>
+  <title>ForLater Countdown | Ultimatrix</title>
   <meta name="description" content="Create a countdown timer to any future date and time. Perfect for events, launches, holidays, and goals!" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js"></script>
   <style>
     body {
       margin: 0;
@@ -56,6 +58,21 @@
       font-size: 1rem;
       color: #444;
       margin-bottom: 20px;
+    }
+
+    .tool-description, .tool-howto {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+    }
+    .tool-description strong, .tool-howto strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #2193b0;
     }
 
     input[type="text"],
@@ -113,16 +130,42 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
 
   <div class="side-buttons">
-    <a href="/../index.html" class="btn btn-outline-dark btn-sm">⬅ Back to Ultimatrix</a>
-    <a href="/more-tools" class="btn btn-primary btn-sm">Explore More ➡</a>
   </div>
 
   <div class="tool-container">
     <div class="tool-box">
       <div class="title">Countdown Timer</div>
       <div class="intro">Set a future date and time to start your live countdown!</div>
+      <div class="tool-description">
+        <strong>About Countdown Timer</strong>
+        <p>
+          Create a countdown timer to any future date and time with this free <b>Countdown Timer</b> tool. Perfect for events, launches, holidays, and goals.
+        </p>
+      </div>
+      <div class="tool-howto">
+        <strong>How to Use:</strong>
+        <ul>
+          <li>Enter an event name, date, and time.</li>
+          <li>See the live countdown update in real time.</li>
+          <li>Get notified when your event arrives!</li>
+        </ul>
+      </div>
 
       <input type="text" id="eventName" placeholder="Event name (e.g. My Birthday)" />
       <input type="date" id="targetDate" />

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minesweeper | Ultimatrix</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+    }
+    .game-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      margin-top: 80px;
+    }
+    .game-container {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+    .minesweeper-board {
+      display: grid;
+      grid-template-columns: repeat(9, 32px);
+      grid-template-rows: repeat(9, 32px);
+      gap: 2px;
+      justify-content: center;
+      margin: 0 auto 18px auto;
+    }
+    .cell {
+      width: 32px;
+      height: 32px;
+      background: #e0e7ef;
+      border-radius: 6px;
+      border: 1px solid #b0b8c1;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .cell.revealed {
+      background: #f8f9fa;
+      cursor: default;
+    }
+    .cell.mine {
+      background: #ffb3b3;
+      color: #b22222;
+    }
+    .cell.flagged {
+      background: #ffe066;
+      color: #b8860b;
+    }
+    .controls {
+      margin-bottom: 12px;
+    }
+    .controls button {
+      padding: 8px 18px;
+      font-size: 1rem;
+      background: #2193b0;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+    .controls button:hover {
+      background: #176b87;
+    }
+    .status {
+      margin: 10px 0 0 0;
+      font-size: 1.1rem;
+      color: #2193b0;
+      min-height: 24px;
+    }
+    .game-description, .game-rules {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+    }
+    .game-description strong, .game-rules strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #2193b0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
+  <div class="game-wrapper">
+    <div class="game-container">
+      <div class="title">Minesweeper</div>
+      <div class="controls">
+        <button onclick="startGame()">🔁 Restart</button>
+        <span id="flags-remaining">Flags: 10</span>
+      </div>
+      <div class="minesweeper-board" id="board"></div>
+      <div class="status" id="status"></div>
+      <div class="game-description">
+        <strong>About Minesweeper</strong>
+        <p>
+          Play <b>Minesweeper</b> online for free! Uncover all the safe cells without detonating any mines. This classic puzzle game is perfect for testing your logic, memory, and strategy skills. Enjoy a relaxing, ad-free experience right in your browser.
+        </p>
+      </div>
+      <div class="game-rules">
+        <strong>How to Play:</strong>
+        <ul>
+          <li>Click a cell to reveal it. If it's a mine, you lose!</li>
+          <li>Numbers show how many mines are adjacent to that cell.</li>
+          <li>Right-click (or long-press) to flag a cell you think contains a mine.</li>
+          <li>Reveal all safe cells to win. Use logic and deduction to avoid the mines!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    const rows = 9, cols = 9, minesCount = 10;
+    let board = [], mineMap = [], revealed = [], flagged = [], gameOver = false, flagsLeft = minesCount;
+    const boardDiv = document.getElementById('board');
+    const statusDiv = document.getElementById('status');
+    const flagsDiv = document.getElementById('flags-remaining');
+
+    function startGame() {
+      board = Array.from({length: rows}, () => Array(cols).fill(0));
+      mineMap = Array.from({length: rows}, () => Array(cols).fill(false));
+      revealed = Array.from({length: rows}, () => Array(cols).fill(false));
+      flagged = Array.from({length: rows}, () => Array(cols).fill(false));
+      gameOver = false;
+      flagsLeft = minesCount;
+      flagsDiv.textContent = `Flags: ${flagsLeft}`;
+      statusDiv.textContent = '';
+      placeMines();
+      calculateNumbers();
+      renderBoard();
+    }
+
+    function placeMines() {
+      let placed = 0;
+      while (placed < minesCount) {
+        const r = Math.floor(Math.random() * rows);
+        const c = Math.floor(Math.random() * cols);
+        if (!mineMap[r][c]) {
+          mineMap[r][c] = true;
+          placed++;
+        }
+      }
+    }
+
+    function calculateNumbers() {
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (mineMap[r][c]) {
+            board[r][c] = 'M';
+          } else {
+            let count = 0;
+            for (let dr = -1; dr <= 1; dr++) {
+              for (let dc = -1; dc <= 1; dc++) {
+                if (dr === 0 && dc === 0) continue;
+                const nr = r + dr, nc = c + dc;
+                if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && mineMap[nr][nc]) count++;
+              }
+            }
+            board[r][c] = count;
+          }
+        }
+      }
+    }
+
+    function renderBoard() {
+      boardDiv.innerHTML = '';
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'cell';
+          if (revealed[r][c]) {
+            cell.classList.add('revealed');
+            if (mineMap[r][c]) {
+              cell.classList.add('mine');
+              cell.textContent = '💣';
+            } else if (board[r][c] > 0) {
+              cell.textContent = board[r][c];
+            }
+          } else if (flagged[r][c]) {
+            cell.classList.add('flagged');
+            cell.textContent = '🚩';
+          }
+          cell.addEventListener('click', () => handleCellClick(r, c));
+          cell.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            handleFlag(r, c);
+          });
+          cell.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            handleFlag(r, c);
+          }, { passive: false });
+          boardDiv.appendChild(cell);
+        }
+      }
+    }
+
+    function handleCellClick(r, c) {
+      if (gameOver || revealed[r][c] || flagged[r][c]) return;
+      if (mineMap[r][c]) {
+        revealed[r][c] = true;
+        renderBoard();
+        statusDiv.textContent = '💥 Game Over! You hit a mine.';
+        gameOver = true;
+        revealAllMines();
+        return;
+      }
+      revealCell(r, c);
+      renderBoard();
+      if (checkWin()) {
+        statusDiv.textContent = '🎉 Congratulations! You cleared the minefield!';
+        gameOver = true;
+      }
+    }
+
+    function handleFlag(r, c) {
+      if (gameOver || revealed[r][c]) return;
+      if (flagged[r][c]) {
+        flagged[r][c] = false;
+        flagsLeft++;
+      } else if (flagsLeft > 0) {
+        flagged[r][c] = true;
+        flagsLeft--;
+      }
+      flagsDiv.textContent = `Flags: ${flagsLeft}`;
+      renderBoard();
+    }
+
+    function revealCell(r, c) {
+      if (r < 0 || r >= rows || c < 0 || c >= cols || revealed[r][c] || flagged[r][c]) return;
+      revealed[r][c] = true;
+      if (board[r][c] === 0) {
+        for (let dr = -1; dr <= 1; dr++) {
+          for (let dc = -1; dc <= 1; dc++) {
+            if (dr !== 0 || dc !== 0) {
+              revealCell(r + dr, c + dc);
+            }
+          }
+        }
+      }
+    }
+
+    function revealAllMines() {
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (mineMap[r][c]) revealed[r][c] = true;
+        }
+      }
+      renderBoard();
+    }
+
+    function checkWin() {
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (!mineMap[r][c] && !revealed[r][c]) return false;
+        }
+      }
+      return true;
+    }
+
+    startGame();
+  </script>
+</body>
+</html>

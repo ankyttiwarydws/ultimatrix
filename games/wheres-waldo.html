@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where's Waldo? | Ultimatrix</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      /* Remove flex centering from body */
+    }
+    .game-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      margin-top: 80px;
+    }
+    .game-container {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      padding: 30px;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+    .waldo-image {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: crosshair;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .hint {
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .win-message {
+      color: #2193b0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .game-description, .game-rules {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+    }
+    .game-description strong, .game-rules strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #2193b0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
+  <div class="game-wrapper">
+    <div class="game-container">
+      <div class="title">Where's Waldo?</div>
+      <div class="hint">Find and click on Waldo in the image below!</div>
+      <div style="position:relative; display:inline-block;">
+        <img src="/assets/img/waldo.jpeg" alt="Where's Waldo?" class="waldo-image" id="waldo-img">
+        <!-- Optionally, you can overlay a highlight when found -->
+        <div id="highlight" style="display:none; position:absolute; border:2px solid #2193b0; border-radius:50%; pointer-events:none;"></div>
+      </div>
+      <div id="win-message" class="win-message" style="display:none;">You found Waldo! 🎉</div>
+      <div class="game-description">
+        <strong>About Where's Waldo?</strong>
+        <p>
+          Play the classic <b>Where's Waldo?</b> game online! Search the crowded scene and try to spot Waldo as quickly as you can. This fun hidden object game is perfect for all ages and helps sharpen your observation skills. Enjoy a relaxing, family-friendly challenge right in your browser.
+        </p>
+      </div>
+      <div class="game-rules">
+        <strong>How to Play:</strong>
+        <ul>
+          <li>Carefully scan the image to find Waldo, who is cleverly hidden among many characters.</li>
+          <li>Click on Waldo when you spot him to win the game.</li>
+          <li>Challenge yourself to find Waldo as fast as possible!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Define Waldo's bounding box (as a percentage of the image dimensions)
+    // Example: {x: 0.62, y: 0.35, w: 0.06, h: 0.12} (adjust for your image)
+    const waldoBox = { x: 0.62, y: 0.35, w: 0.06, h: 0.12 };
+    const img = document.getElementById('waldo-img');
+    const winMsg = document.getElementById('win-message');
+    const highlight = document.getElementById('highlight');
+
+    img.addEventListener('click', function(e) {
+      const rect = img.getBoundingClientRect();
+      const clickX = (e.clientX - rect.left) / rect.width;
+      const clickY = (e.clientY - rect.top) / rect.height;
+      if (
+        clickX >= waldoBox.x && clickX <= waldoBox.x + waldoBox.w &&
+        clickY >= waldoBox.y && clickY <= waldoBox.y + waldoBox.h
+      ) {
+        winMsg.style.display = 'block';
+        // Show highlight
+        highlight.style.display = 'block';
+        highlight.style.left = (waldoBox.x * rect.width) + 'px';
+        highlight.style.top = (waldoBox.y * rect.height) + 'px';
+        highlight.style.width = (waldoBox.w * rect.width) + 'px';
+        highlight.style.height = (waldoBox.h * rect.height) + 'px';
+      }
+    });
+  </script>
+</body>
+</html>

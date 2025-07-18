@@ -5,7 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sudoku Game</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
   <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      /* Remove flex centering from body */
+    }
+    .game-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      margin-top: 80px;
+    }
     body.light {
       background: linear-gradient(to right, #fceabb, #f8b500);
       color: black;
@@ -86,13 +99,39 @@
     #difficulty {
       margin-bottom: 10px;
     }
+    .game-description, .game-rules {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #333;
+      text-align: left;
+    }
+    .game-description strong, .game-rules strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #2193b0;
+    }
   </style>
 </head>
-<body class="light">
-  <div class="game-container">
+<body>
+  <header>
+    <div class="header-container">
+      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/games/games.html">Games</a></li>
+          <li><a href="/news/news.html">News</a></li>
+          <li><a href="/blogs/blogs.html">Blogs</a></li>
+          <li><a href="/tools/tools.html">Tools</a></li>
+        </ul>
+      </nav>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </header>
+  <div class="game-wrapper">
     <div class="side-buttons">
-      <a href="/../index.html" class="btn btn-outline-light btn-sm">⬅ Back to Ultimatrix</a>
-      <a href="/games/games.html" class="btn btn-outline-light btn-sm">Explore Other Games ➡</a>
     </div>
     <div class="game-box">
       <div class="title">16x16 Sudoku</div>
@@ -114,7 +153,13 @@
       <div class="mt-2"><strong>Best Time:</strong> <span id="best-time">N/A</span></div>
       <div class="mt-1"><strong>Current Time:</strong> <span id="current-time">0</span> sec</div>
       <div class="mt-1"><strong>Hints Used:</strong> <span id="hints-used">0</span></div>
-      <div class="rules mt-4">
+      <div class="game-description">
+        <strong>About Sudoku</strong>
+        <p>
+          Play <b>Sudoku online</b> for free! Fill the grid so every row, column, and block contains unique values. This classic logic puzzle is perfect for boosting your brainpower and relaxing at the same time. Choose your difficulty and enjoy endless puzzles!
+        </p>
+      </div>
+      <div class="game-rules">
         <strong>How to Play:</strong>
         <ul>
           <li>Fill each cell with a character (1-9 or A-G) without repeating in any row, column, or 4×4 block.</li>
