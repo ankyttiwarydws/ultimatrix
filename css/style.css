@@ -251,6 +251,11 @@ section h3:hover {
   display: block;
   margin: 0 auto 0.5rem auto;
 }
+.games-section-desc {
+  background-color: #f6f8fa;
+  border-radius: 8px;
+  padding: 0.5em 0.8em;
+}
 .news-section-menu {
   display: flex;
   flex-direction: row;
@@ -272,22 +277,22 @@ section h3:hover {
   justify-content: center;
   margin: 0.9em 0 0em 0;
 }
-.category-gradient.eco {
+.color1 {
   background: linear-gradient(135deg, #f6c5b5 0%, #38f9d7 100%);
 }
-.category-gradient.gadgets {
+.color2 {
   background: linear-gradient(135deg, #b2bff9 0%, #764ba2 100%);
 }
-.category-gradient.wellness {
+.color3 {
   background: linear-gradient(135deg, #efe0cf 0%, #3b7db8 100%);
 }
-.category-gradient.books {
+.color4 {
   background: linear-gradient(135deg, #eddbc2 0%, #fcb69f 100%);
 }
-.category-gradient.tech {
+.color5 {
   background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
 }
-.category-gradient.kitchen {
+.color6 {
   background: linear-gradient(135deg, #f3acb3 0%, #72363e 100%);
 }
 .category-card {
