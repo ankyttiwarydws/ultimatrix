@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amazon Picks | Blogs</title>
+  <title>Inspiration | Blogs</title>
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
@@ -25,53 +25,65 @@
   </header>
   <main>
     <section class="blogs-main-category">
-      <h3>Amazon Picks</h3>
-      <p>Discover handpicked Amazon favorites, curated for value, joy, and everyday ease.</p>
+      <h3>Inspiration</h3>
+      <p>Find motivation, uplifting stories, and creative sparks to brighten your day.</p>
       <nav class="blogs-main-category-menu">
         <ul>
-          <li><a href="#" class="howto-tab-btn active" data-tab="new">New & Worthy</a></li>
-          <li><a href="#" class="howto-tab-btn" data-tab="eco">Eco-Friendly</a></li>
-          <li><a href="#" class="howto-tab-btn" data-tab="gadgets">Gadgets</a></li>
+          <li><a href="#" class="howto-tab-btn active" data-tab="stories">Stories</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="quotes">Quotes</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="creativity">Creativity</a></li>
         </ul>
       </nav>
     </section>
     <section>
       <div id="howto-tabs">
-        <div id="tab-new" class="howto-tab-content" style="display:block;">
-          <p class="blogs-amazon-subheading">New & Worthy</p>
+        <div id="tab-stories" class="howto-tab-content" style="display:block;">
+          <p class="blogs-amazon-subheading">Uplifting Stories</p>
           <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
             <div class="howto-card color1">
-              <a href="https://www.amazon.com/dp/example1" target="_blank">
-                <h4>Eco-Friendly Water Bottle</h4>
-                <p>Stay hydrated and reduce plastic waste with this reusable, BPA-free water bottle.</p>
+              <a href="#">
+                <h4>From Setback to Comeback</h4>
+                <p>Read how ordinary people overcame extraordinary odds and found success.</p>
               </a>
             </div>
             <div class="howto-card color2">
-              <a href="https://www.amazon.com/dp/example2" target="_blank">
-                <h4>Organic Cotton Tote Bag</h4>
-                <p>A stylish and sustainable alternative to plastic bags. Great for shopping, work, or a day out.</p>
+              <a href="#">
+                <h4>Acts of Kindness</h4>
+                <p>Heartwarming tales of generosity and compassion that restore faith in humanity.</p>
               </a>
             </div>
           </div>
         </div>
-        <div id="tab-eco" class="howto-tab-content" style="display:none;">
-          <p class="howto-tab-title blogs-amazon-subheading">Eco-Friendly</p>
+        <div id="tab-quotes" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Quotes</p>
           <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
             <div class="howto-card color3">
-              <a href="https://www.amazon.com/dp/example3" target="_blank">
-                <h4>Solar Power Bank</h4>
-                <p>Charge your devices on the go with clean solar energy. Ideal for outdoor adventures and emergencies.</p>
+              <a href="#">
+                <h4>Motivational Quotes</h4>
+                <p>Words to inspire, encourage, and energize your day.</p>
+              </a>
+            </div>
+            <div class="howto-card color4">
+              <a href="#">
+                <h4>Wisdom from Leaders</h4>
+                <p>Timeless advice from visionaries, thinkers, and changemakers.</p>
               </a>
             </div>
           </div>
         </div>
-        <div id="tab-gadgets" class="howto-tab-content" style="display:none;">
-          <p class="howto-tab-title blogs-amazon-subheading">Gadgets</p>
+        <div id="tab-creativity" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Creativity</p>
           <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
-            <div class="howto-card color4">
-              <a href="https://www.amazon.com/dp/example4" target="_blank">
-                <h4>Smart Home Plug</h4>
-                <p>Control your devices remotely and save energy with this Wi-Fi smart plug.</p>
+            <div class="howto-card color5">
+              <a href="#">
+                <h4>Creative Sparks</h4>
+                <p>Tips and exercises to unlock your imagination and fuel your projects.</p>
+              </a>
+            </div>
+            <div class="howto-card color6">
+              <a href="#">
+                <h4>Art from the Heart</h4>
+                <p>Stories and showcases of everyday creativity and artistic expression.</p>
               </a>
             </div>
           </div>
@@ -87,7 +99,7 @@
 </main>
 </body>
 <script>
-// Tab switching logic for Amazon Picks section
+// Tab switching logic for Inspiration section
 document.querySelectorAll('.howto-tab-btn').forEach(function(btn) {
   btn.addEventListener('click', function(e) {
     e.preventDefault();
@@ -102,3 +114,4 @@ document.querySelectorAll('.howto-tab-btn').forEach(function(btn) {
 });
 </script>
 </html>
+

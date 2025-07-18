@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Games | Ultimatix</title>
   <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/games.css" />
   <script src="/js/script.js" defer></script>
 </head>
 
@@ -26,73 +27,109 @@
   </header>
 
   <main>
-    <div class="search-bar">
-      <p>Find Your Next Game</p>
-      <!-- <p>Search for games, news, blogs, or tools.</p> -->
-      <input type="text" placeholder="Search..." class="search-bar" />
-    </div>
-    <section class="hero">
+    <section class="games-main-category">
       <h3>Play to Relax</h2>
-      <p>Step into a curated world of chill games—designed to soothe, entertain, and refresh. From calming puzzles and ambient adventures to low-stress play modes, this zone is your escape from the grind. No timers, no pressure, just pure relaxing fun.</p>
+        <p>Step into a curated world of chill games—designed to soothe, entertain, and refresh. From calming puzzles and
+          ambient adventures to low-stress play modes, this zone is your escape from the grind. No timers, no pressure,
+          just pure relaxing fun.</p>
+    </section>
+    <section class="search-section">
+      <div class="search-section">
+        <p class="search-bar-text">Find Your Next Game</p>
+      </div>
+      <div class="search-section">
+        <!-- <p>Search for games, news, blogs, or tools.</p> -->
+        <input  class="search-bar" type="text" placeholder="Search..." class="search-bar" />
+      </div>
     </section>
     <section class="games-section">
       <div class="games-section-menu">
         <div id="sudoku" class="games-div">
           <img class="games-section-img" src="\assets\img\games\sudoku.jpg" alt="">
-          <a href="/games/sudoku.html" class="games-section-heading">Sudoku</a>
-          <p class="games-section-desc">One grid, nine lives! Sudoku: where logic meets serenity.<br>Sharpen your mind!</p>
+          <div class="games-card color1">
+            <a href="/games/sudoku.html" class="games-section-heading">Sudoku</a>
+            <p class="games-card-desc">One grid, nine lives! Sudoku: where logic meets serenity.<br>Sharpen your mind!
+          </p>
+          </div>
         </div>
         <div id="whereswaldo">
           <img class="games-section-img" src="\assets\img\games\waldo.jpeg" alt="">
-          <a href="/games/wheres-waldo.html" class="games-section-heading">Where's Waldo?</a>
-          <p class="games-section-desc">Blink and you’ll miss him! Waldo’s a masterclass in vanishing acts.</p>
+          <div class="games-card color2">
+          <a href="games.html" class="games-section-heading">Where's Waldo?</a>
+          <p class="games-card-desc">Blink and you’ll miss him! Waldo’s a masterclass in vanishing acts.</p>
+        </div>
         </div>
         <div id="tictactoe">
           <img class="games-section-img" src="\assets\img\games\tic-tac-toe.jpg" alt="">
-          <a href="/games/xo.html" class="games-section-heading">Tic-Tac-Toe</a>
-          <p class="games-section-desc">Three in a row, one mind to outsmart! Tic Tac Toe’s a battle of wits.<br>Challenge yourself or a friend.</p>
+          <div class="games-card color3">
+            <a href="/games/xo.html" class="games-section-heading">Tic-Tac-Toe</a>
+            <p class="games-card-desc">Three in a row, one mind to outsmart! Tic Tac Toe’s a battle of
+              wits.<br>Challenge yourself or a friend.</p>
+          </div>
         </div>
-        
-        
+      </div>
+      <div class="games-section-menu">
         <div id="minesweeper">
           <img class="games-section-img" src="\assets\img\games\minesweeper.png" alt="">
-          <a href="/games/minesweeper.html" class="games-section-heading">Minesweeper</a>
-          <p class="games-section-desc">Uncover tiles and avoid the mines in this classic logic game.</p>
+          <div class="games-card color4">
+            <a href="/games/minesweeper.html" class="games-section-heading">Minesweeper</a>
+            <p class="games-card-desc">Uncover tiles and avoid the mines in this classic logic game.</p>
+          </div>
         </div>
         <div id="memory-match">
           <img class="games-section-img" src="\assets\img\games\memory-match.png" alt="">
-          <a href="/games/memory-match.html" class="games-section-heading">Memory Match</a>
-          <p class="games-section-desc">Flip cards and match pairs to train your memory skills.</p>
+          <div class="games-card color5">
+            <a href="/games/memory-match.html" class="games-section-heading">Memory Match</a>
+            <p class="games-card-desc">Flip cards and match pairs to train your memory skills.</p>
+          </div>
         </div>
         <div id="number-guessing">
           <img class="games-section-img" src="\assets\img\games\number-guessing.jpg" alt="">
-          <a href="/games/number-guessing.html" class="games-section-heading">Number Guessing</a>
-          <p class="games-section-desc">Number Guessing.</p>
+          <div class="games-card color6">
+            <a href="/games/number-guessing.html" class="games-section-heading">Number Guessing</a>
+            <p class="games-card-desc">Number Guessing.</p>
+          </div>
         </div>
+      </div>
+      <div class="games-section-menu">
         <div id="2048">
           <img class="games-section-img" src="" alt="">
-          <a href="/games/2048.html" class="games-section-heading">2048</a>
-          <p class="games-section-desc">Slide tiles and combine numbers to reach the elusive 2048.</p>
+          <div class="games-card color1">
+            <a href="/games/2048.html" class="games-section-heading">2048</a>
+            <p class="games-card-desc">Slide tiles and combine numbers to reach the elusive 2048.</p>
+          </div>
         </div>
         <div id="snake">
           <img class="games-section-img" src="\assets\img\games\snake.png" alt="">
-          <a href="/games/snake.html" class="games-section-heading">Snake</a>
-          <p class="games-section-desc">Guide the snake to eat and grow—don’t run into yourself!</p>
+          <div class="games-card color2">
+            <a href="/games/snake.html" class="games-section-heading">Snake</a>
+            <p class="games-card-desc">Guide the snake to eat and grow—don’t run into yourself!</p>
+          </div>
         </div>
         <div id="rock-paper-scissors">
           <img class="games-section-img" src="\assets\img\games\rock-paper-scissors.png" alt="">
-          <a href="/games/rock-paper-scissors.html" class="games-section-heading">Rock Paper Scissors</a>
-          <p class="games-section-desc">Test your luck and strategy! Choose rock, paper, or scissors and see if you can outsmart your opponent.</p>
+          <div class="games-card color3">
+            <a href="/games/rock-paper-scissors.html" class="games-section-heading">Rock Paper Scissors</a>
+            <p class="games-card-desc">Test your luck and strategy! Choose rock, paper, or scissors and see if you can
+              outsmart your opponent.</p>
+          </div>
         </div>
+      </div>
+      <div class="games-section-menu">
         <div id="typing-speed-test">
           <img class="games-section-img" src="\assets\img\games\typing-speed.png" alt="">
-          <a href="/games/typing-speed-test.html" class="games-section-heading">Typing Speed Test</a>
-          <p class="games-section-desc">How fast can you type? Challenge yourself and improve your typing speed and accuracy.</p>
+          <div class="games-card color4">
+            <a href="/games/typing-speed-test.html" class="games-section-heading">Typing Speed Test</a>
+            <p class="games-card-desc">How fast can you type? Challenge yourself and improve your typing speed and
+              accuracy.</p>
+          </div>
         </div>
         <div id="whack-a-mole">
           <img class="games-section-img" src="\assets\img\games\whack-a-mole.jpg" alt="">
-          <a href="/games/whack-a-mole.html" class="games-section-heading">Whack-a-Mole</a>
-          <p class="games-section-desc">Quick reflexes win! Hit the moles as they pop up and rack up your score.</p>
+          <div class="games-card color5">
+            <a href="/games/whack-a-mole.html" class="games-section-heading">Whack-a-Mole</a>
+            <p class="games-card-desc">Quick reflexes win! Hit the moles as they pop up and rack up your score.</p>
+          </div>
         </div>
       </div>
     </section>

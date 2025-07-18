@@ -24,28 +24,183 @@
     </div>
   </header>
   <main>
-    <section>
-      <h2>How To</h2>
-      <p>Explore a variety of how-to guides, tips, and tutorials for every interest. (Content coming soon!)
-
-<h1>Coding </br>
-<a href="/blogs/howto/software/how-to-use-git.html" style="color:blue;">How to get and Configure SSH Keys for using GIT</a></br>
-
-<a href="/blogs/howto/software/how-to-use-git2.html" style="color:blue;">How to use GIT on Windows</a></br>
-<a href="/blogs/howto/software/how-to-ssh-setup-bitbucket.html" style="color:blue;">How to add SSH keys to Bitbucket</a></br>
-
-<a href="/blogs/howto/software/how-to-setup-java-maven.html" style="color:blue;">How to Setup JAVA and MAVEN On Windows</a></br>
-<a href="/blogs/howto/software/how-to-git-clone-existing-project.html" style="color:blue;">How to Setup GIT Repo on system and other GIT operations</a></br>
-<a href="/blogs/howto/software/how-to-cucumber-cheatsheet.html" style="color:blue;">How to use Cucumber - CheatSheet</a></br>
-<a href="/blogs/howto/software/how-to-qa-interview-questions-1.html" style="color:blue;">How to Crack QA Interview - Questions-1</a></br>
-<a href="/blogs/howto/software/how-to-java-principles.html" style="color:blue;">How to JAVA Principles</a></br>
-<a href="/blogs/howto/software/how-to-selenium-cheatsheet.html" style="color:blue;">How to use Selenium - CheatSheet</a></br>
-<a href="/blogs/howto/software/how-to-typescript.html" style="color:blue;">How to Typescript - CheatSheet</a></br>
-
-
-<h1>
-</p>
+    <section class="blogs-main-category">
+      <h3>How To</h3>
+      <p>Explore a variety of how-to guides, tips, and tutorials for every interest.</p>
+      <nav class="blogs-main-category-menu">
+        <ul>
+          <li><a href="#" class="howto-tab-btn active" data-tab="coding">Coding</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="tools">Tools</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="cooking">Cooking</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="hardware">Hardware</a></li>
+        </ul>
+      </nav>
     </section>
+    <section>
+      <div id="howto-tabs">
+        <div id="tab-coding" class="howto-tab-content" style="display:block;">
+          <p class="blogs-amazon-subheading">Discover coding tutorials, tips, and resources for developers.</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color1">
+              <a href="/blogs/howto/coding/how-to-use-git.html">
+                <h4>How to get and Configure SSH Keys for using GIT</h4>
+                <p>Step-by-step guide to set up SSH keys for secure Git usage.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/blogs/howto/coding/how-to-use-git2.html">
+                <h4>How to use GIT on Windows</h4>
+                <p>Beginner’s guide to installing and using Git on Windows systems.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/blogs/howto/coding/how-to-ssh-setup-bitbucket.html">
+                <h4>How to add SSH keys to Bitbucket</h4>
+                <p>Instructions for connecting Bitbucket with your SSH keys.</p>
+              </a>
+            </div>
+            <div class="howto-card color4">
+              <a href="/blogs/howto/coding/how-to-setup-java-maven.html">
+                <h4>How to Setup JAVA and MAVEN On Windows</h4>
+                <p>Complete setup for Java and Maven development on Windows.</p>
+              </a>
+            </div>
+            <div class="howto-card color5">
+              <a href="/blogs/howto/coding/how-to-git-clone-existing-project.html">
+                <h4>How to Setup GIT Repo on system and other GIT operations</h4>
+                <p>Clone, initialize, and manage Git repositories efficiently.</p>
+              </a>
+            </div>
+            <div class="howto-card color6">
+              <a href="/blogs/howto/coding/how-to-cucumber-cheatsheet.html">
+                <h4>How to use Cucumber - CheatSheet</h4>
+                <p>Quick reference for Cucumber syntax and best practices.</p>
+              </a>
+            </div>
+            <div class="howto-card color1">
+              <a href="/blogs/howto/coding/how-to-qa-interview-questions-1.html">
+                <h4>How to Crack QA Interview - Questions-1</h4>
+                <p>Common QA interview questions and how to answer them.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/blogs/howto/coding/how-to-java-principles.html">
+                <h4>How to JAVA Principles</h4>
+                <p>Essential Java principles for developers and learners.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/blogs/howto/coding/how-to-selenium-cheatsheet.html">
+                <h4>How to use Selenium - CheatSheet</h4>
+                <p>Handy Selenium commands and automation tips.</p>
+              </a>
+            </div>
+            <div class="howto-card color4">
+              <a href="/blogs/howto/coding/how-to-typescript.html">
+                <h4>How to Typescript - CheatSheet</h4>
+                <p>Essential TypeScript syntax and usage guide.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="tab-tools" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Discover handy tools, utilities, and productivity boosters.</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color1">
+              <a href="/blogs/howto/tools/keyboard-shortcuts.html">
+                <h4>Keyboard Shortcuts</h4>
+                <p>Master essential keyboard shortcuts for faster work.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/blogs/howto/tools/notepad.html">
+                <h4>Online Notepad</h4>
+                <p>Take notes quickly and access them anywhere.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/blogs/howto/tools/word-counter.html">
+                <h4>Word Counter</h4>
+                <p>Count words and characters in your text instantly.</p>
+              </a>
+            </div>
+            <div class="howto-card color4">
+              <a href="/blogs/howto/tools/pdf-splitter.html">
+                <h4>PDF Splitter</h4>
+                <p>Split PDF files into separate pages easily.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="tab-cooking" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Explore delicious recipes, kitchen hacks, and cooking tips.</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color1">
+              <a href="/blogs/howto/cooking/how-to-boil-eggs.html">
+                <h4>How to Boil Eggs Perfectly</h4>
+                <p>Simple steps for perfect boiled eggs every time.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/blogs/howto/cooking/how-to-make-pasta.html">
+                <h4>How to Make Pasta</h4>
+                <p>Easy homemade pasta recipe for beginners.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/blogs/howto/cooking/how-to-bake-cake.html">
+                <h4>How to Bake a Cake</h4>
+                <p>Step-by-step guide to baking a soft, fluffy cake.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="tab-hardware" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Hardware guides, setup tips, and troubleshooting help.</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color1">
+              <a href="/blogs/howto/hardware/how-to-build-pc.html">
+                <h4>How to Build a PC</h4>
+                <p>Step-by-step guide to assembling your own computer.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/blogs/howto/hardware/how-to-upgrade-ram.html">
+                <h4>How to Upgrade RAM</h4>
+                <p>Learn how to add or replace RAM in your device.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/blogs/howto/hardware/how-to-clean-laptop.html">
+                <h4>How to Clean Your Laptop</h4>
+                <p>Keep your laptop running cool and dust-free.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="blogs-amazon-subheading">Want to see more blogs?</p>
+        <div class="blogs-btn-wrapper">
+          <a class="btn" href="/blogs/blogs.html">← Go to Blogs</a>
+        </div>
+    <!-- <button onclick="window.location.href='/blogs/blogs.html'" class="btn">← Go Back</button> -->
+</section>
   </main>
+</main>
 </body>
+<script>
+// Tab switching logic for How To section
+document.querySelectorAll('.howto-tab-btn').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelectorAll('.howto-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var tab = btn.getAttribute('data-tab');
+    document.querySelectorAll('.howto-tab-content').forEach(function(tc) {
+      tc.style.display = 'none';
+    });
+    document.getElementById('tab-' + tab).style.display = 'block';
+  });
+});
+</script>
 </html>

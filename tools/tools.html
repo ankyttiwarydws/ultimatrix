@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tools | Ultimatrix</title>
   <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/games.css" />
+  <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js"></script>
 </head>
 
@@ -26,57 +28,145 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <h2>Bored? Snap out of it—your ultimate escape is here!</h2>
-      <p>From games and news to blogs, photos, and inspiration—your next favorite thing is waiting.</p>
-      <img class="hero-img" src="/assets/img/your-image.jpg" alt="Passion fruit and floral drink on a surface" />
+    <section class="blogs-main-category">
+      <h3>Tools</h3>
+      <p>Find Useful daily use tools to make life Easy.</p>
+      <nav class="blogs-main-category-menu">
+        <ul>
+          <li><a href="#" class="howto-tab-btn active" data-tab="date">Date & Time</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="calculators">Calculators</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="codeeditors">Code Editors</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="productivity">Productivity</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="creativity">Creativity</a></li>
+        </ul>
+      </nav>
     </section>
+    <!-- <section class="hero">
+      <img class="hero-img" src="/assets/img/your-image.jpg" alt="Passion fruit and floral drink on a surface" />
+    </section> -->
 
     <!-- Tools -->
-    <section class="daily-dose">
-      <h3>Tools</h3>
-      <p>Find Useful daily use tools to make life Easy .</p>
-      <blockquote>“The best way to predict the future is to invent it.” – Alan Kay</blockquote>
-      <h1>
-        <a href="/tools/age-calculator.html" style="color:blue;">Age Calculator</a>
-        <span style="font-size:small; color:gray;"> - Calculate your age from your birthdate.</span>
-        <br>
-        <a href="/tools/case-convertor.html" style="color:blue;">Case Convertor</a>
-        <span style="font-size:small; color:gray;"> - Change text between uppercase, lowercase, and more.</span>
-        <br>
-        <a href="/tools/clock.html" style="color:blue;">Clock</a>
-        <span style="font-size:small; color:gray;"> - View the current time in your timezone.</span>
-        <br>
-        <a href="/tools/code-editor.html" style="color:blue;">Code Editor</a>
-        <span style="font-size:small; color:gray;"> - Write and edit code directly in your browser.</span>
-        <br>
-        <a href="/tools/date-adder.html" style="color:blue;">Date Adder</a>
-        <span style="font-size:small; color:gray;"> - Add days, months, or years to any date.</span>
-        <br>
-        <a href="/tools/date-duration.html" style="color:blue;">Date Duration</a>
-        <span style="font-size:small; color:gray;"> - Calculate the duration between two dates.</span>
-        <br>
-        <a href="/tools/forlater-countdown.html" style="color:blue;">ForLater Countdown</a>
-        <span style="font-size:small; color:gray;"> - Set a countdown for important events.</span>
-        <br>
-        <a href="/tools/notepad.html" style="color:blue;">Notepad</a>
-        <span style="font-size:small; color:gray;"> - Take quick notes and save them online.</span>
-        <br>
-        <a href="/tools/pdf-splitter.html" style="color:blue;">PDF Splitter</a>
-        <span style="font-size:small; color:gray;"> - Split PDF files into separate pages.</span>
-        <br>
-        
-        
-        <a href="/tools/word-counter.html" style="color:blue;">Word Counter</a>
-        <span style="font-size:small; color:gray;"> - Count words, characters, and paragraphs in your text.</span>
-        <br>
-      </h1>
+    <section>
+      <div id="howto-tabs">
+        <div id="tab-date" class="howto-tab-content" style="display:block;">
+          <p class="blogs-amazon-subheading">Discover coding tutorials, tips, and resources for developers.</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color1">
+              <a href="/tools/dateAndTime/clock.html">
+                <h4>Clock</h4>
+                <p>View the current time in your timezone.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/tools/dateAndTime/date-adder.html">
+                <h4>Date Adder</h4>
+                <p>Add days, months, or years to any date.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/tools/dateAndTime/date-duration.html">
+                <h4>Date Duration</h4>
+                <p>Calculate the duration between two dates.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="tab-calculators" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Discover handy tools, utilities, and productivity boosters.
+          </p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color4">
+              <a href="/tools/calculators/age-calculator.html">
+                <h4>Age Calculator</h4>
+                <p>Calculate your age from your birthdate.</p>
+              </a>
+            </div>
+            <div class="howto-card color5">
+              <a href="/tools/calculators/word-counter.html">
+                <h4>Word Counter</h4>
+                <p>Count words, characters, and paragraphs in your text.</p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <div id="tab-codeeditors" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Explore delicious recipes, kitchen hacks, and cooking tips.
+          </p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color6">
+              <a href="/tools/codeEditors/code-editor.html">
+                <h4>Code Editor</h4>
+                <p>Write and edit code directly in your browser.</p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <div id="tab-productivity" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Hardware guides, setup tips, and troubleshooting help.</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color1">
+              <a href="/tools/productivity/case-convertor.html">
+                <h4>Case Convertor</h4>
+                <p>Change text between uppercase, lowercase, and more.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/tools/productivity/notepad.html">
+                <h4>Notepad</h4>
+                <p>Take quick notes and save them online.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/tools/productivity/pdf-splitter.html">
+                <h4>PDF Splitter</h4>
+                <p>Split PDF files into separate pages.</p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <div id="tab-creativity" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Hardware guides, setup tips, and troubleshooting help.
+          </p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color4">
+              <a href="/tools/creativity/forlater-countdown.html">
+                <h4>ForLater Countdown</h4>
+                <p>Set a countdown for important events.</p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <p class="blogs-amazon-subheading">Want to see more tools?</p>
+      <div class="blogs-btn-wrapper">
+        <a class="btn" href="#">See All</a>
+      </div>
+      <!-- <button onclick="window.location.href='/blogs/blogs.html'" class="btn">← Go Back</button> -->
     </section>
+
   </main>
   <footer>
     <p>© 2025 Ultimatix. All rights reserved.</p>
   </footer>
 </body>
+<script>
+  // Tab switching logic for How To section
+  document.querySelectorAll('.howto-tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('.howto-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var tab = btn.getAttribute('data-tab');
+      document.querySelectorAll('.howto-tab-content').forEach(function (tc) {
+        tc.style.display = 'none';
+      });
+      document.getElementById('tab-' + tab).style.display = 'block';
+    });
+  });
+</script>
 
 </html>
