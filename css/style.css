@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
 
 body {
   font-family: "Inter", Arial, sans-serif;
@@ -33,6 +32,42 @@ header {
   margin: auto;
   width: 100%;
   padding: 0 0rem;
+}
+
+/* Responsive Header & Nav */
+@media (max-width: 600px) {
+  header {
+    padding: 0.7rem 0.2rem;
+    font-size: 0.95rem;
+  }
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    padding: 0 0.5rem;
+  }
+  .header-container h1 {
+    font-size: 1.2rem;
+    margin-right: 0;
+    margin-bottom: 0.2rem;
+    text-align: left;
+  }
+  nav ul {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.3rem;
+    width: 100%;
+    margin-bottom: 0.2rem;
+    overflow-x: auto;
+    padding: 0.1rem 0.2rem;
+  }
+  nav a {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
 }
 
 .header-container h1 {
@@ -335,11 +370,66 @@ section h3:hover {
 
 /* Footer */
 footer {
-  background-color: #222;
+
+  background: linear-gradient(90deg, #0077cc 60%, #5e739f 100%);
   color: #fff;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem 1.2rem 1rem;
   margin-top: 2rem;
+  box-shadow: 0 -2px 12px rgba(94, 115, 159, 0.08);
+}
+footer p {
+  color: #fff;
+  text-align: center;
+  margin-top: 1rem;
+}
+.footer-links {
+  margin-bottom: 0.7em;
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.08rem;
+  transition: color 0.18s;
+}
+.footer-links a:hover {
+  color: #b3c0e0;
+  text-decoration: underline;
+}
+.footer-social {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+.footer-social a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color 0.18s;
+}
+.footer-social a:hover {
+  color: #8cf;
+  text-decoration: underline;
+  transform: scale(1.12);
+}
+.footer-social a svg {
+  width: 2em;
+  height: 2em;
+  fill: currentColor;
+  transition: transform 0.18s, filter 0.18s;
+  filter: drop-shadow(0 2px 6px rgba(94,115,159,0.13));
+}
+.footer-social a:hover svg {
+  filter: drop-shadow(0 4px 12px #8cf8);
+}
 }
 
 @media (max-width: 600px) {
