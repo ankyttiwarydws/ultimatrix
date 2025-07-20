@@ -1,0 +1,88 @@
+/* Contact Form Styles */
+.contact-form {
+  max-width: 500px;
+  margin: 2em auto 1.5em auto;
+  background: #f7fcfc;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(94,115,159,0.08);
+  padding: 2em 1.5em;
+}
+.contact-form label {
+  font-weight: 600;
+  color: #234;
+  margin-bottom: 0.3em;
+  display: block;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #b3c0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: #234;
+  box-sizing: border-box;
+  transition: border-color 0.18s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+.contact-form button.btn {
+  display: inline-block;
+  padding: 0.6em 1.4em;
+  font-size: 1.08rem;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #0077cc 60%, #5e739f 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 2px 8px rgba(94,115,159,0.1);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.contact-form button.btn:hover,
+.contact-form button.btn:focus {
+  background: linear-gradient(90deg, #005fa3 60%, #3a4a6b 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(94,115,159,0.18);
+  outline: none;
+}
+
+/* Responsive Contact Form */
+@media (max-width: 600px) {
+  .contact-form {
+    max-width: 98vw;
+    margin: 1em 0.2em;
+    padding: 1em 0.5em;
+    box-shadow: 0 1px 6px rgba(94,115,159,0.08);
+  }
+  .contact-form label {
+    font-size: 1rem;
+    margin-bottom: 0.2em;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.98rem;
+    padding: 0.4em;
+    margin-bottom: 0.7em;
+  }
+  .contact-form button.btn {
+    font-size: 0.98rem;
+    padding: 0.5em 1em;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-form {
+    padding: 0.5em 0.2em;
+  }
+  .contact-form button.btn {
+    font-size: 0.92rem;
+    padding: 0.4em 0.7em;
+  }
+}
