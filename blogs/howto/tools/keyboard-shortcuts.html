@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,21 +8,14 @@
   <link rel="stylesheet" href="css/style.css" />
   <script src="/script.js" defer></script>
 </head>
+
 <body>
-  
-  <header class="site-header">
-    <div class="container">
-      <h1 class="logo">Ultimatix</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a>
-        <a href="/tools">Tools</a>
-        <a href="/games">Games</a>
-        <button id="theme-toggle">🌓</button>
-      </nav>
-      <input type="text" placeholder="Search..." class="search-bar" />
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
 
   <main class="container">
     <article class="hero">
@@ -29,6 +23,12 @@
       <p>Boost your productivity 10x.</p>
     </article>
   </main>
-  <footer class="site-footer"><div class="container"><p>&copy; 2025 Ultimatix. All rights reserved.</p></div></footer>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>

@@ -9,67 +9,68 @@
   <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <main>
-    
+
     <section class="blogs-section"
       style="background-image: url('/assets/img/blog-month-bg.jpg'); background-size: cover; background-position: center;">
-  <div class="blogs-section-menu">
-    <div id="month">
-      <h2 class="blogs-month-heading">SSH Key Setup for Bitbucket</h2>
-      <p class="blogs-month-subheading">Follow these steps to generate and add SSH keys for Bitbucket:</p>
-      
-      <p class="blogs-month-title">Generate SSH Public and Private Keys</p>
-      <p class="blogs-month-desc">
-        <strong>Step 1</strong> - Open Command Prompt<br><br>
-        <strong>Step 2</strong> – Type <code>ssh-keygen</code> and press Enter<br><br>
-        <strong>Step 3</strong> – Go to folder <code>C:\Users\user\.ssh</code><br><br>
-        Private key file – <code>id_rsa</code><br>
-        Public key file – <code>id_rsa.pub</code>
-      </p>
-      
-      <p class="blogs-month-title">Add Private Key</p>
-      <p class="blogs-month-desc">
-        <strong>Step 1</strong> – Open <code>id_rsa</code> file in Notepad<br><br>
-        <strong>Step 2</strong> – Copy file content and paste in Command Prompt below command and execute
-      </p>
-      
-      <p class="blogs-month-title">Add Public Key</p>
-      <p class="blogs-month-desc">
-        <strong>Step 1</strong> – Open <code>id_rsa.pub</code> file in Notepad<br><br>
-        <strong>Step 2</strong> – Go to Bitbucket → Personal Settings → SSH Keys → Click on Add Key<br><br>
-        <strong>Step 3</strong> – Copy file content and add to Bitbucket key and click save. (Do not enter anything in label)<br><br>
-        Verify key is added successfully.
-      </p>
-      
-      <p class="blogs-month-title">Add config and known host files to .ssh folder</p>
-      <p class="blogs-month-desc">
-        Below steps are optional if you need to add config and known host files.<br><br>
-        <strong>Step 1</strong> – Copy and paste config and known host file to <code>.ssh</code> folder<br>
-        <strong>Step 2</strong> – Copy public key file content and paste to known host file<br>
-        <strong>Step 3</strong> – Open config file and edit your name and email details as per Bitbucket profile
-      </p>
-      
-      <div class="blogs-btn-wrapper">
-        <a class="btn" href="/blogs/blogs.html">Go Back</a>
+      <div class="blogs-section-menu">
+        <div id="month">
+          <h2 class="blogs-month-heading">SSH Key Setup for Bitbucket</h2>
+          <p class="blogs-month-subheading">Follow these steps to generate and add SSH keys for Bitbucket:</p>
+
+          <p class="blogs-month-title">Generate SSH Public and Private Keys</p>
+          <p class="blogs-month-desc">
+            <strong>Step 1</strong> - Open Command Prompt<br><br>
+            <strong>Step 2</strong> – Type <code>ssh-keygen</code> and press Enter<br><br>
+            <strong>Step 3</strong> – Go to folder <code>C:\Users\user\.ssh</code><br><br>
+            Private key file – <code>id_rsa</code><br>
+            Public key file – <code>id_rsa.pub</code>
+          </p>
+
+          <p class="blogs-month-title">Add Private Key</p>
+          <p class="blogs-month-desc">
+            <strong>Step 1</strong> – Open <code>id_rsa</code> file in Notepad<br><br>
+            <strong>Step 2</strong> – Copy file content and paste in Command Prompt below command and execute
+          </p>
+
+          <p class="blogs-month-title">Add Public Key</p>
+          <p class="blogs-month-desc">
+            <strong>Step 1</strong> – Open <code>id_rsa.pub</code> file in Notepad<br><br>
+            <strong>Step 2</strong> – Go to Bitbucket → Personal Settings → SSH Keys → Click on Add Key<br><br>
+            <strong>Step 3</strong> – Copy file content and add to Bitbucket key and click save. (Do not enter anything
+            in label)<br><br>
+            Verify key is added successfully.
+          </p>
+
+          <p class="blogs-month-title">Add config and known host files to .ssh folder</p>
+          <p class="blogs-month-desc">
+            Below steps are optional if you need to add config and known host files.<br><br>
+            <strong>Step 1</strong> – Copy and paste config and known host file to <code>.ssh</code> folder<br>
+            <strong>Step 2</strong> – Copy public key file content and paste to known host file<br>
+            <strong>Step 3</strong> – Open config file and edit your name and email details as per Bitbucket profile
+          </p>
+
+          <div class="blogs-btn-wrapper">
+            <a class="btn" href="/blogs/blogs.html">Go Back</a>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
     </section>
-<main>
-</main>
-<footer class="site-footer"><div class="container"><p>&copy; 2025 Ultimatix. All rights reserved.</p></div></footer>
+  </main>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+
+</html>

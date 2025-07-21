@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,25 +9,19 @@
   <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <main>
     <section class="blogs-main-category">
       <h3>Travelling</h3>
-      <p>Mist wraps the hills like a secret, and the clouds drift low, whispering tales only silence understands. Each breath of fog feels like a hidden chapter unfolding across the ridges.</p>
+      <p>Mist wraps the hills like a secret, and the clouds drift low, whispering tales only silence understands. Each
+        breath of fog feels like a hidden chapter unfolding across the ridges.</p>
       <nav class="blogs-main-category-menu">
         <ul>
           <li><a href="#" class="howto-tab-btn active" data-tab="lonavala">Lonavala</a></li>
@@ -43,7 +38,8 @@
             <div class="howto-card color1">
               <a href="/blogs/travel/lonavala.html">
                 <h4>Mystery of Clouds in Lonavala</h4>
-                <p>Mist wraps the hills like a secret, and the clouds drift low, whispering tales only silence understands.</p>
+                <p>Mist wraps the hills like a secret, and the clouds drift low, whispering tales only silence
+                  understands.</p>
               </a>
             </div>
           </div>
@@ -65,35 +61,41 @@
             <div class="howto-card color3">
               <a href="/blogs/travel/fireflies.html">
                 <h4>Dancing with Fireflies</h4>
-                <p>Beneath the hush of nightfall, tiny lanterns flicker to life, guiding wanderers through stories nature whispers.</p>
+                <p>Beneath the hush of nightfall, tiny lanterns flicker to life, guiding wanderers through stories
+                  nature whispers.</p>
               </a>
             </div>
           </div>
         </div>
       </div>
       <p class="blogs-amazon-subheading">Want to see more blogs?</p>
-<div class="blogs-btn-wrapper">
-  <a class="btn" href="/blogs/blogs.html">← Go to Blogs</a>
-</div>
-    <!-- <button onclick="window.location.href='/blogs/blogs.html'" class="btn">← Go Back</button> -->
-</section>
+      <div class="blogs-btn-wrapper">
+        <a class="btn" href="/blogs/blogs.html">← Go to Blogs</a>
+      </div>
+      <!-- <button onclick="window.location.href='/blogs/blogs.html'" class="btn">← Go Back</button> -->
+    </section>
   </main>
-</main>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
 <script>
-// Tab switching logic for Travel section
-document.querySelectorAll('.howto-tab-btn').forEach(function(btn) {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelectorAll('.howto-tab-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    var tab = btn.getAttribute('data-tab');
-    document.querySelectorAll('.howto-tab-content').forEach(function(tc) {
-      tc.style.display = 'none';
+  // Tab switching logic for Travel section
+  document.querySelectorAll('.howto-tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('.howto-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var tab = btn.getAttribute('data-tab');
+      document.querySelectorAll('.howto-tab-content').forEach(function (tc) {
+        tc.style.display = 'none';
+      });
+      document.getElementById('tab-' + tab).style.display = 'block';
     });
-    document.getElementById('tab-' + tab).style.display = 'block';
   });
-});
 </script>
-</html>
 
+</html>

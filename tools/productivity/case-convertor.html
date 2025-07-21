@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Case Convertor | Ultimatrix</title>
-  <meta name="description" content="Free online case converter tool to change text to uppercase, lowercase, sentence case, title case, and capitalized case. Fast and easy!" />
+  <meta name="description"
+    content="Free online case converter tool to change text to uppercase, lowercase, sentence case, title case, and capitalized case. Fast and easy!" />
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/script.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -42,7 +44,7 @@
       background: #ffffff;
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
       max-width: 700px;
       width: 100%;
       z-index: 1;
@@ -92,7 +94,8 @@
       text-align: center;
     }
 
-    .tool-description, .tool-howto {
+    .tool-description,
+    .tool-howto {
       background: #f8f9fa;
       border-radius: 10px;
       padding: 15px 18px;
@@ -101,11 +104,14 @@
       color: #333;
       text-align: left;
     }
-    .tool-description strong, .tool-howto strong {
+
+    .tool-description strong,
+    .tool-howto strong {
       display: block;
       margin-bottom: 6px;
       color: #2193b0;
     }
+
     .case-btn {
       background: linear-gradient(90deg, #9bcaf9 0%, #5a5e5f 100%);
       color: #151414;
@@ -118,38 +124,35 @@
       cursor: pointer;
       transition: background 0.2s, color 0.2s;
     }
+
     .case-btn:hover {
       background: linear-gradient(90deg, #6dd5ed 0%, #1e1e1f 100%);
       color: #fff;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <div class="tool-container">
     <div class="side-buttons">
     </div>
 
     <div class="tool-box">
       <div class="title">Case Converter</div>
-      <div class="intro">Convert your text into different cases instantly. Choose from uppercase, lowercase, capitalized, title, or sentence case.</div>
+      <div class="intro">Convert your text into different cases instantly. Choose from uppercase, lowercase,
+        capitalized, title, or sentence case.</div>
       <div class="tool-description">
         <strong>About Case Convertor</strong>
         <p>
-          Instantly change your text to <b>uppercase, lowercase, title case, sentence case, or capitalized case</b> with this free online Case Convertor. Great for formatting essays, code, or social media posts. Fast, private, and works in your browser.
+          Instantly change your text to <b>uppercase, lowercase, title case, sentence case, or capitalized case</b> with
+          this free online Case Convertor. Great for formatting essays, code, or social media posts. Fast, private, and
+          works in your browser.
         </p>
       </div>
       <div class="tool-howto">
@@ -185,7 +188,7 @@
     function convertCase(type) {
       let text = input.value;
 
-      switch(type) {
+      switch (type) {
         case 'upper':
           output.value = text.toUpperCase();
           break;
@@ -215,5 +218,12 @@
       document.execCommand("copy");
     }
   </script>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>

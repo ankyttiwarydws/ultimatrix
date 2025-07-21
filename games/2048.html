@@ -1,231 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2048 Game - Play Online Free | Ultimatrix</title>
-  <meta name="description" content="Play the classic 2048 game online for free on Ultimatrix! Merge tiles, increase your score, and challenge your brain. Use arrow keys to move. No download needed." />
+  <meta name="description"
+    content="Play the classic 2048 game online for free on Ultimatrix! Merge tiles, increase your score, and challenge your brain. Use arrow keys to move. No download needed." />
   <link rel="stylesheet" href="/css/style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #ece9e6, #ffffff);
-      /* Remove flex centering from body */
-    }
-    .game-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 80vh;
-      margin-top: 80px;
-    }
-    .game-container {
-      text-align: center;
-      background-color: #faf8ef;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      max-width: 500px;
-      width: 100%;
-      position: relative;
-    }
-    .title {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #776e65;
-    }
-    .score-board {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-    .score-box {
-      background-color: #bbada0;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-    }
-    /* Place side-buttons at the bottom and make them eye-catching */
-    .side-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 30px auto 20px auto;
-      position: relative;
-      width: 100%;
-      z-index: 1;
-      pointer-events: auto;
-    }
-    .side-buttons a {
-      background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(33, 147, 176, 0.15);
-      border: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-block;
-    }
-    .side-buttons a:hover {
-      transform: scale(1.07);
-      box-shadow: 0 6px 18px rgba(33, 147, 176, 0.25);
-      background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
-      color: #fff;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 100px);
-      grid-template-rows: repeat(4, 100px);
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .tile {
-      width: 100px;
-      height: 100px;
-      background-color: #cdc1b4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.8rem;
-      border-radius: 8px;
-      color: #776e65;
-    }
-    .controls {
-      margin-top: 10px;
-    }
-    .controls button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      background-color: #8f7a66;
-      color: white;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .controls button:hover {
-      background-color: #776e65;
-    }
-    .instructions {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    .game-description, .game-rules {
-      background: #f8f9fa;
-      border-radius: 10px;
-      padding: 15px 18px;
-      margin-top: 18px;
-      font-size: 1rem;
-      color: #333;
-      text-align: left;
-    }
-    .game-description strong, .game-rules strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #2193b0;
-    }
-
-    /* Place side-buttons at the bottom and make them eye-catching */
-    .side-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-      margin-bottom: 20px;
-      position: relative;
-      width: 100%;
-      z-index: 1;
-    }
-    .side-buttons a {
-      background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(33, 147, 176, 0.15);
-      border: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-block;
-    }
-    .side-buttons a:hover {
-      transform: scale(1.07);
-      box-shadow: 0 6px 18px rgba(33, 147, 176, 0.25);
-      background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
-      color: #fff;
-    }
-    @media (max-width: 600px) {
-      .side-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        margin: 20px auto 10px auto;
-      }
-      .side-buttons a {
-        width: 90vw;
-        font-size: 1rem;
-        text-align: center;
-        padding: 12px 0;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/css/games/2048.css" />
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <div class="game-wrapper">
     <div class="game-container" tabindex="0" onkeydown="handleKey(event)">
-    <div class="title">2048</div>
-    <div class="score-board">
-      <div class="score-box">Score: <span id="score">0</span></div>
-      <div class="score-box">Best: <span id="best">0</span></div>
+      <div class="title">2048</div>
+      <div class="score-board">
+        <div class="score-box">Score: <span id="score">0</span></div>
+        <div class="score-box">Best: <span id="best">0</span></div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="controls">
+        <button onclick="startGame()">🔁 Restart</button>
+      </div>
+      <div class="instructions">
+        Use arrow keys (↑ ↓ ← →) on your keyboard to move the tiles. Merge matching tiles to reach 2048!
+      </div>
+      <div class="game-description">
+        <strong>About 2048</strong>
+        <p>
+          Play the addictive <b>2048 game</b> online for free! Slide numbered tiles on a 4x4 grid to combine them and
+          create the 2048 tile. This brain-teasing puzzle game is perfect for sharpening your logic and strategy skills.
+          Enjoy a relaxing, ad-free experience right in your browser.
+        </p>
+      </div>
+      <div class="game-rules">
+        <strong>How to Play:</strong>
+        <ul>
+          <li>Use your arrow keys to move all tiles in the chosen direction.</li>
+          <li>When two tiles with the same number touch, they merge into one with double the value.</li>
+          <li>Keep combining tiles to reach 2048. The game ends when no moves are left.</li>
+        </ul>
+      </div>
     </div>
-    <div class="grid" id="grid"></div>
-    <div class="controls">
-      <button onclick="startGame()">🔁 Restart</button>
-    </div>
-    <div class="instructions">
-      Use arrow keys (↑ ↓ ← →) on your keyboard to move the tiles. Merge matching tiles to reach 2048!
-    </div>
-    <div class="game-description">
-      <strong>About 2048</strong>
-      <p>
-        Play the addictive <b>2048 game</b> online for free! Slide numbered tiles on a 4x4 grid to combine them and create the 2048 tile. This brain-teasing puzzle game is perfect for sharpening your logic and strategy skills. Enjoy a relaxing, ad-free experience right in your browser.
-      </p>
-    </div>
-    <div class="game-rules">
-      <strong>How to Play:</strong>
-      <ul>
-        <li>Use your arrow keys to move all tiles in the chosen direction.</li>
-        <li>When two tiles with the same number touch, they merge into one with double the value.</li>
-        <li>Keep combining tiles to reach 2048. The game ends when no moves are left.</li>
-      </ul>
-    </div>
-  </div>
   </div>
   <script>
     const gridElement = document.getElementById("grid");
@@ -285,8 +108,8 @@
         const filtered = row.filter(v => v);
         const merged = [];
         for (let i = 0; i < filtered.length; i++) {
-          if (filtered[i] === filtered[i+1]) {
-            const mergedVal = filtered[i]*2;
+          if (filtered[i] === filtered[i + 1]) {
+            const mergedVal = filtered[i] * 2;
             merged.push(mergedVal);
             score += mergedVal;
             i++;
@@ -340,13 +163,13 @@
 
     // Swipe support for mobile
     let touchStartX = 0, touchStartY = 0;
-    gridElement.addEventListener("touchstart", function(e) {
+    gridElement.addEventListener("touchstart", function (e) {
       if (e.touches.length === 1) {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
       }
     }, { passive: true });
-    gridElement.addEventListener("touchend", function(e) {
+    gridElement.addEventListener("touchend", function (e) {
       if (e.changedTouches.length === 1) {
         const dx = e.changedTouches[0].clientX - touchStartX;
         const dy = e.changedTouches[0].clientY - touchStartY;
@@ -363,26 +186,12 @@
     startGame();
     document.querySelector('.game-container').focus();
   </script>
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-links">
-        <a href="/about-us.html">About Us</a>
-        <a href="/contact-us.html">Contact Us</a>
-        <a href="/privacy.html">Privacy</a>
-      </div>
-      <div class="footer-social">
-        <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.47.7a4.3 4.3 0 0 0 1.88-2.37c-.83.5-1.75.87-2.72 1.07A4.28 4.28 0 0 0 16.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.99C7.69 9.13 4.07 7.2 1.64 4.16c-.37.64-.58 1.38-.58 2.17 0 1.5.76 2.83 1.92 3.61-.71-.02-1.38-.22-1.97-.54v.05c0 2.1 1.5 3.85 3.5 4.25-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.68 2.11 2.9 3.97 2.93A8.6 8.6 0 0 1 2 19.54c-.29 0-.57-.02-.85-.05A12.13 12.13 0 0 0 8.29 21c7.55 0 11.69-6.26 11.69-11.69 0-.18-.01-.36-.02-.54A8.18 8.18 0 0 0 24 4.59c-.77.34-1.6.58-2.47.7z"></path></svg>
-        </a>
-        <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0"></path></svg>
-        </a>
-        <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.974 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.974-1.246-2.242-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.516 2.497 5.784 2.226 7.15 2.163 8.416 2.105 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.346 3.678 1.327c-.98.98-1.196 2.093-1.255 3.374C2.013 5.741 2 6.151 2 12c0 5.849.013 6.259.072 7.539.059 1.281.275 2.394 1.255 3.374.981.981 2.093 1.196 3.374 1.255C8.741 23.987 9.151 24 12 24s3.259-.013 4.539-.072c1.281-.059 2.394-.274 3.374-1.255.981-.98 1.196-2.093 1.255-3.374.059-1.28.072-1.69.072-7.539 0-5.849-.013-6.259-.072-7.539-.059-1.281-.274-2.394-1.255-3.374-.98-.981-2.093-1.196-3.374-1.255C15.259.013 14.849 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>
-        </a>
-      </div>
-      <div class="footer-copy">&copy; 2025 Ultimatrix. All rights reserved.</div>
-    </div>
-  </footer>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>

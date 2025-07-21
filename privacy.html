@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | Ultimatrix</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/blogs.css" />
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('/header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+    <main>
+        <section class="blogs-main-category">
+            <h3>Privacy Policy</h3>
+            <p>Your privacy is important to us. This policy explains how Ultimatrix collects, uses, and protects your
+                information.</p>
+        </section>
+        <section>
+            <div id="tab-date" class="howto-tab-content" style="display:block;">
+                <p class="blogs-amazon-subheading">Information We Collect</p>
+                <p class="blogs-month-desc">
+
+                    <strong>Personal Data:</strong> We do not require personal information to use most features. If you
+                    contact us, we may collect your name and email address.<br>
+                    <strong>Usage Data:</strong> We collect anonymous usage statistics to improve our services.<br>
+                    <strong>Cookies:</strong> We use cookies for basic site functionality and analytics. You can disable
+                    cookies in your browser settings.<br>
+
+                </p>
+            </div>
+            <div id="tab-date" class="howto-tab-content" style="display:block;">
+                <p class="blogs-amazon-subheading">How We Use Your Information</p>
+                <p class="blogs-month-desc">
+
+                    To provide and improve our services.<br>
+                    To respond to your inquiries and feedback.<br>
+                    To analyze site usage and enhance user experience.<br>
+
+                </p>
+            </div>
+            <div id="tab-date" class="howto-tab-content" style="display:block;">
+                <p class="blogs-amazon-subheading">Data Protection</p>
+                <p class="blogs-month-desc">
+                    We implement security measures to protect your data. No method of transmission over the Internet is
+                    100% secure, but we strive to use commercially acceptable means to safeguard your information.
+                </p>
+            </div>
+            <div id="tab-date" class="howto-tab-content" style="display:block;">
+                <p class="blogs-amazon-subheading">Third-Party Services</p>
+                <p class="blogs-month-desc">
+                    Ultimatrix may link to third-party sites or use third-party tools. We are not responsible for their
+                    privacy practices. Please review their policies before providing information.
+                </p>
+            </div>
+            <div id="tab-date" class="howto-tab-content" style="display:block;">
+                <p class="blogs-amazon-subheading">Your Choices</p>
+                <p class="blogs-month-desc">
+
+                    You may disable cookies in your browser.
+                    You may contact us to request deletion of your information.
+
+                </p>
+            </div>
+            <div id="tab-date" class="howto-tab-content" style="display:block;">
+                <p class="blogs-amazon-subheading">Changes to This Policy</p>
+                <p class="blogs-month-desc">
+                    We may update this Privacy Policy from time to time. Changes will be posted on this page.
+                </p>
+            </div>
+            <div id="tab-date" class="howto-tab-content" style="display:block;">
+                <p class="blogs-amazon-subheading">Contact Us</p>
+                <p class="blogs-month-desc">
+                    If you have any questions about this Privacy Policy, please <a href="/contact-us.html">contact
+                        us</a>.
+                </p>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script>
+        fetch('/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>

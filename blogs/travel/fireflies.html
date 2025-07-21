@@ -11,27 +11,27 @@
 </head>
 
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <main>
     <section>
       <h2>Dancing with Fireflies</h2>
-      <p>Beneath the hush of nightfall, tiny lanterns flicker to life, guiding wanderers through stories nature whispers. Chasing flickers in the twilight, where nature’s glow writes stories on the wind. Each spark a memory, each night a new page.</p>
+      <p>Beneath the hush of nightfall, tiny lanterns flicker to life, guiding wanderers through stories nature
+        whispers. Chasing flickers in the twilight, where nature’s glow writes stories on the wind. Each spark a memory,
+        each night a new page.</p>
       <p>(Full story coming soon!)</p>
     </section>
   </main>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
 
 </html>

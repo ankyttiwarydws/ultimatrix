@@ -9,23 +9,16 @@
   <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <main>
-    
+
     <section class="blogs-section"
       style="background-image: url('/assets/img/blog-month-bg.jpg'); background-size: cover; background-position: center;">
       <div class="blogs-section-menu">
@@ -36,52 +29,52 @@
           <p class="blogs-month-title">SSH Key Setup</p>
           <p class="blogs-month-desc">
             1. Generate an SSH Key Pair
-Open your terminal (Command Prompt, PowerShell, or VS Code terminal) and run:
-ssh-keygen -t ed25519 -C "your_email@example.com"
-•	If your system doesn’t support ed25519, use:
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-•	When prompted, press Enter to accept the default file location.
-•	Optionally, set a passphrase for extra security.
-________________________________________
-2. Start the SSH Agent and Add Your Key
-Run the following commands:
-# Start the SSH agent
-eval "$(ssh-agent -s)"
-# Add your SSH private key to the agent
-ssh-add ~/.ssh/id_ed25519
-•	On Windows, the key path may be C:\Users\YourUser\.ssh\id_ed25519.
-________________________________________
-3. Copy the Public Key
-Copy your public key to the clipboard:
-•	On Linux/macOS:
-cat ~/.ssh/id_ed25519.pub | clip
-•	On Windows (PowerShell):
-Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub | Set-Clipboard
-Or open the file and copy its contents manually.
-________________________________________
-4. Add the SSH Key to Your Git Provider
-For GitHub:
-1.	Go to GitHub SSH Keys settings.
-2.	Click New SSH key.
-3.	Paste your public key into the field.
-4.	Give it a title and save.
-For Azure DevOps:
-1.	Go to Azure DevOps SSH Keys, then User Settings > SSH Public Keys.
-2.	Click Add.
-3.	Paste your public key and save.
-________________________________________
-5. Test Your SSH Connection
-Run:
-ssh -T git@github.com
-•	For Azure DevOps, use:
-ssh -T git@ssh.dev.azure.com
-You should see a success message (e.g., "You've successfully authenticated").
-________________________________________
-6. Use SSH URLs for Git Operations
-When cloning or adding remotes, use the SSH URL, e.g.:
-git clone git@github.com:username/repo.git
-________________________________________
-You’re now set up to use SSH keys for Git authentication!
+            Open your terminal (Command Prompt, PowerShell, or VS Code terminal) and run:
+            ssh-keygen -t ed25519 -C "your_email@example.com"
+            • If your system doesn’t support ed25519, use:
+            ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+            • When prompted, press Enter to accept the default file location.
+            • Optionally, set a passphrase for extra security.
+            ________________________________________
+            2. Start the SSH Agent and Add Your Key
+            Run the following commands:
+            # Start the SSH agent
+            eval "$(ssh-agent -s)"
+            # Add your SSH private key to the agent
+            ssh-add ~/.ssh/id_ed25519
+            • On Windows, the key path may be C:\Users\YourUser\.ssh\id_ed25519.
+            ________________________________________
+            3. Copy the Public Key
+            Copy your public key to the clipboard:
+            • On Linux/macOS:
+            cat ~/.ssh/id_ed25519.pub | clip
+            • On Windows (PowerShell):
+            Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub | Set-Clipboard
+            Or open the file and copy its contents manually.
+            ________________________________________
+            4. Add the SSH Key to Your Git Provider
+            For GitHub:
+            1. Go to GitHub SSH Keys settings.
+            2. Click New SSH key.
+            3. Paste your public key into the field.
+            4. Give it a title and save.
+            For Azure DevOps:
+            1. Go to Azure DevOps SSH Keys, then User Settings > SSH Public Keys.
+            2. Click Add.
+            3. Paste your public key and save.
+            ________________________________________
+            5. Test Your SSH Connection
+            Run:
+            ssh -T git@github.com
+            • For Azure DevOps, use:
+            ssh -T git@ssh.dev.azure.com
+            You should see a success message (e.g., "You've successfully authenticated").
+            ________________________________________
+            6. Use SSH URLs for Git Operations
+            When cloning or adding remotes, use the SSH URL, e.g.:
+            git clone git@github.com:username/repo.git
+            ________________________________________
+            You’re now set up to use SSH keys for Git authentication!
 
 
           </p>
@@ -92,6 +85,12 @@ You’re now set up to use SSH keys for Git authentication!
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="container"><p>&copy; 2025 Ultimatix. All rights reserved.</p></div></footer>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>

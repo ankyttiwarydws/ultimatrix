@@ -9,68 +9,67 @@
   <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <main>
-    
-    <<section class="blogs-section"
+
+    <section class="blogs-section"
       style="background-image: url('/assets/img/blog-month-bg.jpg'); background-size: cover; background-position: center;">
-  <div class="blogs-section-menu">
-    <div id="month">
-      <h2 class="blogs-month-heading">JAVA & Maven Setup Steps</h2>
-      <p class="blogs-month-title">JAVA Setup Steps:-</p>
-      <p class="blogs-month-desc">
-        1. Download and install - <strong>jdk-17_windows-x64_bin.exe</strong><br><br>
-        2. Download and install - <strong>jre-8u311-windows-x64.exe</strong><br><br>
-        3. Set JAVA_HOME as below -<br>
-        <code>JAVA_HOME = C:\Program Files\Java\jre1.8.0_311</code><br><br>
-        4. Set Path as below -<br>
-        <code>PATH = C:\Program Files\Java\jre1.8.0_311\bin</code><br><br>
-        Or<br>
-        Set JAVA_HOME and Path using Command Prompt with below commands -<br>
-        <code>setx JAVA_HOME "C:\Program Files\Java\jre1.8.0_311"</code><br>
-        <code>setx PATH "%JAVA_HOME%\bin";</code><br><br>
-        <code>setx -m JAVA_HOME "C:\Program Files\Java\jre1.8.0_311"</code><br>
-        <code>setx -m PATH "%JAVA_HOME%\bin";</code><br><br>
-        5. Once setup is complete, check java version and home in command prompt with below commands -<br><br>
-        <strong>Command:</strong> <code>java -version</code><br>
-        <strong>Output:</strong><br>
-        java version "17.0.1" 2021-10-19 LTS<br>
-        Java(TM) SE Runtime Environment (build 17.0.1+12-LTS-39)<br>
-        Java HotSpot(TM) 64-Bit Server VM (build 17.0.1+12-LTS-39, mixed mode, sharing)<br><br>
-        <strong>Command:</strong> <code>echo %JAVA_HOME%</code><br>
-        <strong>Output:</strong><br>
-        C:\Program Files\Java\jre1.8.0_311<br><br>
-        Setup is complete.
-      </p>
-      <p class="blogs-month-title">Maven Setup Steps:-</p>
-      <p class="blogs-month-desc">
-        <code>unzip apache-maven-3.8.3-bin.zip</code><br><br>
-        <code>export PATH=/opt/apache-maven-3.8.3/bin:$PATH</code><br><br>
-        <code>mvn -v</code><br><br>
-        <code>MAVEN_HOME = D:\Soft\apache-maven-3.8.3-bin\apache-maven-3.8.3</code><br>
-        <code>Path = %MAVEN_HOME%\bin</code>
-      </p>
-      <div class="blogs-btn-wrapper">
-        <a class="btn" href="/blogs/blogs.html">Go Back</a>
+      <div class="blogs-section-menu">
+        <div id="month">
+          <h2 class="blogs-month-heading">JAVA & Maven Setup Steps</h2>
+          <p class="blogs-month-title">JAVA Setup Steps:-</p>
+          <p class="blogs-month-desc">
+            1. Download and install - <strong>jdk-17_windows-x64_bin.exe</strong><br><br>
+            2. Download and install - <strong>jre-8u311-windows-x64.exe</strong><br><br>
+            3. Set JAVA_HOME as below -<br>
+            <code>JAVA_HOME = C:\Program Files\Java\jre1.8.0_311</code><br><br>
+            4. Set Path as below -<br>
+            <code>PATH = C:\Program Files\Java\jre1.8.0_311\bin</code><br><br>
+            Or<br>
+            Set JAVA_HOME and Path using Command Prompt with below commands -<br>
+            <code>setx JAVA_HOME "C:\Program Files\Java\jre1.8.0_311"</code><br>
+            <code>setx PATH "%JAVA_HOME%\bin";</code><br><br>
+            <code>setx -m JAVA_HOME "C:\Program Files\Java\jre1.8.0_311"</code><br>
+            <code>setx -m PATH "%JAVA_HOME%\bin";</code><br><br>
+            5. Once setup is complete, check java version and home in command prompt with below commands -<br><br>
+            <strong>Command:</strong> <code>java -version</code><br>
+            <strong>Output:</strong><br>
+            java version "17.0.1" 2021-10-19 LTS<br>
+            Java(TM) SE Runtime Environment (build 17.0.1+12-LTS-39)<br>
+            Java HotSpot(TM) 64-Bit Server VM (build 17.0.1+12-LTS-39, mixed mode, sharing)<br><br>
+            <strong>Command:</strong> <code>echo %JAVA_HOME%</code><br>
+            <strong>Output:</strong><br>
+            C:\Program Files\Java\jre1.8.0_311<br><br>
+            Setup is complete.
+          </p>
+          <p class="blogs-month-title">Maven Setup Steps:-</p>
+          <p class="blogs-month-desc">
+            <code>unzip apache-maven-3.8.3-bin.zip</code><br><br>
+            <code>export PATH=/opt/apache-maven-3.8.3/bin:$PATH</code><br><br>
+            <code>mvn -v</code><br><br>
+            <code>MAVEN_HOME = D:\Soft\apache-maven-3.8.3-bin\apache-maven-3.8.3</code><br>
+            <code>Path = %MAVEN_HOME%\bin</code>
+          </p>
+          <div class="blogs-btn-wrapper">
+            <a class="btn" href="/blogs/blogs.html">Go Back</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<main>
-</main>
-<footer class="site-footer"><div class="container"><p>&copy; 2025 Ultimatix. All rights reserved.</p></div></footer>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
+</html>
