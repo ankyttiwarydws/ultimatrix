@@ -9,84 +9,106 @@
   <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <main>
-    
+
     <section class="blogs-section"
       style="background-image: url('/assets/img/blog-month-bg.jpg'); background-size: cover; background-position: center;">
-  <div class="blogs-section-menu">
-    <div id="month">
-      <h2 class="blogs-month-heading">QA Interview Concepts Cheatsheet</h2>
-      <p class="blogs-month-desc">
-        <strong>1. ObjectMapper - Serialization (JAVA object to JSON) and Deserialization (JSON to JAVA object)</strong><br>
-        Jackson - <code>ObjectMapper mapper = new ObjectMapper();</code><br>
-        <code>Member member = readValue(jsonStr, Member.class)</code><br>
-        <code>jsonStr = writeWithDefaultPrettyPrinter().writeValueAsString(member);</code>
-        <br><br>
-        <strong>2. PageFactory.initElements(driver, this)</strong>
-        <br><br>
-        <strong>3. Cookies in Selenium</strong><br>
-        Each cookie is associated with a name, value, domain, path, expiry, and the status of whether it is secure or not. In order to validate a client, a server parses all of these values in a cookie.<br>
-        <code>driver.manage().getCookies();</code> Return The List of all Cookies<br>
-        <code>driver.manage().getCookieNamed(arg0);</code> Return specific cookie according to name<br>
-        <code>driver.manage().addCookie(arg0);</code> Create and add the cookie<br>
-        <code>driver.manage().deleteCookie(arg0);</code> Delete specific cookie<br>
-        <code>driver.manage().deleteCookieNamed(arg0);</code> Delete specific cookie according Name<br>
-        <code>driver.manage().deleteAllCookies();</code> Delete all cookies
-        <br><br>
-        <strong>4. Singleton Class in Java</strong><br>
-        Remember the key points while defining a class as a singleton class:<br>
-        - Make a constructor private.<br>
-        - Write a static method that has the return type object of this singleton class. Here, the concept of Lazy initialization is used to write this static method.<br>
-        - The primary purpose of a java Singleton class is to restrict the limit of the number of object creations to only one. This often ensures that there is access control to resources, for example, socket or database connection.<br>
-        - We can use this single object repeatedly as per the requirements. This is the reason why multi-threaded and database applications mostly make use of the Singleton pattern in Java for caching, logging, thread pooling, configuration settings, and much more.<br>
-        - Ensure that only one instance of the class exists.<br>
-        - Provide global access to that instance by declaring all constructors of the class to be private.<br>
-        - Providing a static method that returns a reference to the instance. The lazy initialization concept is used to write the static methods.<br>
-        - The instance is stored as a private static variable.
-        <br><br>
-        <strong>5. Scenario Outline - Examples Table and its Implementation</strong><br>
-        The Scenario Outline keyword can be used to run the same Scenario multiple times, with different combinations of data. The Parameterized variables are specified within angular brackets &lt;&gt; which acts as Headers in the examples table.<br>
-        Test data for Scenario outline will be placed under the scenario using keyword “Examples”. A Scenario Outline must have one or more “Examples” associated with it.<br>
-        Cucumber automatically runs the complete Scenario (i.e all Given/When/Then steps of that scenario) once for each row of data provided beneath Examples keyword. Here, the header is not counted as Data.<br>
-        Cucumber will replace the parameterized variables &lt;&gt; in the Scenario Outline with actual data from the examples table during the execution.
-        <br><br>
-        <strong>6. Data Table and its Implementation</strong><br>
-        Data Table works only for the single step below which it is defined rather than the entire scenario.<br>
-        Data tables from Gherkin can be accessed by using the DataTable object as the last parameter in a step definition. This conversion can be done either by Cucumber or manually.<br>
-        Test Data is directly specified below the particular step in a Scenario and no separate keyword is needed to define the test data. It doesn’t necessarily have a Header row either. Note: In the case where header row is provided in the data table, we would skip the first row while parsing the data in step definition.<br>
-        Separate code is required (e.g. List, Map) to interpret the Data Tables in Step Definitions (or Glue code). Several methods are provided to convert tables to common data structures such as lists, maps etc. There are different ways to handle it, depending on the structure and complexity of the data. Most common are: (1) list of lists (2) list of maps and (3) table transformer.<br>
-        Data Tables can be accessed by using the DataTables object as a parameter in the Step Definition. For Example: In the case of the below two scenarios, ‘DataTable datatable’ will be passed as a parameter in the functions for ‘Given’ step and ‘When’ step respectively.<br>
-        Depending on the input data, Data Table can be implemented using various Collections, for example:<br>
-        <code>List&lt;List&lt;String&gt;&gt; tableName</code><br>
-        <code>Map&lt;String, String&gt; tableName</code><br>
-        <code>List&lt;Map&lt;String, String&gt;&gt; tableName</code><br>
-        Example of DataTable without header in Feature File - Implementation of above data table using List&lt;List&lt;String&gt;&gt; approach.<br>
-        Example of DataTable with header and single row in Feature File - Implementation of above data table using Map&lt;String, String&gt; approach.<br>
-        Example of DataTable with header and multiple rows in Feature File - Implementation of above data table using List&lt;Map&lt;String, String&gt;&gt; approach.<br>
-      </p>
-      <div class="blogs-btn-wrapper">
-        <a class="btn" href="/blogs/blogs.html">Go Back</a>
+      <div class="blogs-section-menu">
+        <div id="month">
+          <h2 class="blogs-month-heading">QA Interview Concepts Cheatsheet</h2>
+          <p class="blogs-month-desc">
+            <strong>1. ObjectMapper - Serialization (JAVA object to JSON) and Deserialization (JSON to JAVA
+              object)</strong><br>
+            Jackson - <code>ObjectMapper mapper = new ObjectMapper();</code><br>
+            <code>Member member = readValue(jsonStr, Member.class)</code><br>
+            <code>jsonStr = writeWithDefaultPrettyPrinter().writeValueAsString(member);</code>
+            <br><br>
+            <strong>2. PageFactory.initElements(driver, this)</strong>
+            <br><br>
+            <strong>3. Cookies in Selenium</strong><br>
+            Each cookie is associated with a name, value, domain, path, expiry, and the status of whether it is secure
+            or not. In order to validate a client, a server parses all of these values in a cookie.<br>
+            <code>driver.manage().getCookies();</code> Return The List of all Cookies<br>
+            <code>driver.manage().getCookieNamed(arg0);</code> Return specific cookie according to name<br>
+            <code>driver.manage().addCookie(arg0);</code> Create and add the cookie<br>
+            <code>driver.manage().deleteCookie(arg0);</code> Delete specific cookie<br>
+            <code>driver.manage().deleteCookieNamed(arg0);</code> Delete specific cookie according Name<br>
+            <code>driver.manage().deleteAllCookies();</code> Delete all cookies
+            <br><br>
+            <strong>4. Singleton Class in Java</strong><br>
+            Remember the key points while defining a class as a singleton class:<br>
+            - Make a constructor private.<br>
+            - Write a static method that has the return type object of this singleton class. Here, the concept of Lazy
+            initialization is used to write this static method.<br>
+            - The primary purpose of a java Singleton class is to restrict the limit of the number of object creations
+            to only one. This often ensures that there is access control to resources, for example, socket or database
+            connection.<br>
+            - We can use this single object repeatedly as per the requirements. This is the reason why multi-threaded
+            and database applications mostly make use of the Singleton pattern in Java for caching, logging, thread
+            pooling, configuration settings, and much more.<br>
+            - Ensure that only one instance of the class exists.<br>
+            - Provide global access to that instance by declaring all constructors of the class to be private.<br>
+            - Providing a static method that returns a reference to the instance. The lazy initialization concept is
+            used to write the static methods.<br>
+            - The instance is stored as a private static variable.
+            <br><br>
+            <strong>5. Scenario Outline - Examples Table and its Implementation</strong><br>
+            The Scenario Outline keyword can be used to run the same Scenario multiple times, with different
+            combinations of data. The Parameterized variables are specified within angular brackets &lt;&gt; which acts
+            as Headers in the examples table.<br>
+            Test data for Scenario outline will be placed under the scenario using keyword “Examples”. A Scenario
+            Outline must have one or more “Examples” associated with it.<br>
+            Cucumber automatically runs the complete Scenario (i.e all Given/When/Then steps of that scenario) once for
+            each row of data provided beneath Examples keyword. Here, the header is not counted as Data.<br>
+            Cucumber will replace the parameterized variables &lt;&gt; in the Scenario Outline with actual data from the
+            examples table during the execution.
+            <br><br>
+            <strong>6. Data Table and its Implementation</strong><br>
+            Data Table works only for the single step below which it is defined rather than the entire scenario.<br>
+            Data tables from Gherkin can be accessed by using the DataTable object as the last parameter in a step
+            definition. This conversion can be done either by Cucumber or manually.<br>
+            Test Data is directly specified below the particular step in a Scenario and no separate keyword is needed to
+            define the test data. It doesn’t necessarily have a Header row either. Note: In the case where header row is
+            provided in the data table, we would skip the first row while parsing the data in step definition.<br>
+            Separate code is required (e.g. List, Map) to interpret the Data Tables in Step Definitions (or Glue code).
+            Several methods are provided to convert tables to common data structures such as lists, maps etc. There are
+            different ways to handle it, depending on the structure and complexity of the data. Most common are: (1)
+            list of lists (2) list of maps and (3) table transformer.<br>
+            Data Tables can be accessed by using the DataTables object as a parameter in the Step Definition. For
+            Example: In the case of the below two scenarios, ‘DataTable datatable’ will be passed as a parameter in the
+            functions for ‘Given’ step and ‘When’ step respectively.<br>
+            Depending on the input data, Data Table can be implemented using various Collections, for example:<br>
+            <code>List&lt;List&lt;String&gt;&gt; tableName</code><br>
+            <code>Map&lt;String, String&gt; tableName</code><br>
+            <code>List&lt;Map&lt;String, String&gt;&gt; tableName</code><br>
+            Example of DataTable without header in Feature File - Implementation of above data table using
+            List&lt;List&lt;String&gt;&gt; approach.<br>
+            Example of DataTable with header and single row in Feature File - Implementation of above data table using
+            Map&lt;String, String&gt; approach.<br>
+            Example of DataTable with header and multiple rows in Feature File - Implementation of above data table
+            using List&lt;Map&lt;String, String&gt;&gt; approach.<br>
+          </p>
+          <div class="blogs-btn-wrapper">
+            <a class="btn" href="/blogs/blogs.html">Go Back</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<main>
-</main>
-<footer class="site-footer"><div class="container"><p>&copy; 2025 Ultimatix. All rights reserved.</p></div></footer>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>

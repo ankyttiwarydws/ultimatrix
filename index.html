@@ -6,25 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ultimatrix</title>
   <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/header-footer.css" />
   <script src="/js/script.js"></script>
 </head>
 
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="https://latest.ultimatrix.co.in">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <!-- <button id="theme-toggle" class="dark-toggle">Toggle Dark Mode</button> -->
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
 
   <main>
     <!-- Hero -->

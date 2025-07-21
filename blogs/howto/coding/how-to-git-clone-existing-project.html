@@ -9,148 +9,149 @@
   <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <main>
-    
+
     <section class="blogs-section"
       style="background-image: url('/assets/img/blog-month-bg.jpg'); background-size: cover; background-position: center;">
-  <div class="blogs-section-menu">
-    <div id="month">
-      <h2 class="blogs-month-heading">GIT Setup Guide</h2>
-      <p class="blogs-month-subheading">Please follow below steps for a happy GIT Setup(Bitbucket).</p>
-      
-      <p class="blogs-month-title">Step 1: Create a folder in C: or D: drive</p>
-      <p class="blogs-month-desc">
-        Goto C: drive<br>
-        Create a folder: Folder name – <strong>Name</strong><br>
-        <code>C:\Name</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 2: Clone master branch</p>
-      <p class="blogs-month-desc">
-        Open GIT Bash Here<br>
-        Execute commands:<br>
-        <code>git init</code><br>
-        <code>git clone https://bitbucket.org/repo/src/master/</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 3: Create and checkout your branch</p>
-      <p class="blogs-month-desc">
-        Goto <code>D:\Folder</code><br>
-        Open GIT Bash Here<br>
-        Execute commands:<br>
-        <code>git branch name</code> <span>(Example: new_branch)</span><br>
-        <em>Note: If branch already exists, skip above command</em><br>
-        <code>git checkout new_branch</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 4: Pull code from a branch</p>
-      <p class="blogs-month-desc">
-        Execute command:<br>
-        <code>git pull origin main</code>
-      </p>
-      
-      <p class="blogs-month-desc">
-        Your code is all set to be used!
-      </p>
-      
-      <h3 class="blogs-month-heading">GIT Commit Guide</h3>
-      
-      <p class="blogs-month-title">Step 1: Check for the files that are changed</p>
-      <p class="blogs-month-desc">
-        <code>git status</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 2: Add the files that are changed</p>
-      <p class="blogs-month-desc">
-        To add all the files, execute:<br>
-        <code>git add .</code><br>
-        To add specific file mention file name after add:<br>
-        <code>git add filename</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 3: Commit the changes to your branch</p>
-      <p class="blogs-month-desc">
-        <code>git commit -m "add a comment here"</code><br>
-        Example:<br>
-        <code>git commit -m "new commit"</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 4: Pull changes from main branch - To make sure everyting is in sync</p>
-      <p class="blogs-month-desc">
-        <code>git pull origin main</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 5: Resolve Conflicts if any in IDE</p>
-      
-      <p class="blogs-month-title">Step 6: Push the changes to your branch</p>
-      <p class="blogs-month-desc">
-        <code>git push origin branch_name</code>
-      </p>
-      
-      <h3 class="blogs-month-heading">Git User Change</h3>
-      
-      <p class="blogs-month-title">Step 1: Edit the user details</p>
-      <p class="blogs-month-desc">
-        <code>git config --global --edit</code><br>
-        Press Insert Key<br>
-        Modify the incorrect user details with correct details<br>
-        Press Esc<br>
-        Type <code>:wq</code><br>
-        Press Enter
-      </p>
-      
-      <p class="blogs-month-title">Step 2: Fix identity of commit</p>
-      <p class="blogs-month-desc">
-        <code>git commit --amend --reset-author</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 3: Git Uncommit</p>
-      <p class="blogs-month-desc">
-        <code>git reset --soft HEAD^</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 4: Git Configurations</p>
-      <p class="blogs-month-desc">
-        <code>git config --list</code>
-      </p>
-      
-      <p class="blogs-month-title">Step 5: Git Restore</p>
-      <p class="blogs-month-desc">
-        <code>git restore .</code>
-      </p>
-      
-      <p class="blogs-month-title">Set remote URL</p>
-      <p class="blogs-month-desc">
-        <code>git remote set-url origin git@github.com:username/repository.git</code>
-      </p>
-      
-      <h3 class="blogs-month-heading">Git Tutorial</h3>
-      <p class="blogs-month-desc">
-        Go through below tutorial for any queries:<br>
-        <a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud" target="_blank">https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud</a>
-      </p>
-      
-      <div class="blogs-btn-wrapper">
-        <a class="btn" href="/blogs/blogs.html">Go Back</a>
+      <div class="blogs-section-menu">
+        <div id="month">
+          <h2 class="blogs-month-heading">GIT Setup Guide</h2>
+          <p class="blogs-month-subheading">Please follow below steps for a happy GIT Setup(Bitbucket).</p>
+
+          <p class="blogs-month-title">Step 1: Create a folder in C: or D: drive</p>
+          <p class="blogs-month-desc">
+            Goto C: drive<br>
+            Create a folder: Folder name – <strong>Name</strong><br>
+            <code>C:\Name</code>
+          </p>
+
+          <p class="blogs-month-title">Step 2: Clone master branch</p>
+          <p class="blogs-month-desc">
+            Open GIT Bash Here<br>
+            Execute commands:<br>
+            <code>git init</code><br>
+            <code>git clone https://bitbucket.org/repo/src/master/</code>
+          </p>
+
+          <p class="blogs-month-title">Step 3: Create and checkout your branch</p>
+          <p class="blogs-month-desc">
+            Goto <code>D:\Folder</code><br>
+            Open GIT Bash Here<br>
+            Execute commands:<br>
+            <code>git branch name</code> <span>(Example: new_branch)</span><br>
+            <em>Note: If branch already exists, skip above command</em><br>
+            <code>git checkout new_branch</code>
+          </p>
+
+          <p class="blogs-month-title">Step 4: Pull code from a branch</p>
+          <p class="blogs-month-desc">
+            Execute command:<br>
+            <code>git pull origin main</code>
+          </p>
+
+          <p class="blogs-month-desc">
+            Your code is all set to be used!
+          </p>
+
+          <h3 class="blogs-month-heading">GIT Commit Guide</h3>
+
+          <p class="blogs-month-title">Step 1: Check for the files that are changed</p>
+          <p class="blogs-month-desc">
+            <code>git status</code>
+          </p>
+
+          <p class="blogs-month-title">Step 2: Add the files that are changed</p>
+          <p class="blogs-month-desc">
+            To add all the files, execute:<br>
+            <code>git add .</code><br>
+            To add specific file mention file name after add:<br>
+            <code>git add filename</code>
+          </p>
+
+          <p class="blogs-month-title">Step 3: Commit the changes to your branch</p>
+          <p class="blogs-month-desc">
+            <code>git commit -m "add a comment here"</code><br>
+            Example:<br>
+            <code>git commit -m "new commit"</code>
+          </p>
+
+          <p class="blogs-month-title">Step 4: Pull changes from main branch - To make sure everyting is in sync</p>
+          <p class="blogs-month-desc">
+            <code>git pull origin main</code>
+          </p>
+
+          <p class="blogs-month-title">Step 5: Resolve Conflicts if any in IDE</p>
+
+          <p class="blogs-month-title">Step 6: Push the changes to your branch</p>
+          <p class="blogs-month-desc">
+            <code>git push origin branch_name</code>
+          </p>
+
+          <h3 class="blogs-month-heading">Git User Change</h3>
+
+          <p class="blogs-month-title">Step 1: Edit the user details</p>
+          <p class="blogs-month-desc">
+            <code>git config --global --edit</code><br>
+            Press Insert Key<br>
+            Modify the incorrect user details with correct details<br>
+            Press Esc<br>
+            Type <code>:wq</code><br>
+            Press Enter
+          </p>
+
+          <p class="blogs-month-title">Step 2: Fix identity of commit</p>
+          <p class="blogs-month-desc">
+            <code>git commit --amend --reset-author</code>
+          </p>
+
+          <p class="blogs-month-title">Step 3: Git Uncommit</p>
+          <p class="blogs-month-desc">
+            <code>git reset --soft HEAD^</code>
+          </p>
+
+          <p class="blogs-month-title">Step 4: Git Configurations</p>
+          <p class="blogs-month-desc">
+            <code>git config --list</code>
+          </p>
+
+          <p class="blogs-month-title">Step 5: Git Restore</p>
+          <p class="blogs-month-desc">
+            <code>git restore .</code>
+          </p>
+
+          <p class="blogs-month-title">Set remote URL</p>
+          <p class="blogs-month-desc">
+            <code>git remote set-url origin git@github.com:username/repository.git</code>
+          </p>
+
+          <h3 class="blogs-month-heading">Git Tutorial</h3>
+          <p class="blogs-month-desc">
+            Go through below tutorial for any queries:<br>
+            <a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud"
+              target="_blank">https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud</a>
+          </p>
+
+          <div class="blogs-btn-wrapper">
+            <a class="btn" href="/blogs/blogs.html">Go Back</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<main>
-</main>
-<footer class="site-footer"><div class="container"><p>&copy; 2025 Ultimatix. All rights reserved.</p></div></footer>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+
+</html>

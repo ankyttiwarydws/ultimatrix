@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +14,7 @@
       background: linear-gradient(to right, #74ebd5, #acb6e5);
       min-height: 100vh;
     }
+
     .game-wrapper {
       display: flex;
       justify-content: center;
@@ -21,6 +22,7 @@
       min-height: 80vh;
       margin-top: 80px;
     }
+
     .side-buttons {
       position: absolute;
       top: 50%;
@@ -31,6 +33,7 @@
       padding: 0 20px;
       z-index: 10;
     }
+
     .game-container {
       flex: 1;
       display: flex;
@@ -39,22 +42,26 @@
       padding: 30px;
       position: relative;
     }
+
     .game-box {
       text-align: center;
       background: white;
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
       max-width: 400px;
       width: 100%;
       z-index: 1;
     }
+
     .title {
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 20px;
     }
-    .game-description, .game-rules {
+
+    .game-description,
+    .game-rules {
       background: #f8f9fa;
       border-radius: 10px;
       padding: 15px 18px;
@@ -63,31 +70,26 @@
       color: #333;
       text-align: left;
     }
-    .game-description strong, .game-rules strong {
+
+    .game-description strong,
+    .game-rules strong {
       display: block;
       margin-bottom: 6px;
       color: #2193b0;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <div class="game-wrapper">
     <div class="side-buttons">
-      
+
     </div>
     <div class="game-box">
       <div class="title">Typing Speed Test</div>
@@ -98,7 +100,9 @@
       <div class="game-description">
         <strong>About Typing Speed Test</strong>
         <p>
-          Take the <b>Typing Speed Test</b> online! Type the words as fast and accurately as you can. This game helps improve your typing speed, accuracy, and focus. Perfect for students, professionals, and anyone looking to boost their keyboard skills.
+          Take the <b>Typing Speed Test</b> online! Type the words as fast and accurately as you can. This game helps
+          improve your typing speed, accuracy, and focus. Perfect for students, professionals, and anyone looking to
+          boost their keyboard skills.
         </p>
       </div>
       <div class="game-rules">
@@ -110,7 +114,7 @@
         </ul>
       </div>
       <script>
-        const words = ['apple','banana','carrot','dragon','energy','fruit','giant','hello','idea'];
+        const words = ['apple', 'banana', 'carrot', 'dragon', 'energy', 'fruit', 'giant', 'hello', 'idea'];
         const wordEl = document.getElementById('word');
         const inputEl = document.getElementById('input');
         const timeEl = document.getElementById('time');
@@ -133,8 +137,15 @@
 
         newWord();
       </script>
-    
+
     </div>
   </div>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +13,7 @@
       font-family: Arial, sans-serif;
       /* Remove flex centering from body */
     }
+
     .game-wrapper {
       display: flex;
       justify-content: center;
@@ -19,19 +21,23 @@
       min-height: 80vh;
       margin-top: 80px;
     }
+
     body.light {
       background: linear-gradient(to right, #fceabb, #f8b500);
       color: black;
     }
+
     body.dark {
       background: linear-gradient(to right, #141e30, #243b55);
       color: white;
     }
+
     a.btn {
       color: inherit !important;
-      background-color: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.3);
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
+
     .side-buttons {
       position: absolute;
       top: 50%;
@@ -42,6 +48,7 @@
       padding: 0 20px;
       z-index: 10;
     }
+
     .game-container {
       flex: 1;
       display: flex;
@@ -50,21 +57,24 @@
       padding: 30px;
       position: relative;
     }
+
     .game-box {
       text-align: center;
       background: white;
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
       max-width: 900px;
       width: 100%;
       z-index: 1;
     }
+
     .title {
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 10px;
     }
+
     .rules {
       font-size: 0.9rem;
       text-align: left;
@@ -73,12 +83,14 @@
       border-radius: 8px;
       margin-top: 15px;
     }
+
     .sudoku-board {
       display: grid;
       grid-template-columns: repeat(16, 1fr);
       gap: 2px;
       justify-content: center;
     }
+
     .sudoku-cell {
       width: 30px;
       height: 30px;
@@ -87,19 +99,24 @@
       border: 1px solid #ccc;
       outline: none;
     }
+
     .sudoku-cell.prefilled {
       background-color: #eee;
       font-weight: bold;
       pointer-events: none;
     }
+
     .check-btn {
       margin-top: 10px;
       margin-right: 5px;
     }
+
     #difficulty {
       margin-bottom: 10px;
     }
-    .game-description, .game-rules {
+
+    .game-description,
+    .game-rules {
       background: #f8f9fa;
       border-radius: 10px;
       padding: 15px 18px;
@@ -108,28 +125,23 @@
       color: #333;
       text-align: left;
     }
-    .game-description strong, .game-rules strong {
+
+    .game-description strong,
+    .game-rules strong {
       display: block;
       margin-bottom: 6px;
       color: #2193b0;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <div class="game-wrapper">
     <div class="side-buttons">
     </div>
@@ -156,7 +168,9 @@
       <div class="game-description">
         <strong>About Sudoku</strong>
         <p>
-          Play <b>Sudoku online</b> for free! Fill the grid so every row, column, and block contains unique values. This classic logic puzzle is perfect for boosting your brainpower and relaxing at the same time. Choose your difficulty and enjoy endless puzzles!
+          Play <b>Sudoku online</b> for free! Fill the grid so every row, column, and block contains unique values. This
+          classic logic puzzle is perfect for boosting your brainpower and relaxing at the same time. Choose your
+          difficulty and enjoy endless puzzles!
         </p>
       </div>
       <div class="game-rules">
@@ -348,5 +362,12 @@
     startNewGame();
     loadBestTime();
   </script>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>

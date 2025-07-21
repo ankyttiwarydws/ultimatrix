@@ -9,86 +9,89 @@
   <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <main>
-    
+
     <section class="blogs-section"
       style="background-image: url('/assets/img/blog-month-bg.jpg'); background-size: cover; background-position: center;">
-  <div class="blogs-section-menu">
-    <div id="month">
-      <h2 class="blogs-month-heading">Git Setup</h2>
-      <p class="blogs-month-subheading">To set up Git Bash on your laptop, follow these steps:</p>
-      <p class="blogs-month-title">1. Download Git</p>
-      <p class="blogs-month-desc">
-        • Go to the official Git website: <a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a>.<br>
-        • Click on the Download button, and it will automatically detect your operating system (Windows in your case).
-      </p>
-      <p class="blogs-month-title">2. Install Git</p>
-      <p class="blogs-month-desc">
-        • Run the downloaded installer (.exe file).<br>
-        • Follow the installation wizard:<br>
-        &nbsp;&nbsp;- Select Components: Ensure "Git Bash Here" is selected for context menu integration.<br>
-        &nbsp;&nbsp;- Default Editor: Choose your preferred text editor (e.g., VS Code).<br>
-        &nbsp;&nbsp;- Adjust PATH Environment: Select "Git from the command line and also from 3rd-party software" (recommended).<br>
-        &nbsp;&nbsp;- HTTPS Transport Backend: Use the default option (OpenSSL).<br>
-        &nbsp;&nbsp;- Line Ending Conversions: Choose "Checkout Windows-style, commit Unix-style line endings" (recommended).<br>
-        &nbsp;&nbsp;- Terminal Emulator: Select "Use MinTTY (the default terminal for Git Bash)".<br>
-        • Complete the installation.
-      </p>
-      <p class="blogs-month-title">3. Launch Git Bash</p>
-      <p class="blogs-month-desc">
-        • After installation, search for Git Bash in the Start menu and open it.
-      </p>
-      <p class="blogs-month-title">4. Verify Installation</p>
-      <p class="blogs-month-desc">
-        • In Git Bash, type the following command to verify the installation:<br>
-        <code>git --version</code><br>
-        • It should display the installed Git version.
-      </p>
-      <p class="blogs-month-title">5. Optional: Configure Git</p>
-      <p class="blogs-month-desc">
-        Set up your username and email for Git:<br>
-        <code>git config --global user.name "Your Name"</code><br>
-        <code>git config --global user.email "your.email@example.com"</code><br><br>
-        Example:<br>
-        <code>git config --global user.name "Your Name"</code><br>
-        <code>git config --global user.email "name@mail.com"</code>
-      </p>
-      <p class="blogs-month-title">Git Commands</p>
-      <p class="blogs-month-desc">
-        <strong>Git Init</strong><br>
-        <code>git init</code><br><br>
-        <strong>Git Clone</strong><br>
-        <code>git clone https://github.com/repo.git</code><br>
-        <code>cd unified-pipeline-tests</code><br><br>
-        <strong>Git Checkout</strong><br>
-        <code>git checkout -b branchName</code><br><br>
-        <strong>Git Commit</strong><br>
-        <code>git status</code><br>
-        <code>git add .</code><br>
-        <code>git commit -m "message-"</code><br>
-        <code>git pull origin branch name</code><br>
-        <code>git push origin branch name</code>
-      </p>
-      <div class="blogs-btn-wrapper">
-        <a class="btn" href="/blogs/blogs.html">Go Back</a>
-      </div>
-    </section>  
+      <div class="blogs-section-menu">
+        <div id="month">
+          <h2 class="blogs-month-heading">Git Setup</h2>
+          <p class="blogs-month-subheading">To set up Git Bash on your laptop, follow these steps:</p>
+          <p class="blogs-month-title">1. Download Git</p>
+          <p class="blogs-month-desc">
+            • Go to the official Git website: <a href="https://git-scm.com/"
+              target="_blank">https://git-scm.com/</a>.<br>
+            • Click on the Download button, and it will automatically detect your operating system (Windows in your
+            case).
+          </p>
+          <p class="blogs-month-title">2. Install Git</p>
+          <p class="blogs-month-desc">
+            • Run the downloaded installer (.exe file).<br>
+            • Follow the installation wizard:<br>
+            &nbsp;&nbsp;- Select Components: Ensure "Git Bash Here" is selected for context menu integration.<br>
+            &nbsp;&nbsp;- Default Editor: Choose your preferred text editor (e.g., VS Code).<br>
+            &nbsp;&nbsp;- Adjust PATH Environment: Select "Git from the command line and also from 3rd-party software"
+            (recommended).<br>
+            &nbsp;&nbsp;- HTTPS Transport Backend: Use the default option (OpenSSL).<br>
+            &nbsp;&nbsp;- Line Ending Conversions: Choose "Checkout Windows-style, commit Unix-style line endings"
+            (recommended).<br>
+            &nbsp;&nbsp;- Terminal Emulator: Select "Use MinTTY (the default terminal for Git Bash)".<br>
+            • Complete the installation.
+          </p>
+          <p class="blogs-month-title">3. Launch Git Bash</p>
+          <p class="blogs-month-desc">
+            • After installation, search for Git Bash in the Start menu and open it.
+          </p>
+          <p class="blogs-month-title">4. Verify Installation</p>
+          <p class="blogs-month-desc">
+            • In Git Bash, type the following command to verify the installation:<br>
+            <code>git --version</code><br>
+            • It should display the installed Git version.
+          </p>
+          <p class="blogs-month-title">5. Optional: Configure Git</p>
+          <p class="blogs-month-desc">
+            Set up your username and email for Git:<br>
+            <code>git config --global user.name "Your Name"</code><br>
+            <code>git config --global user.email "your.email@example.com"</code><br><br>
+            Example:<br>
+            <code>git config --global user.name "Your Name"</code><br>
+            <code>git config --global user.email "name@mail.com"</code>
+          </p>
+          <p class="blogs-month-title">Git Commands</p>
+          <p class="blogs-month-desc">
+            <strong>Git Init</strong><br>
+            <code>git init</code><br><br>
+            <strong>Git Clone</strong><br>
+            <code>git clone https://github.com/repo.git</code><br>
+            <code>cd unified-pipeline-tests</code><br><br>
+            <strong>Git Checkout</strong><br>
+            <code>git checkout -b branchName</code><br><br>
+            <strong>Git Commit</strong><br>
+            <code>git status</code><br>
+            <code>git add .</code><br>
+            <code>git commit -m "message-"</code><br>
+            <code>git pull origin branch name</code><br>
+            <code>git push origin branch name</code>
+          </p>
+          <div class="blogs-btn-wrapper">
+            <a class="btn" href="/blogs/blogs.html">Go Back</a>
+          </div>
+    </section>
   </main>
-  <footer class="site-footer"><div class="container"><p>&copy; 2025 Ultimatix. All rights reserved.</p></div></footer>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>

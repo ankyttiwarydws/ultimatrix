@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Code Editor | Ultimatrix</title>
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/script.js"></script>
-  <meta name="description" content="Free universal code editor with syntax highlighting, compare/diff mode, language detection, and theme toggle. No ads. Works offline." />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;">
+  <meta name="description"
+    content="Free universal code editor with syntax highlighting, compare/diff mode, language detection, and theme toggle. No ads. Works offline." />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;">
 
   <!-- Highlight.js -->
-  <link id="theme-style" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <link id="theme-style" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
   <style>
@@ -45,7 +49,8 @@
       margin-bottom: 15px;
     }
 
-    select, button {
+    select,
+    button {
       padding: 6px 10px;
       border-radius: 6px;
       border: none;
@@ -104,22 +109,14 @@
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
 
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <div class="container">
     <h1>🧠 Universal Code Editor</h1>
 
@@ -214,7 +211,7 @@
     function downloadCode() {
       const editor = document.getElementById("editor1");
       const content = editor.innerText;
-      const filename = `code-${new Date().toISOString().slice(0,16).replace(/[:T]/g,"-")}.txt`;
+      const filename = `code-${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "-")}.txt`;
       const blob = new Blob([content], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -226,6 +223,12 @@
     toggleCompare(); // show one editor initially
   </script>
 
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
-</html>
 
+</html>

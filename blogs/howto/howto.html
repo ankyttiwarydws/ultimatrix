@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,21 +9,14 @@
   <link rel="stylesheet" href="/css/blogs.css" />
   <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <main>
     <section class="blogs-main-category">
       <h3>How To</h3>
@@ -104,7 +98,8 @@
           </div>
         </div>
         <div id="tab-tools" class="howto-tab-content" style="display:none;">
-          <p class="howto-tab-title blogs-amazon-subheading">Discover handy tools, utilities, and productivity boosters.</p>
+          <p class="howto-tab-title blogs-amazon-subheading">Discover handy tools, utilities, and productivity boosters.
+          </p>
           <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
             <div class="howto-card color1">
               <a href="/blogs/howto/tools/keyboard-shortcuts.html">
@@ -133,7 +128,8 @@
           </div>
         </div>
         <div id="tab-cooking" class="howto-tab-content" style="display:none;">
-          <p class="howto-tab-title blogs-amazon-subheading">Explore delicious recipes, kitchen hacks, and cooking tips.</p>
+          <p class="howto-tab-title blogs-amazon-subheading">Explore delicious recipes, kitchen hacks, and cooking tips.
+          </p>
           <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
             <div class="howto-card color1">
               <a href="/blogs/howto/cooking/how-to-boil-eggs.html">
@@ -180,27 +176,33 @@
         </div>
       </div>
       <p class="blogs-amazon-subheading">Want to see more blogs?</p>
-        <div class="blogs-btn-wrapper">
-          <a class="btn" href="/blogs/blogs.html">← Go to Blogs</a>
-        </div>
-    <!-- <button onclick="window.location.href='/blogs/blogs.html'" class="btn">← Go Back</button> -->
-</section>
+      <div class="blogs-btn-wrapper">
+        <a class="btn" href="/blogs/blogs.html">← Go to Blogs</a>
+      </div>
+      <!-- <button onclick="window.location.href='/blogs/blogs.html'" class="btn">← Go Back</button> -->
+    </section>
   </main>
-</main>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
 <script>
-// Tab switching logic for How To section
-document.querySelectorAll('.howto-tab-btn').forEach(function(btn) {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelectorAll('.howto-tab-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    var tab = btn.getAttribute('data-tab');
-    document.querySelectorAll('.howto-tab-content').forEach(function(tc) {
-      tc.style.display = 'none';
+  // Tab switching logic for How To section
+  document.querySelectorAll('.howto-tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('.howto-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var tab = btn.getAttribute('data-tab');
+      document.querySelectorAll('.howto-tab-content').forEach(function (tc) {
+        tc.style.display = 'none';
+      });
+      document.getElementById('tab-' + tab).style.display = 'block';
     });
-    document.getElementById('tab-' + tab).style.display = 'block';
   });
-});
 </script>
+
 </html>

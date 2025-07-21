@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +12,7 @@
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #ece9e6, #ffffff);
     }
+
     .game-wrapper {
       display: flex;
       justify-content: center;
@@ -18,20 +20,23 @@
       min-height: 80vh;
       margin-top: 80px;
     }
+
     .game-container {
       background: #fff;
       border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
       padding: 30px;
       max-width: 500px;
       width: 100%;
       text-align: center;
     }
+
     .title {
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 18px;
     }
+
     .minesweeper-board {
       display: grid;
       grid-template-columns: repeat(9, 32px);
@@ -40,6 +45,7 @@
       justify-content: center;
       margin: 0 auto 18px auto;
     }
+
     .cell {
       width: 32px;
       height: 32px;
@@ -56,21 +62,26 @@
       user-select: none;
       transition: background 0.2s;
     }
+
     .cell.revealed {
       background: #f8f9fa;
       cursor: default;
     }
+
     .cell.mine {
       background: #ffb3b3;
       color: #b22222;
     }
+
     .cell.flagged {
       background: #ffe066;
       color: #b8860b;
     }
+
     .controls {
       margin-bottom: 12px;
     }
+
     .controls button {
       padding: 8px 18px;
       font-size: 1rem;
@@ -81,16 +92,20 @@
       cursor: pointer;
       margin: 0 5px;
     }
+
     .controls button:hover {
       background: #176b87;
     }
+
     .status {
       margin: 10px 0 0 0;
       font-size: 1.1rem;
       color: #2193b0;
       min-height: 24px;
     }
-    .game-description, .game-rules {
+
+    .game-description,
+    .game-rules {
       background: #f8f9fa;
       border-radius: 10px;
       padding: 15px 18px;
@@ -99,28 +114,23 @@
       color: #333;
       text-align: left;
     }
-    .game-description strong, .game-rules strong {
+
+    .game-description strong,
+    .game-rules strong {
       display: block;
       margin-bottom: 6px;
       color: #2193b0;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <div class="game-wrapper">
     <div class="game-container">
       <div class="title">Minesweeper</div>
@@ -133,7 +143,9 @@
       <div class="game-description">
         <strong>About Minesweeper</strong>
         <p>
-          Play <b>Minesweeper</b> online for free! Uncover all the safe cells without detonating any mines. This classic puzzle game is perfect for testing your logic, memory, and strategy skills. Enjoy a relaxing, ad-free experience right in your browser.
+          Play <b>Minesweeper</b> online for free! Uncover all the safe cells without detonating any mines. This classic
+          puzzle game is perfect for testing your logic, memory, and strategy skills. Enjoy a relaxing, ad-free
+          experience right in your browser.
         </p>
       </div>
       <div class="game-rules">
@@ -155,10 +167,10 @@
     const flagsDiv = document.getElementById('flags-remaining');
 
     function startGame() {
-      board = Array.from({length: rows}, () => Array(cols).fill(0));
-      mineMap = Array.from({length: rows}, () => Array(cols).fill(false));
-      revealed = Array.from({length: rows}, () => Array(cols).fill(false));
-      flagged = Array.from({length: rows}, () => Array(cols).fill(false));
+      board = Array.from({ length: rows }, () => Array(cols).fill(0));
+      mineMap = Array.from({ length: rows }, () => Array(cols).fill(false));
+      revealed = Array.from({ length: rows }, () => Array(cols).fill(false));
+      flagged = Array.from({ length: rows }, () => Array(cols).fill(false));
       gameOver = false;
       flagsLeft = minesCount;
       flagsDiv.textContent = `Flags: ${flagsLeft}`;
@@ -297,5 +309,12 @@
 
     startGame();
   </script>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>

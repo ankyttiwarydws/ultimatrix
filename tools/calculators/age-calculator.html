@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Age Calculator | Ultimatrix</title>
-  <meta name="description" content="Free online age calculator that helps you find your exact age in years, months, and days from your date of birth. Simple and fast." />
+  <meta name="description"
+    content="Free online age calculator that helps you find your exact age in years, months, and days from your date of birth. Simple and fast." />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/script.js"></script>
@@ -42,7 +44,7 @@
       background: #ffffff;
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
       max-width: 500px;
       width: 100%;
       z-index: 1;
@@ -82,7 +84,8 @@
       margin-top: 15px;
     }
 
-    .tool-description, .tool-howto {
+    .tool-description,
+    .tool-howto {
       background: #f8f9fa;
       border-radius: 10px;
       padding: 15px 18px;
@@ -91,31 +94,26 @@
       color: #333;
       text-align: left;
     }
-    .tool-description strong, .tool-howto strong {
+
+    .tool-description strong,
+    .tool-howto strong {
       display: block;
       margin-bottom: 6px;
       color: #2193b0;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="header-container">
-      <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ultimatrix: The Ultimate World</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/games/games.html">Games</a></li>
-          <li><a href="/news/news.html">News</a></li>
-          <li><a href="/blogs/blogs.html">Blogs</a></li>
-          <li><a href="/tools/tools.html">Tools</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
   <div class="tool-container">
     <div class="side-buttons">
-      
+
     </div>
 
     <div class="tool-box">
@@ -124,7 +122,8 @@
       <div class="tool-description">
         <strong>About Age Calculator</strong>
         <p>
-          Calculate your exact age in years, months, and days with this free <b>Age Calculator</b>. Perfect for birthdays, anniversaries, or official forms.
+          Calculate your exact age in years, months, and days with this free <b>Age Calculator</b>. Perfect for
+          birthdays, anniversaries, or official forms.
         </p>
       </div>
       <div class="tool-howto">
@@ -219,5 +218,12 @@
     monthSelect.addEventListener("change", calculateAge);
     daySelect.addEventListener("change", calculateAge);
   </script>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
+
 </html>
