@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs | Ultimatix</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/blogs.css" />
+    <link rel="stylesheet" href="/css/sports.css" />
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('/header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+    <main>
+        <section class="blogs-main-category">
+            <h3>Sports</h3>
+            <p>Explore trending thoughts, smart ideas, and original articles you’ll love.</p>
+
+        </section>
+        <section class="blogs-main-category">
+            <button class="toggle-filters-btn" onclick="toggleFilters()">Show Filters</button>
+            <!-- Category Filters as Buttons -->
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="Tech">Tech</button>
+                <button class="category-btn active" data-category="Sports">Sports</button>
+                <button class="category-btn active" data-category="Weather">Weather</button>
+                <button class="category-btn active" data-category="Finance">Finance</button>
+            </div>
+
+        </section>
+        <!-- News Feed -->
+        <section class="search-section">
+            <div class="search-section">
+                <p class="search-bar-text">Searching for something?</p>
+            </div>
+            <div class="search-section">
+                <!-- <p>Search for games, news, blogs, or tools.</p> -->
+                <input class="search-bar" type="text" id="searchBar" placeholder="Search news..." />
+                <!-- <input type="text" id="searchBar" placeholder="Search news..." /> -->
+            </div>
+        </section>
+        <div class="container">
+            <!-- Main News Section -->
+            <section class="blogs-main-category" id="dynamic-news-feed">
+            </section>
+            <!-- Sidebar Tiles -->
+            <aside class="sidebar">
+                <section class="blogs-main-category">
+                    <div class="tile stock-market">
+                        <h3>📈 Stock Market</h3>
+                        <p>SENSEX: 68,412.35 ▲</p>
+                        <p>NIFTY: 20,318.10 ▲</p>
+                    </div>
+                    <div class="tile weather">
+                        <h3>⛅ Weather</h3>
+                        <p>🌡️ Huzur, MP: 31°C</p>
+                        <p>Humidity: 78%</p>
+                    </div>
+                    <div class="tile sports">
+                        <h3>🏏 Sports</h3>
+                        <p>India vs SA: Match tomorrow at 5PM</p>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+
+<script>
+    const searchBar = document.getElementById("searchBar");
+    const categoryButtons = document.querySelectorAll(".category-btn");
+    const newsFeed = document.querySelector(".news-feed");
+    const articles = Array.from(document.querySelectorAll(".news-item"));
+
+    // Sort by newest first
+    articles.sort((a, b) => {
+        const timeA = new Date(a.querySelector(".timestamp").textContent);
+        const timeB = new Date(b.querySelector(".timestamp").textContent);
+        return timeB - timeA;
+    });
+    articles.forEach(article => newsFeed.appendChild(article));
+
+    function getActiveCategories() {
+        return Array.from(categoryButtons)
+            .filter(btn => btn.classList.contains("active"))
+            .map(btn => btn.getAttribute("data-category").toLowerCase());
+    }
+
+    function applyFilters() {
+        const query = searchBar.value.toLowerCase();
+        const selectedCategories = getActiveCategories();
+
+        articles.forEach(article => {
+            const title = article.querySelector("h2").textContent.toLowerCase();
+            const description = article.querySelector("p:not(.timestamp)").textContent.toLowerCase();
+            const category = article.getAttribute("data-category").toLowerCase();
+
+            const keywordMatch = title.includes(query) || description.includes(query);
+            const categoryMatch = selectedCategories.includes(category);
+
+            article.style.display = (keywordMatch && categoryMatch) ? "block" : "none";
+        });
+    }
+
+    searchBar.addEventListener("input", applyFilters);
+    // categoryButtons.forEach(btn => {
+    //     btn.addEventListener("click", () => {
+    //         btn.classList.toggle("active");
+    //         applyFilters();
+    //     });
+    // });
+    searchBar.addEventListener("input", () => {
+        const query = document.getElementById("searchBar").value.toLowerCase();
+
+        renderedArticles.forEach(article => {
+            const title = article.querySelector("h2")?.textContent.toLowerCase() || "";
+            const description = article.querySelector(".summary")?.textContent.toLowerCase() || "";
+            const match = title.includes(query) || description.includes(query);
+            article.style.display = match ? "block" : "none";
+        });
+    });
+
+</script>
+
+<script>
+    const articleList = [
+        { url: "news1.html" },
+        { url: "news2.html" },
+        { url: "news3.html" },
+        { url: "news3.html" },
+        { url: "news4.html" },
+        { url: "news5.html" },
+        { url: "news6.html" },
+        { url: "news7.html" },
+        { url: "news8.html" },
+        { url: "news9.html" },
+        { url: "news10.html" },
+        { url: "news11.html" },
+        { url: "news12.html" },
+        { url: "news13.html" },
+        { url: "news14.html" },
+        { url: "news15.html" },
+        { url: "news16.html" },
+        { url: "news17.html" },
+        { url: "news18.html" },
+        { url: "news19.html" },
+        { url: "news20.html" }
+        // Add as many as needed
+    ];
+    const renderedArticles = []; // Holds live DOM elements
+
+    function lazyLoadArticlesFromJSON(articleData, containerSelector) {
+        const container = document.querySelector(containerSelector);
+        // Step 1: Generate empty placeholders
+        articleData.forEach(item => {
+            const placeholder = document.createElement("article");
+            placeholder.classList.add("news-placeholder");
+            placeholder.setAttribute("data-url", item.url);
+            container.appendChild(placeholder);
+        });
+
+        document.querySelector("#dynamic-news-feed").addEventListener("click", (e) => {
+            if (e.target.classList.contains("read-more-btn")) {
+                const articleEl = e.target.closest(".news-item");
+                const extra = articleEl.querySelector(".extra-content");
+
+                // Collapse all others
+                document.querySelectorAll(".news-item .extra-content").forEach(section => {
+                    if (section !== extra) {
+                        section.classList.remove("expanded");
+                        section.style.maxHeight = "0";
+                        section.style.opacity = "0";
+                        section.parentElement.querySelector(".read-more-btn").textContent = "Read More";
+                    }
+                });
+
+                // Toggle this one
+                const isExpanded = extra.classList.contains("expanded");
+                if (!isExpanded) {
+                    extra.classList.add("expanded");
+                    extra.style.maxHeight = "500px";
+                    extra.style.opacity = "1";
+                    e.target.textContent = "Show Less";
+                } else {
+                    extra.classList.remove("expanded");
+                    extra.style.maxHeight = "0";
+                    extra.style.opacity = "0";
+                    e.target.textContent = "Read More";
+                }
+            }
+        });
+
+
+        // Step 2: Apply lazy loader
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const url = el.getAttribute("data-url");
+                    const readMoreBtn = el.querySelector(".read-more-btn");
+                    const extra = el.querySelector(".extra-content");
+                    if (el.dataset.loaded) return;
+                    el.dataset.loaded = "true";
+
+                    fetch(url)
+                        .then(res => res.text())
+                        .then(html => {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, "text/html");
+                            const title = doc.querySelector(".news-title")?.textContent || "Untitled";
+                            const desc = doc.querySelector(".short-desc")?.textContent || "";
+                            const timestamp = doc.querySelector(".timestamp")?.textContent || "";
+                            const synopsis = doc.querySelector(".synopsis p")?.textContent || "";
+                            el.classList.remove("news-placeholder");
+                            el.classList.add("news-item");
+                            el.innerHTML = `
+              <a href="${url}" target="_blank"><h2>${title}</h2></a>
+              <p class="timestamp">${timestamp}</p>
+              <p class="summary">${desc}</p>
+              <div class="extra-content" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease;">
+                <p>${synopsis}</p>
+                <a href="${url}" target="_blank"><button class="read-full-btn">Read Full Story</button></a>
+              </div>
+              <button class="read-more-btn">Read More</button>
+            `;
+                            // Push the live article to the global list
+                            renderedArticles.push(el);
+                        })
+                        .catch(err => {
+                            el.innerHTML = `<p>🔄 Failed to load article.</p>`;
+                            console.error("Lazy-load error:", url, err);
+                        });
+                    obs.unobserve(el);
+                }
+            });
+        }, { rootMargin: "0px 0px 200px 0px" });
+        container.querySelectorAll(".news-placeholder").forEach(el => observer.observe(el));
+    }
+    // 🚀 Initialize on load
+    window.addEventListener("DOMContentLoaded", () => {
+        lazyLoadArticlesFromJSON(articleList, "#dynamic-news-feed");
+    });
+</script>
+
+</html>
