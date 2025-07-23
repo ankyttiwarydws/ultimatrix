@@ -22,7 +22,6 @@
         <section class="blogs-main-category">
             <h3>Sports</h3>
             <p>Explore trending thoughts, smart ideas, and original articles you’ll love.</p>
-
         </section>
         <section class="blogs-main-category">
             <button class="toggle-filters-btn" onclick="toggleFilters()">Show Filters</button>
@@ -33,7 +32,6 @@
                 <button class="category-btn active" data-category="Weather">Weather</button>
                 <button class="category-btn active" data-category="Finance">Finance</button>
             </div>
-
         </section>
         <!-- News Feed -->
         <section class="search-section">
@@ -41,42 +39,55 @@
                 <p class="search-bar-text">Searching for something?</p>
             </div>
             <div class="search-section">
-                <!-- <p>Search for games, news, blogs, or tools.</p> -->
                 <input class="search-bar" type="text" id="searchBar" placeholder="Search news..." />
-                <!-- <input type="text" id="searchBar" placeholder="Search news..." /> -->
             </div>
         </section>
         <div class="container">
-            <!-- Main News Section -->
-            <section class="blogs-main-category" id="dynamic-news-feed">
+            <!-- Tiles -->
+            <section class="sports-tiles">
+                <div class="tile stock-market color1">
+                    <h3>📈 Stock Market</h3>
+                    <p>SENSEX: 68,412.35 ▲</p>
+                    <p>NIFTY: 20,318.10 ▲</p>
+                </div>
+                <div class="tile weather color2">
+                    <h3>⛅ Weather</h3>
+                    <p>🌡️ Huzur, MP: 31°C</p>
+                    <p>Humidity: 78%</p>
+                </div>
+                <div class="tile sports color3">
+                    <h3>🏏 Sports</h3>
+                    <p>India vs SA: Match tomorrow at 5PM</p>
+                </div>
             </section>
-            <!-- Sidebar Tiles -->
-            <aside class="sidebar">
-                <section class="blogs-main-category">
-                    <div class="tile stock-market">
-                        <h3>📈 Stock Market</h3>
-                        <p>SENSEX: 68,412.35 ▲</p>
-                        <p>NIFTY: 20,318.10 ▲</p>
-                    </div>
-                    <div class="tile weather">
-                        <h3>⛅ Weather</h3>
-                        <p>🌡️ Huzur, MP: 31°C</p>
-                        <p>Humidity: 78%</p>
-                    </div>
-                    <div class="tile sports">
-                        <h3>🏏 Sports</h3>
-                        <p>India vs SA: Match tomorrow at 5PM</p>
-                    </div>
+            <section id="dynamic-news-feed">
+                <section id="headlines-section" class="sports-section">
+                    <p class="blogs-amazon-subheading">Top Headlines</p>
                 </section>
-            </aside>
+
+                <section id="today-section" class="sports-section">
+                    <p class="blogs-amazon-subheading">Today’s News</p>
+                </section>
+
+                <section id="yesterday-section" class="sports-section">
+                    <p class="blogs-amazon-subheading">Yesterday’s News</p>
+                </section>
+
+                <section id="earlier-section" class="sports-section">
+                    <p class="blogs-amazon-subheading">Earlier News</p>
+                </section>
+            </section>
+            <!-- Main News Section -->
+            <!-- <section class="blogs-main-category" id="dynamic-news-feed">
+            </section> -->
         </div>
     </main>
-  <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
+    <div id="footer"></div>
+    <script>
+        fetch('/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
 </body>
 
 <script>
@@ -116,19 +127,15 @@
     }
 
     searchBar.addEventListener("input", applyFilters);
-    // categoryButtons.forEach(btn => {
-    //     btn.addEventListener("click", () => {
-    //         btn.classList.toggle("active");
-    //         applyFilters();
-    //     });
-    // });
+
     searchBar.addEventListener("input", () => {
         const query = document.getElementById("searchBar").value.toLowerCase();
 
         renderedArticles.forEach(article => {
             const title = article.querySelector("h2")?.textContent.toLowerCase() || "";
             const description = article.querySelector(".summary")?.textContent.toLowerCase() || "";
-            const match = title.includes(query) || description.includes(query);
+            // const timestamp = article.querySelector(".timestamp")?.textContent.toLowerCase() || "";
+            const match = title.includes(query) || description.includes(query);// || timestamp.includes(query)
             article.style.display = match ? "block" : "none";
         });
     });
@@ -140,24 +147,23 @@
         { url: "news1.html" },
         { url: "news2.html" },
         { url: "news3.html" },
-        { url: "news3.html" },
         { url: "news4.html" },
-        { url: "news5.html" },
-        { url: "news6.html" },
-        { url: "news7.html" },
-        { url: "news8.html" },
-        { url: "news9.html" },
-        { url: "news10.html" },
-        { url: "news11.html" },
-        { url: "news12.html" },
-        { url: "news13.html" },
-        { url: "news14.html" },
-        { url: "news15.html" },
-        { url: "news16.html" },
-        { url: "news17.html" },
-        { url: "news18.html" },
-        { url: "news19.html" },
-        { url: "news20.html" }
+        // { url: "news5.html" },
+        // { url: "news6.html" },
+        // { url: "news7.html" },
+        // { url: "news8.html" },
+        // { url: "news9.html" },
+        // { url: "news10.html" },
+        // { url: "news11.html" },
+        // { url: "news12.html" },
+        // { url: "news13.html" },
+        // { url: "news14.html" },
+        // { url: "news15.html" },
+        // { url: "news16.html" },
+        // { url: "news17.html" },
+        // { url: "news18.html" },
+        // { url: "news19.html" },
+        // { url: "news20.html" }
         // Add as many as needed
     ];
     const renderedArticles = []; // Holds live DOM elements
@@ -253,6 +259,242 @@
     window.addEventListener("DOMContentLoaded", () => {
         lazyLoadArticlesFromJSON(articleList, "#dynamic-news-feed");
     });
+</script>
+
+<!-- <script>
+    const articleList = [
+        { url: "news1.html" },
+        { url: "news2.html" },
+        { url: "news3.html" },
+        // { url: "news3.html" },
+        // { url: "news4.html" },
+        // { url: "news5.html" },
+        // { url: "news6.html" },
+        // { url: "news7.html" },
+        // { url: "news8.html" },
+        // { url: "news9.html" },
+        // { url: "news10.html" },
+        // { url: "news11.html" },
+        // { url: "news12.html" },
+        // { url: "news13.html" },
+        // { url: "news14.html" },
+        // { url: "news15.html" },
+        // { url: "news16.html" },
+        // { url: "news17.html" },
+        // { url: "news18.html" },
+        // { url: "news19.html" },
+        // { url: "news20.html" }
+        // Add as many as needed
+    ];
+    const renderedArticles = []; // Holds live DOM elements
+    const headlinesSection = document.getElementById("headlines-section");
+    const todaySection = document.getElementById("today-section");
+    const yesterdaySection = document.getElementById("yesterday-section");
+    const earlierSection = document.getElementById("earlier-section");
+    // Helper to extract article date and compare
+    function getDateOnly(dateStr) {
+        return new Date(dateStr).toISOString().split("T")[0]; // YYYY-MM-DD
+    }
+    // Lazy load articles from JSON
+    function lazyLoadArticlesFromJSON(articleData) {
+        const today = getDateOnly(new Date());
+        const yesterday = getDateOnly(new Date(Date.now() - 86400000)); // 1 day ago
+
+        articleData.forEach(item => {
+            const placeholder = document.createElement("article");
+            placeholder.classList.add("news-placeholder");
+            placeholder.setAttribute("data-url", item.url);
+
+            // Insert temporarily into headlines for observation
+            headlinesSection.appendChild(placeholder);
+        });
+        document.querySelector("#dynamic-news-feed").addEventListener("click", (e) => {
+            if (e.target.classList.contains("read-more-btn")) {
+                const articleEl = e.target.closest(".news-item");
+                const extra = articleEl.querySelector(".extra-content");
+
+                // Collapse all others
+                document.querySelectorAll(".news-item .extra-content").forEach(section => {
+                    if (section !== extra) {
+                        section.classList.remove("expanded");
+                        section.style.maxHeight = "0";
+                        section.style.opacity = "0";
+                        section.parentElement.querySelector(".read-more-btn").textContent = "Read More";
+                    }
+                });
+
+                // Toggle this one
+                const isExpanded = extra.classList.contains("expanded");
+                if (!isExpanded) {
+                    extra.classList.add("expanded");
+                    extra.style.maxHeight = "500px";
+                    extra.style.opacity = "1";
+                    e.target.textContent = "Show Less";
+                } else {
+                    extra.classList.remove("expanded");
+                    extra.style.maxHeight = "0";
+                    extra.style.opacity = "0";
+                    e.target.textContent = "Read More";
+                }
+            }
+        });
+
+        // Step 2: Apply lazy loader
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const url = el.getAttribute("data-url");
+                    const readMoreBtn = el.querySelector(".read-more-btn");
+                    const extra = el.querySelector(".extra-content");
+                    if (el.dataset.loaded) return;
+                    el.dataset.loaded = "true";
+
+                    fetch(url)
+                        .then(res => res.text())
+                        .then(html => {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, "text/html");
+
+                            const title = doc.querySelector(".news-title")?.textContent || "Untitled";
+                            const desc = doc.querySelector(".short-desc")?.textContent || "";
+                            const timestampRaw = doc.querySelector(".timestamp")?.textContent || "";
+                            const synopsis = doc.querySelector(".synopsis p")?.textContent || "";
+                            const articleTag = doc.querySelector("#news-article");
+                            const isHeadline = articleTag?.getAttribute("data-headline") === "true";
+                            const publishedDate = getDateOnly(timestampRaw);
+
+                            el.classList.remove("news-placeholder");
+                            el.classList.add("news-item");
+                            el.innerHTML = `
+              <a href="${url}" target="_blank"><h2>${title}</h2></a>
+              <p class="timestamp">${timestampRaw}</p>
+              <p class="summary">${desc}</p>
+              <div class="extra-content" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease;">
+                <p>${synopsis}</p>
+                <a href="${url}" target="_blank"><button class="read-full-btn">Read Full Story</button></a>
+              </div>
+              <button class="read-more-btn">Read More</button>
+            `;
+                            // Push the live article to the global list
+                            renderedArticles.push(el);
+                            if (isHeadline) {
+                                headlinesSection.appendChild(el);
+                            }
+                            if (publishedDate === today) {
+                                todaySection.appendChild(el);
+                            } else if (publishedDate === yesterday) {
+                                yesterdaySection.appendChild(el);
+                            } else {
+                                earlierSection.appendChild(el);
+                            }
+                        })
+                        .catch(err => {
+                            // el.innerHTML = `<p>❗ Failed to load article.</p>`;
+                            // console.error("Error fetching:", url, err);
+                        });
+
+                    obs.unobserve(el);
+                }
+            });
+        }, { rootMargin: "0px 0px 200px 0px" });
+
+        document.querySelectorAll(".news-placeholder").forEach(el => observer.observe(el));
+    }
+    // // window.addEventListener("DOMContentLoaded", () => {
+    // //     lazyLoadArticlesFromJSON(articleList, "#dynamic-news-feed");
+
+    // });
+</script> -->
+
+<script>
+    const headlinesSection = document.getElementById("headlines-section");
+    const todaySection = document.getElementById("today-section");
+    const yesterdaySection = document.getElementById("yesterday-section");
+    const earlierSection = document.getElementById("earlier-section");
+
+    // Helper to extract article date and compare
+    function getDateOnly(dateStr) {
+        return new Date(dateStr).toISOString().split("T")[0]; // YYYY-MM-DD
+    }
+
+    function lazyLoadArticlesFromJSON(articleData) {
+        const today = getDateOnly(new Date());
+        const yesterday = getDateOnly(new Date(Date.now() - 86400000)); // 1 day ago
+
+        articleData.forEach(item => {
+            const placeholder = document.createElement("article");
+            placeholder.classList.add("news-placeholder");
+            placeholder.setAttribute("data-url", item.url);
+
+            // Insert temporarily into headlines for observation
+            headlinesSection.appendChild(placeholder);
+        });
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const url = el.getAttribute("data-url");
+                    if (el.dataset.loaded) return;
+                    el.dataset.loaded = "true";
+
+                    fetch(url)
+                        .then(res => res.text())
+                        .then(html => {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, "text/html");
+
+                            const title = doc.querySelector(".news-title")?.textContent || "Untitled";
+                            const desc = doc.querySelector(".short-desc")?.textContent || "";
+                            const timestampRaw = doc.querySelector(".timestamp")?.textContent || "";
+                            const synopsis = doc.querySelector(".synopsis p")?.textContent || "";
+                            const articleTag = doc.querySelector("#news-article");
+                            const isHeadline = articleTag?.getAttribute("data-headline") == "true";
+                            const publishedDate = getDateOnly(timestampRaw);
+
+                            el.classList.remove("news-placeholder");
+                            el.classList.add("news-item");
+                            el.innerHTML = `
+              <a href="${url}" target="_blank"><h2>${title}</h2></a>
+              <p class="timestamp">${timestampRaw}</p>
+              <p class="summary">${desc}</p>
+              <div class="extra-content" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease;">
+                <p>${synopsis}</p>
+                <a href="${url}" target="_blank"><button class="read-full-btn">Read Full Story</button></a>
+              </div>
+              <button class="read-more-btn">Read More</button>
+            `;
+                            // Push the live article to the global list
+                            renderedArticles.push(el);
+                            // Add to correct section
+                            if (isHeadline) {
+                                headlinesSection.appendChild(el);
+                            }
+                            else if (publishedDate === today) {
+                                todaySection.appendChild(el);
+                            } else if (publishedDate === yesterday) {
+                                yesterdaySection.appendChild(el);
+                            } else {
+                                earlierSection.appendChild(el);
+                            }
+
+
+
+                        })
+                        .catch(err => {
+                            // el.innerHTML = `<p>❗ Failed to load article.</p>`;
+                            // console.error("Error fetching:", url, err);
+                        });
+
+                    obs.unobserve(el);
+                }
+            });
+        }, { rootMargin: "0px 0px 200px 0px" });
+
+        document.querySelectorAll(".news-placeholder").forEach(el => observer.observe(el));
+    }
+
 </script>
 
 </html>

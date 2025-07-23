@@ -19,8 +19,9 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.07);
 }
+
 /* Blogs category menu bar */
 .blogs-main-category-menu {
   /* width: 100%;
@@ -30,6 +31,7 @@
   box-shadow: 0 2px 8px rgba(44,62,80,0.07);
   max-width: 700px; */
 }
+
 .blogs-main-category-menu ul {
   display: flex;
   justify-content: center;
@@ -39,10 +41,12 @@
   margin: 0;
   padding: 0 0;
 }
+
 .blogs-main-category-menu li {
   margin: 0;
   /* min-width: 100px */
 }
+
 .blogs-main-category-menu a {
   color: #0077cc;
   background: #d7edf3;
@@ -53,6 +57,7 @@
   border-radius: 60px;
   transition: background 0.18s, color 0.18s;
 }
+
 .blogs-main-category-menu a:hover {
   background: #fff;
   color: #0077cc;
@@ -62,13 +67,14 @@
 .howto-tab-btn.active {
   background: #b8d6eb;
   color: #014576;
-  box-shadow: 0 8px 32px rgba(44,62,80,0.22);
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.22);
   border-radius: 60px;
   transform: translateY(-4px) scale(1.12);
   outline: none;
   z-index: 2;
   position: relative;
 }
+
 /* .howto-tab-btn {
   background: #ffffff;
   color: #000000;
@@ -85,60 +91,73 @@
   font-size: 2rem;
   font-weight: bold;
   color: #1a4d2e;
-  text-shadow: 1px 2px 8px rgba(44,62,80,0.10);
+  text-shadow: 1px 2px 8px rgba(44, 62, 80, 0.10);
   letter-spacing: 2px;
+
   /* margin-bottom: 0.3em;
   margin-top: 0.2em; */
   .product-title {
     font-size: 0.98rem;
     padding: 0.1em 0.2em;
   }
+
   .product-desc {
     font-size: 0.92rem;
     padding: 0.1em 0.2em;
   }
+
   .travel-title {
     font-size: 0.98rem;
     padding: 0.1em 0.2em;
   }
+
   .travel-desc {
     font-size: 0.92rem;
     padding: 0.1em 0.2em;
   }
+
   margin: 0.5em 0 0em 0;
   background: linear-gradient(90deg, #b7f8db 0%, #50a7c2 100%);
   display: inline-block;
   padding: 0.2em 1.2em;
   border-radius: 12px 0 12px 0;
-  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
-  font-family: 'Segoe UI', 'Arial', sans-serif;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+  font-family: 'Segoe UI',
+  'Arial',
+  sans-serif;
 }
-  .product-title {
-    font-size: 1rem;
-  }
-  .product-desc {
-    font-size: 0.95rem;
-  }
-  .travel-title {
-    font-size: 1rem;
-  }
-  .travel-desc {
-    font-size: 0.95rem;
-  }
+
+.product-title {
+  font-size: 1rem;
+}
+
+.product-desc {
+  font-size: 0.95rem;
+}
+
+.travel-title {
+  font-size: 1rem;
+}
+
+.travel-desc {
+  font-size: 0.95rem;
+}
+
 .blogs-month-subheading {
   font-size: 1.4rem;
   font-weight: 600;
   color: #2e8b57;
   margin: 0.5em 0 0em 0;
   letter-spacing: 1px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   display: inline-block;
   padding: 0.2em 1.2em;
   border-left: 5px solid #2e8b57;
   border-radius: 0 8px 8px 0;
-  box-shadow: 1px 2px 8px rgba(44,62,80,0.07);
+  box-shadow: 1px 2px 8px rgba(44, 62, 80, 0.07);
   font-family: 'Segoe UI', 'Arial', sans-serif;
 }
+
 .blogs-month-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -154,6 +173,7 @@
   text-shadow: 0 2px 8px rgba(255, 78, 80, 0.08);
   padding: 0.1em 1em;
 }
+
 .blogs-month-desc {
   font-size: 1.08rem;
   color: #234;
@@ -167,6 +187,7 @@
   line-height: 1.7;
   letter-spacing: 0.2px;
 }
+
 .blogs-amazon-heading {
   font-size: 1.7rem;
   font-weight: bold;
@@ -175,13 +196,14 @@
   display: inline-block;
   padding: 0.2em 1.2em;
   border-radius: 12px 0 12px 0;
-  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
   letter-spacing: 2px;
   margin-bottom: 0.1em;
   margin-top: 0.1em;
-  text-shadow: 1px 2px 8px rgba(44,62,80,0.10);
+  text-shadow: 1px 2px 8px rgba(44, 62, 80, 0.10);
   font-family: 'Segoe UI', 'Arial', sans-serif;
 }
+
 .blogs-amazon-heading-text {
   font-size: 1rem;
   color: #234;
@@ -190,19 +212,20 @@
   line-height: 1.5;
   letter-spacing: 0.1px;
 }
+
 .blogs-amazon-subheading {
   font-size: 1.4rem;
   font-weight: 600;
   color: #185a9d;
-    width: 100%;
+  width: 100%;
   margin: 0.5em 0 0em 0;
   letter-spacing: 1px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   display: inline-block;
   padding: 0.3em 1em;
-  border-left: 5px solid  #185a9d;
+  border-left: 5px solid #185a9d;
   border-radius: 0 8px 8px 0;
-  box-shadow: 1px 2px 8px rgba(44,62,80,0.07);
+  box-shadow: 1px 2px 8px rgba(44, 62, 80, 0.07);
   font-family: 'Segoe UI', 'Arial', sans-serif;
 }
 
@@ -212,22 +235,26 @@
   padding: 0.2em 1.2em;
   margin: 0.5em 0 0em 0;
   display: flex;
-  flex-direction: column;   /* Stack items vertically */
+  flex-direction: column;
+  /* Stack items vertically */
   gap: 1.5em;
   justify-content: flex-start;
-  align-items: center;      /* Center items horizontally */
+  align-items: center;
+  /* Center items horizontally */
 }
+
 /* Image attribution/credit style */
 .image-credit {
   font-size: 0.85rem;
   color: #444;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   padding: 0.1em 0.6em;
   border-radius: 8px;
   margin-bottom: 0.3em;
   display: inline-block;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.07);
 }
+
 .image-credit a {
   color: #0077cc;
   text-decoration: underline;
@@ -238,7 +265,7 @@
 .howto-card {
   background: linear-gradient(135deg, #f7fcfc 60%, #e3f6fd 100%, #fceabb 0%);
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
   padding: 1em 1.2em 0.7em 1.2em;
   margin: 0.2em 0;
   min-width: 220px;
@@ -248,53 +275,90 @@
   flex-direction: column;
   transition: box-shadow 0.18s, transform 0.15s;
 }
+
 /* Pastel color backgrounds for howto cards */
-.howto-card.color1 { background: linear-gradient(135deg, #c3dcd8 60%, #efd1d4 100%, #efd1d4 0%); }
-.howto-card.color2 { background: linear-gradient(135deg, #efd1d4 60%, #fbe8ed 100%, #fbe8ed 0%); }
-.howto-card.color3 { background: linear-gradient(135deg, #fbe8ed 60%, #d8d9da 100%, #d8d9da 0%); }
-.howto-card.color4 { background: linear-gradient(135deg, #d8d9da 60%, #c5bd96 100%, #c5bd96 0%); }
-.howto-card.color5 { background: linear-gradient(135deg, #c5bd96 60%, #c5bd96 100%, #c5bd96 0%); }
-.howto-card.color6 { background: linear-gradient(135deg, #bcdfda 60%, #c3dcd8 100%, #c3dcd8 0%); }
-.howto-card.color7 { background: linear-gradient(135deg, #e0ffe7 60%, #fffbe7 100%, #fceabb 0%); }
-.howto-card.color8 { background: linear-gradient(135deg, #e3f6fd 60%, #f8e1f4 100%, #fffbe7 0%); }
-.howto-card.color9 { background: linear-gradient(135deg, #fceabb 60%, #e0ffe7 100%, #f7fcfc 0%); }
-.howto-card.color10 { background: linear-gradient(135deg, #f8e1f4 60%, #f7fcfc 100%, #e3f6fd 0%); }
+.howto-card.color1 {
+  background: linear-gradient(135deg, #c3dcd8 60%, #efd1d4 100%, #efd1d4 0%);
+}
+
+.howto-card.color2 {
+  background: linear-gradient(135deg, #efd1d4 60%, #fbe8ed 100%, #fbe8ed 0%);
+}
+
+.howto-card.color3 {
+  background: linear-gradient(135deg, #fbe8ed 60%, #d8d9da 100%, #d8d9da 0%);
+}
+
+.howto-card.color4 {
+  background: linear-gradient(135deg, #d8d9da 60%, #c5bd96 100%, #c5bd96 0%);
+}
+
+.howto-card.color5 {
+  background: linear-gradient(135deg, #c5bd96 60%, #c5bd96 100%, #c5bd96 0%);
+}
+
+.howto-card.color6 {
+  background: linear-gradient(135deg, #bcdfda 60%, #c3dcd8 100%, #c3dcd8 0%);
+}
+
+.howto-card.color7 {
+  background: linear-gradient(135deg, #e0ffe7 60%, #fffbe7 100%, #fceabb 0%);
+}
+
+.howto-card.color8 {
+  background: linear-gradient(135deg, #e3f6fd 60%, #f8e1f4 100%, #fffbe7 0%);
+}
+
+.howto-card.color9 {
+  background: linear-gradient(135deg, #fceabb 60%, #e0ffe7 100%, #f7fcfc 0%);
+}
+
+.howto-card.color10 {
+  background: linear-gradient(135deg, #f8e1f4 60%, #f7fcfc 100%, #e3f6fd 0%);
+}
+
 .howto-card:hover {
-  box-shadow: 0 6px 24px rgba(44,62,80,0.16);
+  box-shadow: 0 6px 24px rgba(44, 62, 80, 0.16);
   transform: translateY(-3px) scale(1.03);
 }
+
 .howto-card a {
   color: #185a9d;
   text-decoration: none;
   display: block;
 }
+
 .howto-card h4 {
   font-size: 1.08rem;
   font-weight: 600;
   margin: 0 0 0.3em 0;
   color: #0077cc;
 }
+
 .howto-card p {
   font-size: 0.97rem;
   color: #234;
   margin: 0 0 0.2em 0;
 }
+
 .product-item {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(80,167,194,0.10);
+  box-shadow: 0 2px 12px rgba(80, 167, 194, 0.10);
   /* display: flex; */
   flex-direction: column;
   align-items: center;
-  width: 99%;          
+  width: 99%;
   /* max-width: 1500px;    */
-  padding: 0.2em 1.2em; 
+  padding: 0.2em 1.2em;
   margin: 0.5em 0 0em 0;
   transition: box-shadow 0.2s;
 }
+
 .product-item:hover {
-  box-shadow: 0 6px 24px rgba(80,167,194,0.18);
+  box-shadow: 0 6px 24px rgba(80, 167, 194, 0.18);
 }
+
 .product-img {
   width: 120px;
   height: 120px;
@@ -302,23 +366,27 @@
   border-radius: 8px;
   margin-bottom: 0.7em;
 }
+
 .product-title {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0.2em 0;
   color: #0077cc;
 }
+
 .product-desc {
   font-size: 0.98rem;
   color: #234;
   margin-bottom: 0.7em;
   text-align: left;
 }
+
 .product-row {
   display: flex;
   align-items: center;
   gap: 0.2em;
 }
+
 .product-row .product-img {
   width: 120px;
   height: 120px;
@@ -326,6 +394,7 @@
   border-radius: 8px;
   margin-bottom: 0;
 }
+
 .product-row .product-info {
   flex: 1;
 }
@@ -336,6 +405,7 @@
   margin: 0.2em 0;
   color: #ffffff;
 }
+
 .travel-desc {
   font-size: 0.98rem;
   color: rgb(255, 255, 255);
@@ -355,59 +425,71 @@
     padding: 0.7em 0.2em;
     max-width: 98vw;
   }
+
   .blogs-main-category-menu {
     max-width: 98vw;
     border-radius: 6px;
   }
+
   .blogs-main-category-menu ul {
     gap: 0.5em;
     flex-wrap: wrap;
     padding: 0.3em 0.1em;
   }
+
   .blogs-main-category-menu a {
     font-size: 0.95rem;
     padding: 0.2em 0.7em;
   }
+
   .blogs-amazon-heading {
     font-size: 1.2rem;
     padding: 0.2em 0.5em;
   }
+
   .blogs-month-subheading,
   .blogs-amazon-subheading {
     font-size: 1rem;
     padding: 0.2em 0.5em;
   }
+
   .blogs-month-title,
   .blogs-amazon-title {
     font-size: 1.1rem;
     padding: 0.1em 0.5em;
   }
+
   .blogs-month-desc,
   .blogs-amazon-heading-text {
     font-size: 0.95rem;
     padding: 0.5em 0.5em;
   }
+
   .product-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5em;
   }
+
   .product-row .product-img {
     width: 80px;
     height: 80px;
   }
+
   .product-list {
     gap: 1em;
   }
+
   .product-item {
     width: 98%;
     padding: 0.7em 0.5em;
   }
+
   .product-img {
     width: 80px;
     height: 80px;
   }
-  
+
 }
 
 @media (max-width: 800px) {
@@ -417,6 +499,7 @@
     gap: 0.2em;
   }
 }
+
 /* Responsive improvements for cards, tabs, and layout */
 @media (max-width: 900px) {
   .howto-card {
@@ -424,7 +507,8 @@
     max-width: 98vw;
     padding: 0.7em 0.7em 0.5em 0.7em;
   }
-  #howto-tabs > div {
+
+  #howto-tabs>div {
     flex-direction: column !important;
     align-items: stretch !important;
   }
@@ -437,20 +521,25 @@
     padding: 0.5em 0.3em 0.3em 0.3em;
     font-size: 0.95rem;
   }
+
   .blogs-main-category {
     padding: 0.5em 0.1em;
     font-size: 0.98rem;
   }
+
   .blogs-main-category-menu ul {
     gap: 0.2em;
     flex-wrap: wrap;
     padding: 0.2em 0.1em;
   }
+
   .blogs-main-category-menu a {
     font-size: 0.92rem;
     padding: 0.15em 0.5em;
   }
-  .howto-tab-title, .blogs-amazon-subheading {
+
+  .howto-tab-title,
+  .blogs-amazon-subheading {
     font-size: 1rem;
     padding: 0.15em 0.5em;
   }
@@ -463,23 +552,29 @@
     padding: 0.3em 0.1em 0.2em 0.1em;
     font-size: 0.9rem;
   }
+
   .blogs-main-category {
     padding: 0.2em 0.05em;
     font-size: 0.95rem;
   }
+
   .blogs-main-category-menu ul {
     gap: 0.1em;
     flex-wrap: wrap;
     padding: 0.1em 0.05em;
   }
+
   .blogs-main-category-menu a {
     font-size: 0.88rem;
     padding: 0.1em 0.3em;
   }
-  .howto-tab-title, .blogs-amazon-subheading {
+
+  .howto-tab-title,
+  .blogs-amazon-subheading {
     font-size: 0.92rem;
     padding: 0.1em 0.3em;
   }
+
   .blogs-btn-wrapper {
     flex-direction: column;
     align-items: stretch;
