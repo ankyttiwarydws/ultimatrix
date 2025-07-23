@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tools | Ultimatrix</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/blogs.css" />
+    <link rel="stylesheet" href="/css/gta5.css" />
+    <script src="/js/script.js"></script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('/header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+    <main>
+        <section class="blogs-main-category">
+            <h3>GTA5 Chronicles</h3>
+            <p>Welcome to GTA 5 Chronicles – your daily dose of chaos, stories, and legendary moments from the streets
+                of Los Santos! 🎮</p>
+            <nav class="blogs-main-category-menu">
+                <ul>
+                    <li><a href="#" class="howto-tab-btn active" data-tab="videos">Videos</a></li>
+                    <li><a href="#" class="howto-tab-btn" data-tab="shorts">Shorts</a></li>
+                    <li><a href="#" class="howto-tab-btn" data-tab="playlists">Playlists</a></li>
+                    <li><a href="#" class="howto-tab-btn" data-tab="tricks">Tricks</a></li>
+                    <!-- <li><a href="#" class="howto-tab-btn" data-tab="creativity">Creativity</a></li> -->
+                </ul>
+            </nav>
+        </section>
+        <!-- <section class="hero">
+      <img class="hero-img" src="/assets/img/your-image.jpg" alt="Passion fruit and floral drink on a surface" />
+    </section> -->
+
+        <!-- Tools -->
+        <section>
+            <div id="howto-tabs">
+                <div id="tab-videos" class="howto-tab-content" style="display:none;">
+                    <p class="howto-tab-title blogs-amazon-subheading">New videos every day</p>
+                    <div class="flex-wrap-start">
+                        <div class="gta5-card color1">
+                            <a href=#>
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 33) GTA 5: Did Somebody Say Yoga? – Michael Loses His Mind at Yoga
+                                    Class!</h4>
+                                <p>Michael’s life just keeps spiraling… In this hilarious GTA 5 mission, Michael
+                                    reluctantly joins his wife Amanda and her “spiritual” instructor Fabien for a yoga
+                                    session. But things don’t go as planned – unless the plan was Michael snapping
+                                    mid-pose and storming off to find his daughter at a party boat!</p>
+                            </a>
+                        </div>
+                        <div class="gta5-card color2">
+                            <a href="#">
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 32) GTA 5: Three's Company – Michael First Heist with Trevor and
+                                    Franklin 🔥💣</h4>
+                                <p>Things are heating up in Los Santos! In this epic mission, Michael, Franklin, and
+                                    Trevor team up for the first time ever to rescue an FIB target from the IAA building
+                                    – and it’s absolute chaos!</p>
+                            </a>
+                        </div>
+                        <div class="gta5-card color3">
+                            <a href="#">
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 30) GTA 5: Fame or Shame – Trevor Reunites with Michael & Chases Lazlow!
+                                    🎤🚛</h4>
+                                <p>After a long buildup, Trevor and Michael finally come face to face in one of GTA 5’s
+                                    most iconic moments! And just when things get heated, Amanda calls — their daughter
+                                    Tracey is humiliating herself on Fame or Shame with Lazlow.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-shorts" class="howto-tab-content" style="display:none;">
+                    <p class="howto-tab-title blogs-amazon-subheading">Enjoy high-action gameplay with no filter</p>
+                    <div class="flex-wrap-start">
+                        <div class="gta5-card color2">
+                            <a href=#>
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 33) GTA 5: Did Somebody Say Yoga? – Michael Loses His Mind at Yoga
+                                    Class!</h4>
+                                <p>Michael’s life just keeps spiraling… In this hilarious GTA 5 mission, Michael
+                                    reluctantly joins his wife Amanda and her “spiritual” instructor Fabien for a yoga
+                                    session. But things don’t go as planned – unless the plan was Michael snapping
+                                    mid-pose and storming off to find his daughter at a party boat!</p>
+                            </a>
+                        </div>
+                        <div class="gta5-card color3">
+                            <a href="#">
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 32) GTA 5: Three's Company – Michael First Heist with Trevor and
+                                    Franklin 🔥💣</h4>
+                                <p>Things are heating up in Los Santos! In this epic mission, Michael, Franklin, and
+                                    Trevor team up for the first time ever to rescue an FIB target from the IAA building
+                                    – and it’s absolute chaos!</p>
+                            </a>
+                        </div>
+                        <div class="gta5-card color4">
+                            <a href="#">
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 30) GTA 5: Fame or Shame – Trevor Reunites with Michael & Chases Lazlow!
+                                    🎤🚛</h4>
+                                <p>After a long buildup, Trevor and Michael finally come face to face in one of GTA 5’s
+                                    most iconic moments! And just when things get heated, Amanda calls — their daughter
+                                    Tracey is humiliating herself on Fame or Shame with Lazlow.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-playlists" class="howto-tab-content">
+                    <p class="blogs-amazon-subheading">Watch story missions unfold</p>
+                    <div class="flex-wrap-start">
+                        <div class="gta5-card color1">
+                            <a href=#>
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 33) GTA 5: Did Somebody Say Yoga? – Michael Loses His Mind at Yoga
+                                    Class!</h4>
+                                <p>Michael’s life just keeps spiraling… In this hilarious GTA 5 mission, Michael
+                                    reluctantly joins his wife Amanda and her “spiritual” instructor Fabien for a yoga
+                                    session. But things don’t go as planned – unless the plan was Michael snapping
+                                    mid-pose and storming off to find his daughter at a party boat!</p>
+                            </a>
+                        </div>
+                        <div class="gta5-card color2">
+                            <a href="#">
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 32) GTA 5: Three's Company – Michael First Heist with Trevor and
+                                    Franklin 🔥💣</h4>
+                                <p>Things are heating up in Los Santos! In this epic mission, Michael, Franklin, and
+                                    Trevor team up for the first time ever to rescue an FIB target from the IAA building
+                                    – and it’s absolute chaos!</p>
+                            </a>
+                        </div>
+                        <div class="gta5-card color3">
+                            <a href="#">
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 30) GTA 5: Fame or Shame – Trevor Reunites with Michael & Chases Lazlow!
+                                    🎤🚛</h4>
+                                <p>After a long buildup, Trevor and Michael finally come face to face in one of GTA 5’s
+                                    most iconic moments! And just when things get heated, Amanda calls — their daughter
+                                    Tracey is humiliating herself on Fame or Shame with Lazlow.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-tricks" class="howto-tab-content" style="display:none;">
+                    <p class="howto-tab-title blogs-amazon-subheading">Hardware guides, setup tips, and troubleshooting
+                        help.</p>
+                    <div class="flex-wrap-start">
+                        <div class="gta5-card color1">
+                            <a href=#>
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 33) GTA 5: Did Somebody Say Yoga? – Michael Loses His Mind at Yoga
+                                    Class!</h4>
+                                <p>Michael’s life just keeps spiraling… In this hilarious GTA 5 mission, Michael
+                                    reluctantly joins his wife Amanda and her “spiritual” instructor Fabien for a yoga
+                                    session. But things don’t go as planned – unless the plan was Michael snapping
+                                    mid-pose and storming off to find his daughter at a party boat!</p>
+                            </a>
+                        </div>
+                        <div class="gta5-card color2">
+                            <a href="#">
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 32) GTA 5: Three's Company – Michael First Heist with Trevor and
+                                    Franklin 🔥💣</h4>
+                                <p>Things are heating up in Los Santos! In this epic mission, Michael, Franklin, and
+                                    Trevor team up for the first time ever to rescue an FIB target from the IAA building
+                                    – and it’s absolute chaos!</p>
+                            </a>
+                        </div>
+                        <div class="gta5-card color3">
+                            <a href="#">
+                                <video class="gta5-video" controls src="videos/startup-insights.mp4"></video>
+                                <h4>(Story Part 30) GTA 5: Fame or Shame – Trevor Reunites with Michael & Chases Lazlow!
+                                    🎤🚛</h4>
+                                <p>After a long buildup, Trevor and Michael finally come face to face in one of GTA 5’s
+                                    most iconic moments! And just when things get heated, Amanda calls — their daughter
+                                    Tracey is humiliating herself on Fame or Shame with Lazlow.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <p class="blogs-amazon-subheading">Want to see more tools?</p>
+            <div class="blogs-btn-wrapper">
+                <a class="btn" href="#">See All</a>
+            </div> -->
+            <!-- <button onclick="window.location.href='/blogs/blogs.html'" class="btn">← Go Back</button> -->
+        </section>
+
+    </main>
+    <div id="footer"></div>
+    <script>
+        fetch('/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+<script>
+    // Tab switching logic for How To section
+    document.querySelectorAll('.howto-tab-btn').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelectorAll('.howto-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            var tab = btn.getAttribute('data-tab');
+            document.querySelectorAll('.howto-tab-content').forEach(function (tc) {
+                tc.style.display = 'none';
+            });
+            document.getElementById('tab-' + tab).style.display = 'block';
+        });
+    });
+</script>
+
+</html>

@@ -121,18 +121,18 @@ section h3:hover {
 .search-bar-text {
   font-size: 1.5rem;
   color: #333;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
 }
 .search-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem auto;
   border-radius: 20px;
   width: 300px;
   height: 30px;
   font-size: 1rem;
   margin: 1rem 2rem 1rem 2rem;
+  padding-left: 1rem;
 }
 
 @media (max-width: 600px) {
