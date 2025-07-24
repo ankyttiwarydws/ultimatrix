@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs | Ultimatix</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/blogs.css" />
+    <link rel="stylesheet" href="/css/sports.css" />
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('/header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+    <!-- <header>
+    <h1>Tech Startup Boom in 2025</h1>
+    <p class="short-desc">India’s tech ecosystem experiences unprecedented growth this year.</p>
+    <p class="timestamp">🕒 Published on: July 22, 2025 at 9:00 PM IST</p>
+  </header> -->
+    <main>
+
+        <section class="blogs-main-category">
+            <article id="news-article" data-headline="true">
+                <h1 class="news-title">1 Tech Startup Boom in 2025</h1>
+                <p class="short-desc">India’s tech ecosystem experiences unprecedented growth.</p>
+                <p class="timestamp">2025-07-22T21:00:00</p>
+                <section class="synopsis">
+                    <p>Startups across India are raising record-breaking funding and expanding into Tier-II cities.</p>
+                </section>
+            </article>
+
+            <section class="media">
+                <!-- Photo or video -->
+                <img src="/assets/img/your-image.jpg" alt="Young tech team brainstorming in a startup hub" />
+                <!-- For video, you could swap with: 
+    <video controls src="videos/startup-insights.mp4"></video> -->
+            </section>
+
+            <section class="full-story">
+                <h2>Full Story</h2>
+                <p>In an unprecedented wave of entrepreneurship, India's tech landscape is being reshaped by nimble
+                    startups leveraging AI, green technology, and SaaS platforms. This shift comes on the heels of new
+                    government incentives, increased VC activity, and a robust talent pipeline from Tier-II cities.
+                    Analysts predict this momentum could turn India into a global startup superpower by 2030.</p>
+                <p>In an exclusive interview, CEO of TechNova shared, “The appetite for innovation here is unstoppable.
+                    We’re hiring weekly and expanding operations faster than ever.”</p>
+                <!-- Add more paragraphs as needed -->
+            </section>
+
+            <section class="article-footer">
+                <p>🖊️ Written by: <strong>My name is iconic</strong></p>
+                <p>📡 Source: <a href="https://example-news-source.com">Example News Source</a></p>
+                <p>🎓 Image Credit: <em>StartupHub Media / CC BY-SA 4.0</em></p>
+                <p>📜 Legal Disclaimer: This article is for informational purposes only. All facts are accurate to the
+                    best of our knowledge at time of publication. Reproduction without permission is prohibited.</p>
+            </section>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+    <script>
+        fetch('/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #333;
+    }
+
+    header,
+    .synopsis,
+    .full-story,
+    .article-footer {
+        padding: 1rem 2rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .media img,
+    .media video {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+    }
+
+    .article-footer {
+        background-color: #f5f5f5;
+        font-size: 0.85rem;
+        border-top: 1px solid #ccc;
+    }
+</style>
+
+</html>

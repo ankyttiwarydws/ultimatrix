@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs | Ultimatix</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/blogs.css" />
+    <link rel="stylesheet" href="/css/sports.css" />
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch('/header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+    </script>
+    <!-- <header>
+    <h1>Tech Startup Boom in 2025</h1>
+    <p class="short-desc">India’s tech ecosystem experiences unprecedented growth this year.</p>
+    <p class="timestamp">🕒 Published on: July 22, 2025 at 9:00 PM IST</p>
+  </header> -->
+    <main>
+
+        <section class="blogs-main-category">
+            <article id="news-article" data-headline="false">
+                <h1 class="news-title">2 Rising Pollution Threatens Urban Health and Environment</h1>
+                <p class="short-desc">In a troubling trend that continues to grip urban regions across India, escalating levels of air and water pollution are raising alarms among health officials, environmentalists, and local residents. As cities expand and industries boom, the balance between development and sustainability grows increasingly fragile.</p>
+                <p class="timestamp">2025-07-23T21:00:00</p>
+                <section class="synopsis">
+                    <p>According to recent data from the National Pollution Control Bureau, PM2.5 levels in over 40 major cities exceeded safe limits by an average of 80% this June. Experts warn that prolonged exposure may lead to respiratory infections, chronic asthma, and even cardiac issues.
+"Children and the elderly are particularly vulnerable.</p>
+                </section>
+            </article>
+
+            <section class="media">
+                <!-- Photo or video -->
+                <img src="/assets/img/your-image.jpg" alt="Young tech team brainstorming in a startup hub" />
+                <!-- For video, you could swap with: 
+    <video controls src="videos/startup-insights.mp4"></video> -->
+            </section>
+
+            <section class="full-story">
+                <h2>Full Story</h2>
+                <p>Factors contributing to the surge include:
+- Increased vehicular traffic post-summer holidays
+- Unchecked industrial emissions
+- Reduced forest cover in expanding zones
+
+🌊 Water Woes Deepen
+Rivers such as the Shipra and Narmada are also showing signs of contamination. Environmental audits reveal high traces of chemical effluents and untreated sewage in several tributaries. Local agricultural communities are reporting declining fish stocks and crop damage linked to poor water quality.
+
+📉 Impact on Daily Life
+Residents speak of thick morning haze, stinging eyes, and persistent headaches. Daily commute times have increased due to smog-related traffic delays, while businesses in outdoor sectors—like tourism and roadside vendors—are experiencing economic slowdowns.
+
+🌱 Efforts and Outlook
+While several municipalities have launched green initiatives—including urban gardens, electric bus fleets, and awareness drives—experts emphasize that broader structural reforms are needed.
+“Small efforts matter, but without regulatory enforcement and long-term policy shifts, pollution will continue to outpace mitigation,” noted eco-activist Ayaan Dixit during a recent seminar in Bhopal.
+</p>
+                <!-- Add more paragraphs as needed -->
+            </section>
+
+            <section class="article-footer">
+                <p>🖊️ Written by: <strong>My name is iconic</strong></p>
+                <p>📡 Source: <a href="https://example-news-source.com">Example News Source</a></p>
+                <p>🎓 Image Credit: <em>StartupHub Media / CC BY-SA 4.0</em></p>
+                <p>📜 Legal Disclaimer: This article is for informational purposes only. All facts are accurate to the
+                    best of our knowledge at time of publication. Reproduction without permission is prohibited.</p>
+            </section>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+    <script>
+        fetch('/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #333;
+    }
+
+    header,
+    .synopsis,
+    .full-story,
+    .article-footer {
+        padding: 1rem 2rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .media img,
+    .media video {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+    }
+
+    .article-footer {
+        background-color: #f5f5f5;
+        font-size: 0.85rem;
+        border-top: 1px solid #ccc;
+    }
+</style>
+
+</html>
