@@ -23,64 +23,90 @@
             <h3>Sports</h3>
             <p>Explore trending thoughts, smart ideas, and original articles you’ll love.</p>
         </section>
+        <!-- Category Filters as Buttons -->
         <section class="blogs-main-category">
-            <button class="toggle-filters-btn" onclick="toggleFilters()">Show Filters</button>
-            <!-- Category Filters as Buttons -->
+            <!-- <button class="toggle-filters-btn" onclick="toggleFilters()">Show Filters</button> -->
             <div class="category-buttons">
-                <button class="category-btn active" data-category="Tech">Tech</button>
-                <button class="category-btn active" data-category="Sports">Sports</button>
-                <button class="category-btn active" data-category="Weather">Weather</button>
-                <button class="category-btn active" data-category="Finance">Finance</button>
+                <button class="category-btn active" data-category="cricket">Cricket</button>
+                <button class="category-btn active" data-category="football">Football</button>
+                <button class="category-btn active" data-category="superbowl">Superbowl</button>
+                <button class="category-btn active" data-category="others">Others</button>
             </div>
         </section>
-        <!-- News Feed -->
-        <section class="search-section">
-            <div class="search-section">
+        <!-- Search Section -->
+        <section class="sports-section-search">
+            <div>
                 <p class="search-bar-text">Searching for something?</p>
             </div>
-            <div class="search-section">
+            <div>
                 <input class="search-bar" type="text" id="searchBar" placeholder="Search news..." />
             </div>
         </section>
-        <div class="container">
-            <!-- Tiles -->
-            <section class="sports-tiles">
-                <div class="tile stock-market color1">
-                    <h3>📈 Stock Market</h3>
-                    <p>SENSEX: 68,412.35 ▲</p>
-                    <p>NIFTY: 20,318.10 ▲</p>
+        <!-- Tiles -->
+        <section class="sports-tiles">
+            <div class="tile cricket color1">
+                <h3>🏏 Cricket</h3>
+                <p>India vs SA: Match tomorrow at 5PM</p>
+                <p>Venue: Eden Gardens, Kolkata</p>
+            </div>
+            <div class="tile football color2">
+                <h3>⚽ Football</h3>
+                <p>Manchester United vs Real Madrid</p>
+                <p>Kick-off: Tonight at 11:30PM IST</p>
+            </div>
+            <div class="tile superbowl color3">
+                <h3>🏈 Super Bowl</h3>
+                <p>Super Bowl LIX: Chiefs vs 49ers</p>
+                <p>Countdown: 10 days to kickoff</p>
+            </div>
+            <div class="tile chess color4">
+                <h3>♟️ Chess</h3>
+                <p>FIDE Grand Prix Round 3</p>
+                <p>Carlsen vs Nepomniachtchi</p>
+            </div>
+            <div class="tile tennis color5">
+                <h3>🎾 Tennis</h3>
+                <p>Wimbledon: Semi-finals tomorrow</p>
+                <p>Swiatek vs Gauff</p>
+            </div>
+            <div class="tile tennis color6">
+                <h3>🎾 Hockey</h3>
+                <p>Wimbledon: Semi-finals tomorrow</p>
+                <p>Swiatek vs Gauff</p>
+            </div>
+        </section>
+        <section class="sports-tiles">
+            <div class="tile cricket color3">
+                <h3>🏏 Cricket</h3>
+                <div class="card-container">
+                    <button class="card-nav prev">&#8592;</button>
+                    <div class="card-list"></div>
+                    <button class="card-nav next">&#8594;</button>
                 </div>
-                <div class="tile weather color2">
-                    <h3>⛅ Weather</h3>
-                    <p>🌡️ Huzur, MP: 31°C</p>
-                    <p>Humidity: 78%</p>
-                </div>
-                <div class="tile sports color3">
-                    <h3>🏏 Sports</h3>
-                    <p>India vs SA: Match tomorrow at 5PM</p>
-                </div>
+            </div>
+            <!-- Repeat for football, tennis, etc. -->
+        </section>
+        <!-- Main News Section -->
+        <section id="dynamic-news-feed">
+            <section id="headlines-section" class="sports-section">
+                <p class="sports-section-heading">Top Headlines</p>
             </section>
-            <section id="dynamic-news-feed">
-                <section id="headlines-section" class="sports-section">
-                    <p class="blogs-amazon-subheading">Top Headlines</p>
-                </section>
 
-                <section id="today-section" class="sports-section">
-                    <p class="blogs-amazon-subheading">Today’s News</p>
-                </section>
-
-                <section id="yesterday-section" class="sports-section">
-                    <p class="blogs-amazon-subheading">Yesterday’s News</p>
-                </section>
-
-                <section id="earlier-section" class="sports-section">
-                    <p class="blogs-amazon-subheading">Earlier News</p>
-                </section>
+            <section id="today-section" class="sports-section">
+                <p class="sports-section-heading">Today’s News</p>
             </section>
-            <!-- Main News Section -->
-            <!-- <section class="blogs-main-category" id="dynamic-news-feed">
+
+            <section id="yesterday-section" class="sports-section">
+                <p class="sports-section-heading">Yesterday’s News</p>
+            </section>
+
+            <section id="earlier-section" class="sports-section">
+                <p class="sports-section-heading">Earlier News</p>
+            </section>
+        </section>
+        <!-- <section class="blogs-main-category" id="dynamic-news-feed">
             </section> -->
-        </div>
+
     </main>
     <div id="footer"></div>
     <script>
@@ -89,6 +115,84 @@
             .then(data => document.getElementById('footer').innerHTML = data);
     </script>
 </body>
+
+<script>
+    const sportsData = {
+        cricket: [
+            {
+                title: "India vs SA",
+                info: "Match tomorrow at 5PM",
+                time: "2025-07-24T17:00:00"
+            },
+            {
+                title: "India vs Australia",
+                info: "India won by 45 runs",
+                time: "2025-07-20T17:00:00"
+            }
+        ],
+        football: [
+            {
+                title: "Man Utd vs Real Madrid",
+                info: "Kick-off at 11:30PM IST",
+                time: "2025-07-24T23:30:00"
+            },
+            {
+                title: "Barcelona vs PSG",
+                info: "Match delayed due to rain",
+                time: "2025-07-23T21:00:00"
+            }
+        ],
+        // Add superbowl, chess, tennis similarly
+
+    };
+</script>
+
+<script>
+    function loadSportsCards(sportKey, dataArray) {
+        const container = document.querySelector(`.tile.${sportKey} .card-list`);
+        if (!container || !dataArray) return;
+
+        // Sort by newest first
+        dataArray.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+        dataArray.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.dataset.time = item.time;
+            card.innerHTML = `
+      <p><strong>${item.title}</strong>: ${item.info}</p>
+      <p class="timestamp">⏱️ ${new Date(item.time).toLocaleString()}</p>
+    `;
+            container.appendChild(card);
+        });
+
+        // Navigation setup
+        let index = 0;
+        const cards = container.querySelectorAll(".card");
+        const cardList = container;
+        const updateView = () => {
+            cardList.style.transform = `translateX(-${index * 100}%)`;
+        };
+
+        const tile = container.closest(".tile");
+        tile.querySelector(".prev").onclick = () => {
+            index = (index > 0) ? index - 1 : cards.length - 1;
+            updateView();
+        };
+        tile.querySelector(".next").onclick = () => {
+            index = (index + 1) % cards.length;
+            updateView();
+        };
+
+        updateView(); // Show first card
+    }
+
+    // Initialize all tiles from sportsData
+    Object.entries(sportsData).forEach(([key, data]) => {
+        loadSportsCards(key, data);
+    });
+</script>
+
 
 <script>
     const searchBar = document.getElementById("searchBar");
@@ -144,209 +248,43 @@
 
 <script>
     const articleList = [
-        { url: "news1.html" },
-        { url: "news2.html" },
-        { url: "news3.html" },
-        { url: "news4.html" },
-        // { url: "news5.html" },
-        // { url: "news6.html" },
-        // { url: "news7.html" },
-        // { url: "news8.html" },
-        // { url: "news9.html" },
-        // { url: "news10.html" },
-        // { url: "news11.html" },
-        // { url: "news12.html" },
-        // { url: "news13.html" },
-        // { url: "news14.html" },
-        // { url: "news15.html" },
-        // { url: "news16.html" },
-        // { url: "news17.html" },
-        // { url: "news18.html" },
-        // { url: "news19.html" },
-        // { url: "news20.html" }
-        // Add as many as needed
+        { url: "sports1.html" },
+        { url: "sports2.html" },
+        { url: "sports3.html" },
+        { url: "sports4.html" },
+        // Add more as needed
     ];
-    const renderedArticles = []; // Holds live DOM elements
 
-    function lazyLoadArticlesFromJSON(articleData, containerSelector) {
-        const container = document.querySelector(containerSelector);
-        // Step 1: Generate empty placeholders
-        articleData.forEach(item => {
-            const placeholder = document.createElement("article");
-            placeholder.classList.add("news-placeholder");
-            placeholder.setAttribute("data-url", item.url);
-            container.appendChild(placeholder);
-        });
-
-        document.querySelector("#dynamic-news-feed").addEventListener("click", (e) => {
-            if (e.target.classList.contains("read-more-btn")) {
-                const articleEl = e.target.closest(".news-item");
-                const extra = articleEl.querySelector(".extra-content");
-
-                // Collapse all others
-                document.querySelectorAll(".news-item .extra-content").forEach(section => {
-                    if (section !== extra) {
-                        section.classList.remove("expanded");
-                        section.style.maxHeight = "0";
-                        section.style.opacity = "0";
-                        section.parentElement.querySelector(".read-more-btn").textContent = "Read More";
-                    }
-                });
-
-                // Toggle this one
-                const isExpanded = extra.classList.contains("expanded");
-                if (!isExpanded) {
-                    extra.classList.add("expanded");
-                    extra.style.maxHeight = "500px";
-                    extra.style.opacity = "1";
-                    e.target.textContent = "Show Less";
-                } else {
-                    extra.classList.remove("expanded");
-                    extra.style.maxHeight = "0";
-                    extra.style.opacity = "0";
-                    e.target.textContent = "Read More";
-                }
-            }
-        });
-
-
-        // Step 2: Apply lazy loader
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const url = el.getAttribute("data-url");
-                    const readMoreBtn = el.querySelector(".read-more-btn");
-                    const extra = el.querySelector(".extra-content");
-                    if (el.dataset.loaded) return;
-                    el.dataset.loaded = "true";
-
-                    fetch(url)
-                        .then(res => res.text())
-                        .then(html => {
-                            const parser = new DOMParser();
-                            const doc = parser.parseFromString(html, "text/html");
-                            const title = doc.querySelector(".news-title")?.textContent || "Untitled";
-                            const desc = doc.querySelector(".short-desc")?.textContent || "";
-                            const timestamp = doc.querySelector(".timestamp")?.textContent || "";
-                            const synopsis = doc.querySelector(".synopsis p")?.textContent || "";
-                            el.classList.remove("news-placeholder");
-                            el.classList.add("news-item");
-                            el.innerHTML = `
-              <a href="${url}" target="_blank"><h2>${title}</h2></a>
-              <p class="timestamp">${timestamp}</p>
-              <p class="summary">${desc}</p>
-              <div class="extra-content" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease;">
-                <p>${synopsis}</p>
-                <a href="${url}" target="_blank"><button class="read-full-btn">Read Full Story</button></a>
-              </div>
-              <button class="read-more-btn">Read More</button>
-            `;
-                            // Push the live article to the global list
-                            renderedArticles.push(el);
-                        })
-                        .catch(err => {
-                            el.innerHTML = `<p>🔄 Failed to load article.</p>`;
-                            console.error("Lazy-load error:", url, err);
-                        });
-                    obs.unobserve(el);
-                }
-            });
-        }, { rootMargin: "0px 0px 200px 0px" });
-        container.querySelectorAll(".news-placeholder").forEach(el => observer.observe(el));
-    }
-    // 🚀 Initialize on load
-    window.addEventListener("DOMContentLoaded", () => {
-        lazyLoadArticlesFromJSON(articleList, "#dynamic-news-feed");
-    });
-</script>
-
-<!-- <script>
-    const articleList = [
-        { url: "news1.html" },
-        { url: "news2.html" },
-        { url: "news3.html" },
-        // { url: "news3.html" },
-        // { url: "news4.html" },
-        // { url: "news5.html" },
-        // { url: "news6.html" },
-        // { url: "news7.html" },
-        // { url: "news8.html" },
-        // { url: "news9.html" },
-        // { url: "news10.html" },
-        // { url: "news11.html" },
-        // { url: "news12.html" },
-        // { url: "news13.html" },
-        // { url: "news14.html" },
-        // { url: "news15.html" },
-        // { url: "news16.html" },
-        // { url: "news17.html" },
-        // { url: "news18.html" },
-        // { url: "news19.html" },
-        // { url: "news20.html" }
-        // Add as many as needed
-    ];
-    const renderedArticles = []; // Holds live DOM elements
+    const renderedArticles = [];
     const headlinesSection = document.getElementById("headlines-section");
     const todaySection = document.getElementById("today-section");
     const yesterdaySection = document.getElementById("yesterday-section");
     const earlierSection = document.getElementById("earlier-section");
-    // Helper to extract article date and compare
+
     function getDateOnly(dateStr) {
-        return new Date(dateStr).toISOString().split("T")[0]; // YYYY-MM-DD
+        return new Date(dateStr).toISOString().split("T")[0]; // "YYYY-MM-DD"
     }
-    // Lazy load articles from JSON
+
     function lazyLoadArticlesFromJSON(articleData) {
         const today = getDateOnly(new Date());
-        const yesterday = getDateOnly(new Date(Date.now() - 86400000)); // 1 day ago
+        const yesterday = getDateOnly(new Date(Date.now() - 86400000));
 
+        // Step 1: Create placeholders
         articleData.forEach(item => {
             const placeholder = document.createElement("article");
             placeholder.classList.add("news-placeholder");
             placeholder.setAttribute("data-url", item.url);
 
-            // Insert temporarily into headlines for observation
+            // Insert into headlines as initial observation target
             headlinesSection.appendChild(placeholder);
         });
-        document.querySelector("#dynamic-news-feed").addEventListener("click", (e) => {
-            if (e.target.classList.contains("read-more-btn")) {
-                const articleEl = e.target.closest(".news-item");
-                const extra = articleEl.querySelector(".extra-content");
 
-                // Collapse all others
-                document.querySelectorAll(".news-item .extra-content").forEach(section => {
-                    if (section !== extra) {
-                        section.classList.remove("expanded");
-                        section.style.maxHeight = "0";
-                        section.style.opacity = "0";
-                        section.parentElement.querySelector(".read-more-btn").textContent = "Read More";
-                    }
-                });
-
-                // Toggle this one
-                const isExpanded = extra.classList.contains("expanded");
-                if (!isExpanded) {
-                    extra.classList.add("expanded");
-                    extra.style.maxHeight = "500px";
-                    extra.style.opacity = "1";
-                    e.target.textContent = "Show Less";
-                } else {
-                    extra.classList.remove("expanded");
-                    extra.style.maxHeight = "0";
-                    extra.style.opacity = "0";
-                    e.target.textContent = "Read More";
-                }
-            }
-        });
-
-        // Step 2: Apply lazy loader
+        // Step 2: Lazy Load Articles
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
                     const url = el.getAttribute("data-url");
-                    const readMoreBtn = el.querySelector(".read-more-btn");
-                    const extra = el.querySelector(".extra-content");
                     if (el.dataset.loaded) return;
                     el.dataset.loaded = "true";
 
@@ -367,21 +305,22 @@
                             el.classList.remove("news-placeholder");
                             el.classList.add("news-item");
                             el.innerHTML = `
-              <a href="${url}" target="_blank"><h2>${title}</h2></a>
-              <p class="timestamp">${timestampRaw}</p>
-              <p class="summary">${desc}</p>
-              <div class="extra-content" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease;">
-                <p>${synopsis}</p>
-                <a href="${url}" target="_blank"><button class="read-full-btn">Read Full Story</button></a>
-              </div>
-              <button class="read-more-btn">Read More</button>
-            `;
-                            // Push the live article to the global list
+                <a href="${url}" target="_blank"><h2>${title}</h2></a>
+                <p class="timestamp">${timestampRaw}</p>
+                <p class="summary">${desc}</p>
+                <div class="extra-content" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease;">
+                  <p>${synopsis}</p>
+                  <a href="${url}" target="_blank"><button class="read-full-btn">Read Full Story</button></a>
+                </div>
+                <button class="read-more-btn">Read More</button>
+              `;
+
                             renderedArticles.push(el);
+
+                            // ✅ Insert into correct section
                             if (isHeadline) {
                                 headlinesSection.appendChild(el);
-                            }
-                            if (publishedDate === today) {
+                            } else if (publishedDate === today) {
                                 todaySection.appendChild(el);
                             } else if (publishedDate === yesterday) {
                                 yesterdaySection.appendChild(el);
@@ -390,101 +329,8 @@
                             }
                         })
                         .catch(err => {
-                            // el.innerHTML = `<p>❗ Failed to load article.</p>`;
-                            // console.error("Error fetching:", url, err);
-                        });
-
-                    obs.unobserve(el);
-                }
-            });
-        }, { rootMargin: "0px 0px 200px 0px" });
-
-        document.querySelectorAll(".news-placeholder").forEach(el => observer.observe(el));
-    }
-    // // window.addEventListener("DOMContentLoaded", () => {
-    // //     lazyLoadArticlesFromJSON(articleList, "#dynamic-news-feed");
-
-    // });
-</script> -->
-
-<script>
-    const headlinesSection = document.getElementById("headlines-section");
-    const todaySection = document.getElementById("today-section");
-    const yesterdaySection = document.getElementById("yesterday-section");
-    const earlierSection = document.getElementById("earlier-section");
-
-    // Helper to extract article date and compare
-    function getDateOnly(dateStr) {
-        return new Date(dateStr).toISOString().split("T")[0]; // YYYY-MM-DD
-    }
-
-    function lazyLoadArticlesFromJSON(articleData) {
-        const today = getDateOnly(new Date());
-        const yesterday = getDateOnly(new Date(Date.now() - 86400000)); // 1 day ago
-
-        articleData.forEach(item => {
-            const placeholder = document.createElement("article");
-            placeholder.classList.add("news-placeholder");
-            placeholder.setAttribute("data-url", item.url);
-
-            // Insert temporarily into headlines for observation
-            headlinesSection.appendChild(placeholder);
-        });
-
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const url = el.getAttribute("data-url");
-                    if (el.dataset.loaded) return;
-                    el.dataset.loaded = "true";
-
-                    fetch(url)
-                        .then(res => res.text())
-                        .then(html => {
-                            const parser = new DOMParser();
-                            const doc = parser.parseFromString(html, "text/html");
-
-                            const title = doc.querySelector(".news-title")?.textContent || "Untitled";
-                            const desc = doc.querySelector(".short-desc")?.textContent || "";
-                            const timestampRaw = doc.querySelector(".timestamp")?.textContent || "";
-                            const synopsis = doc.querySelector(".synopsis p")?.textContent || "";
-                            const articleTag = doc.querySelector("#news-article");
-                            const isHeadline = articleTag?.getAttribute("data-headline") == "true";
-                            const publishedDate = getDateOnly(timestampRaw);
-
-                            el.classList.remove("news-placeholder");
-                            el.classList.add("news-item");
-                            el.innerHTML = `
-              <a href="${url}" target="_blank"><h2>${title}</h2></a>
-              <p class="timestamp">${timestampRaw}</p>
-              <p class="summary">${desc}</p>
-              <div class="extra-content" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease;">
-                <p>${synopsis}</p>
-                <a href="${url}" target="_blank"><button class="read-full-btn">Read Full Story</button></a>
-              </div>
-              <button class="read-more-btn">Read More</button>
-            `;
-                            // Push the live article to the global list
-                            renderedArticles.push(el);
-                            // Add to correct section
-                            if (isHeadline) {
-                                headlinesSection.appendChild(el);
-                            }
-                            else if (publishedDate === today) {
-                                todaySection.appendChild(el);
-                            } else if (publishedDate === yesterday) {
-                                yesterdaySection.appendChild(el);
-                            } else {
-                                earlierSection.appendChild(el);
-                            }
-
-
-
-                        })
-                        .catch(err => {
-                            // el.innerHTML = `<p>❗ Failed to load article.</p>`;
-                            // console.error("Error fetching:", url, err);
+                            el.innerHTML = `<p>❗ Failed to load article.</p>`;
+                            console.error("Error fetching:", url, err);
                         });
 
                     obs.unobserve(el);
@@ -495,6 +341,40 @@
         document.querySelectorAll(".news-placeholder").forEach(el => observer.observe(el));
     }
 
+    // Step 3: Event Delegation for Read More button
+    document.querySelector("#dynamic-news-feed").addEventListener("click", (e) => {
+        if (e.target.classList.contains("read-more-btn")) {
+            const articleEl = e.target.closest(".news-item");
+            const extra = articleEl.querySelector(".extra-content");
+
+            document.querySelectorAll(".news-item .extra-content").forEach(section => {
+                if (section !== extra) {
+                    section.classList.remove("expanded");
+                    section.style.maxHeight = "0";
+                    section.style.opacity = "0";
+                    section.parentElement.querySelector(".read-more-btn").textContent = "Read More";
+                }
+            });
+
+            const isExpanded = extra.classList.contains("expanded");
+            if (!isExpanded) {
+                extra.classList.add("expanded");
+                extra.style.maxHeight = "500px";
+                extra.style.opacity = "1";
+                e.target.textContent = "Show Less";
+            } else {
+                extra.classList.remove("expanded");
+                extra.style.maxHeight = "0";
+                extra.style.opacity = "0";
+                e.target.textContent = "Read More";
+            }
+        }
+    });
+
+    // 🚀 Kickstart on load
+    window.addEventListener("DOMContentLoaded", () => {
+        lazyLoadArticlesFromJSON(articleList);
+    });
 </script>
 
 </html>
