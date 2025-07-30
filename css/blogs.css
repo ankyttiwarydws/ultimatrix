@@ -428,7 +428,7 @@
 
   .blogs-main-category-menu {
     max-width: 98vw;
-    border-radius: 6px;
+    /* border-radius: 6px; */
   }
 
   .blogs-main-category-menu ul {

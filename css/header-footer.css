@@ -145,6 +145,69 @@
    filter: drop-shadow(0 4px 12px #8cf8);
  }
 
+ /* Reset spacing */
+ul {
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* Main menu layout */
+.main-menu {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  background: linear-gradient(90deg, #0077cc 60%, #5e739f 100%);
+   color: #fff;
+}
+
+/* Dropdown styling */
+.main-menu li {
+  position: relative;
+}
+
+.dropdown, .submenu {
+  display: none;
+  position: absolute;
+  /* background-color: #222; */
+  padding: 10px;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, #0077cc 60%, #5e739f 100%);
+   color: #fff;
+}
+
+.dropdown li {
+  position: relative;
+}
+
+/* Show dropdown on hover */
+.main-menu li:hover > .dropdown {
+  display: block;
+}
+
+/* Show submenu on hover */
+.dropdown li:hover > .submenu {
+  display: block;
+  left: 100%;
+  top: 0;
+}
+
+/* Link styling */
+/* a {
+  color: white;
+  text-decoration: none;
+} */
+
+.dropdown a, .submenu a {
+   font-size: 1rem;
+   font-weight: 600;
+  display: block;
+  padding: 8px;
+  white-space: nowrap;
+}
+
  @media (max-width: 800px) {
    .header-container {
      flex-direction: column;
