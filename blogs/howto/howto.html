@@ -12,11 +12,7 @@
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
-  </script>
+
   <main>
     <section class="blogs-main-category">
       <h3>How To</h3>
@@ -183,11 +179,7 @@
     </section>
   </main>
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
+
 </body>
 <script>
   // Tab switching logic for How To section

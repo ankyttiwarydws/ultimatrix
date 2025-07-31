@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clock | Ultimatrix</title>
   <link rel="stylesheet" href="/css/style.css" />
-  <script src="/js/script.js"></script>
+  <script src="/js/script.js" defer></script>
   <meta name="description"
     content="Beautiful fullscreen clock with ambient Unsplash background, dim toggle, fullscreen, ambient sound, and millisecond time updates." />
   <style>
@@ -160,11 +160,7 @@
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
-  </script>
+
   <div class="overlay" id="overlay"></div>
 
   <div class="container">
@@ -245,11 +241,7 @@
     });
   </script>
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
+
 </body>
 
 </html>
