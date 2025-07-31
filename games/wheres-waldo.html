@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Where's Waldo? | Ultimatrix</title>
   <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js" defer></script>
   <style>
     body {
       margin: 0;
@@ -77,11 +78,7 @@
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
-  </script>
+
   <div class="game-wrapper">
     <div class="game-container">
       <div class="title">Where's Waldo?</div>
@@ -113,11 +110,7 @@
     </div>
   </div>
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
+
   <script>
     // Define Waldo's bounding box (as a percentage of the image dimensions)
     // Example: {x: 0.62, y: 0.35, w: 0.06, h: 0.12} (adjust for your image)

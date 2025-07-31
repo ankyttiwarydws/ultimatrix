@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Code Editor | Ultimatrix</title>
   <link rel="stylesheet" href="/css/style.css" />
-  <script src="/js/script.js"></script>
+  <script src="/js/script.js" defer></script>
   <meta name="description"
     content="Free universal code editor with syntax highlighting, compare/diff mode, language detection, and theme toggle. No ads. Works offline." />
   <meta http-equiv="Content-Security-Policy"
@@ -112,11 +112,7 @@
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
-  </script>
+
   <div class="container">
     <h1>🧠 Universal Code Editor</h1>
 
@@ -224,11 +220,7 @@
   </script>
 
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
+
 </body>
 
 </html>

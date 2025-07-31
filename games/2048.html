@@ -9,15 +9,12 @@
     content="Play the classic 2048 game online for free on Ultimatrix! Merge tiles, increase your score, and challenge your brain. Use arrow keys to move. No download needed." />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/games/2048.css" />
+  <script src="/js/script.js" defer></script>
 </head>
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
-  </script>
+
   <div class="game-wrapper">
     <div class="game-container" tabindex="0" onkeydown="handleKey(event)">
       <div class="title">2048</div>
@@ -187,11 +184,7 @@
     document.querySelector('.game-container').focus();
   </script>
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
+
 </body>
 
 </html>

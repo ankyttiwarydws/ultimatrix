@@ -7,15 +7,12 @@
   <title>Historic | Travel Blog</title>
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/blogs.css" />
+  <script src="/js/script.js" defer></script>
 </head>
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
-  </script>
+
   <main>
     <section>
       <h2>Historic</h2>
@@ -23,11 +20,7 @@
     </section>
   </main>
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
+
 </body>
 
 </html>

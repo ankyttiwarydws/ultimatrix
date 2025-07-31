@@ -6,16 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PDF Splitter | Ultimatrix</title>
   <link rel="stylesheet" href="/css/style.css" />
-  <script src="/js/script.js"></script>
+  <script src="/js/script.js" defer></script>
 </head>
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
-  </script>
+
 
   <main class="container">
     <article class="hero">
@@ -24,11 +20,7 @@
     </article>
   </main>
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
+
 </body>
 
 </html>
