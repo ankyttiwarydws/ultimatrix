@@ -12,11 +12,6 @@
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
-  </script>
 
   <main>
     <!-- Hero -->
@@ -30,7 +25,8 @@
       <h3>Fuel for the Soul</h3>
       <p>🌞 A motivational quote, meme, or fact to brighten your day.</p>
       <blockquote>“The best way to predict the future is to invent it.” – Alan Kay</blockquote>
-      <p>For More Inspiring Quotes <span style="font-size:1.5em;">&#8594;</span></p><button class="toggle" onclick=""></button>
+      <p>For More Inspiring Quotes <span style="font-size:1.5em;">&#8594;</span></p><button class="toggle"
+        onclick=""></button>
 
     </section>
 
@@ -71,12 +67,14 @@
           <div id="sportsNews">
             <!-- <img class = "news-section-img"src="" alt=""> -->
             <a href="https://latest.ultimatrix.co.in" class="news-section-heading">Sports News</a>
-            <p class="news-section-desc">Big plays. Bigger moments. Whether it's a match-winning six or a buzzer-beater, we’ve got the highlights, heartbreaks, and heroics.</p>
+            <p class="news-section-desc">Big plays. Bigger moments. Whether it's a match-winning six or a buzzer-beater,
+              we’ve got the highlights, heartbreaks, and heroics.</p>
           </div>
           <div id="trending">
             <!-- <img class = "news-section-img"src="" alt=""> -->
             <a href="https://latest.ultimatrix.co.in" class="news-section-heading">Trending</a>
-            <p class="news-section-desc">From viral videos to cultural shakeups, here’s what the internet can't stop talking about.</p>
+            <p class="news-section-desc">From viral videos to cultural shakeups, here’s what the internet can't stop
+              talking about.</p>
           </div>
         </div>
         <div>
@@ -116,7 +114,8 @@
       <a href="tools/tools.html" class="btn">Go to Tools</a>
     </section>
   </main>
-  <footer>
+  <div id="footer"></div>
+  <!-- <footer>
     <div class="footer-links">
       <a href="/about-us.html">About Us</a>
       <a href="/contact-us.html">Contact Us</a>
@@ -137,7 +136,7 @@
       </a>
     </div>
     <p>© 2025 Ultimatix. All rights reserved.</p>
-  </footer>
+  </footer> -->
 </body>
 
 </html>

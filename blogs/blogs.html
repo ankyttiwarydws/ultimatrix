@@ -12,11 +12,6 @@
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
-  </script>
   <main>
     <section class="blogs-main-category">
       <h3>Reader’s Realm</h3>
@@ -31,15 +26,15 @@
         </ul>
       </nav>
     </section>
-<!-- Search Section -->
-        <section class="section-search">
-            <div>
-                <p class="search-bar-text">Searching for something?</p>
-            </div>
-            <div>
-                <input class="search-bar" type="text" id="searchBar" placeholder="Search blogs..." />
-            </div>
-        </section>
+    <!-- Search Section -->
+    <section class="section-search">
+      <div>
+        <p class="search-bar-text">Searching for something?</p>
+      </div>
+      <div>
+        <input class="search-bar" type="text" id="searchBar" placeholder="Search blogs..." />
+      </div>
+    </section>
 
     <!-- Blog of the Month -->
     <section class="blogs-section"
@@ -472,11 +467,6 @@
     </section>
   </main>
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
 </body>
 
 </html>
