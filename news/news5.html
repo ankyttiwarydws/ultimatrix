@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News | Ultimatix</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/blogs.css" />
+    <link rel="stylesheet" href="/css/news-sports.css" />
+    <link rel="stylesheet" href="/css/news-sports-pages.css" />
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <main>
+        <section class="section-main">
+            <article id="news-article" data-headline="true" news-category ="Tech">
+                <h1 id="news-title"></h1>
+                <h2 id="news-short-desc"></h2>
+                <p id="news-timestamp" class="timestamp"></p>
+                <p id="news-synopsis"></p>
+            </article>
+
+            <section class="news-media">
+                <!-- Photo or video -->
+                <img src="/assets/img/your-image.jpg" alt="Young tech team brainstorming in a startup hub" />
+                <!-- For video, you could swap with: 
+                <video controls src="videos/startup-insights.mp4"></video> -->
+            </section>
+
+            <section class="news-full-story"></section>
+
+            <section class="article-footer">
+                <p>🖊️ Written by: <strong></strong></p>
+                <p>📡 Source: <a href=""></a></p>
+                <p>🎓 Image Credit: <em></em></p>
+                <p>📜 Legal Disclaimer: This article is for informational purposes only. All facts are accurate to the
+                    best of our knowledge at time of publication. Reproduction without permission is prohibited.</p>
+            </section>
+        </section>
+    </main>
+
+<script>
+    async function fetchNewsData() {
+        try {
+            const response = await fetch('/data/news/news-data.json');
+            const data = await response.json();
+            renderArticle(data[0]); // Render first article; you can loop if needed
+        } catch (error) {
+            console.error("Error fetching news data:", error);
+        }
+    }
+
+    function renderArticle(article) {
+        document.getElementById('news-title').textContent = article.title;
+        document.getElementById('news-short-desc').textContent = article.shortDesc;
+        document.getElementById('news-timestamp').textContent = article.timestamp;
+        document.getElementById('news-synopsis').textContent = article.synopsis;
+        document.querySelector('.news-media img').src = article.imageSrc;
+        document.querySelector('.news-media img').alt = article.imageAlt;
+        document.querySelector('.article-footer strong').textContent = article.author;
+        document.querySelector('.article-footer a').href = article.sourceURL;
+        document.querySelector('.article-footer a').textContent = article.sourceName || "Source";  
+
+        const storySection = document.querySelector('.news-full-story');
+        storySection.innerHTML = '<h2>Full Story</h2>';
+        article.fullStory.forEach(p => {
+            const para = document.createElement('p');
+            para.textContent = p;
+            storySection.appendChild(para);
+        });
+
+        document.querySelector('.article-footer strong').textContent = article.author;
+        document.querySelector('.article-footer a').href = article.sourceURL;
+    }
+
+    document.addEventListener("DOMContentLoaded", fetchNewsData);
+</script>
+    <div id="footer"></div>
+</body>
+
+</html>

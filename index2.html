@@ -1,0 +1,16 @@
+<script>
+    let indexContent = `<!DOCTYPE html>
+<html><head><title>All Articles</title></head><body><h1>Articles</h1><ul>`;
+
+articles.forEach(article => {
+  const slug = slugify(article.title);
+  const category = article.category.toLowerCase();
+  const date = article.date;
+  const linkPath = `./${category}/${date}/${slug}.html`;
+
+  indexContent += `<li><a href="${linkPath}">${article.title}</a></li>`;
+});
+
+indexContent += `</ul></body></html>`;
+fs.writeFileSync(path.join(__dirname, 'static', 'index.html'), indexContent);
+</script>
