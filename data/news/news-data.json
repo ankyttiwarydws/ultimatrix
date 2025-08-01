@@ -1,0 +1,61 @@
+[
+  {
+    "title": "Tech Startup Boom in 2025",
+    "shortDesc": "India’s tech ecosystem experiences unprecedented growth.",
+    "timestamp": "2025-07-22T21:00:00",
+    "synopsis": "Startups across India are raising record-breaking funding and expanding into Tier-II cities.",
+    "fullStory": [
+      "India's tech landscape is being reshaped by nimble startups leveraging AI, green tech, and SaaS.",
+      "CEO of TechNova says, “The appetite for innovation here is unstoppable.”"
+    ],
+    "imageSrc": "/assets/img/your-image.jpg",
+    "imageAlt": "Young tech team brainstorming in a startup hub",
+    "author": "My name is iconic",
+    "sourceURL": "https://example-news-source.com",
+    "sourceName": "Example News Source",
+    "imageCredit": "StartupHub Media / CC BY-SA 4.0",
+    "category": "design",
+    "date": "2025-08-02"
+  },
+  {
+    "title": "Rising Pollution Threatens Urban Health and Environment",
+    "shortDesc": "In a troubling trend that continues to grip urban regions across India, escalating levels of air and water pollution are raising alarms among health officials, environmentalists, and local residents. As cities expand and industries boom, the balance between development and sustainability grows increasingly fragile.",
+    "timestamp": "2025-07-23T21:00:00",
+    "synopsis": "According to recent data from the National Pollution Control Bureau, PM2.5 levels in over 40 major cities exceeded safe limits by an average of 80% this June. Experts warn that prolonged exposure may lead to respiratory infections, chronic asthma, and even cardiac issues. Children and the elderly are particularly vulnerable.",
+    "fullStory": [
+      "Factors contributing to the surge include: - Increased vehicular traffic post-summer holidays - Unchecked industrial emissions - Reduced forest cover in expanding zones",
+      "🌊 Water Woes Deepen",
+      "Rivers such as the Shipra and Narmada are also showing signs of contamination. Environmental audits reveal high traces of chemical effluents and untreated sewage in several tributaries. Local agricultural communities are reporting declining fish stocks and crop damage linked to poor water quality.",
+      "📉 Impact on Daily Life",
+      "Residents speak of thick morning haze, stinging eyes, and persistent headaches. Daily commute times have increased due to smog-related traffic delays, while businesses in outdoor sectors—like tourism and roadside vendors—are experiencing economic slowdowns.",
+      "🌱 Efforts and Outlook",
+      "While several municipalities have launched green initiatives—including urban gardens, electric bus fleets, and awareness drives—experts emphasize that broader structural reforms are needed. “Small efforts matter, but without regulatory enforcement and long-term policy shifts, pollution will continue to outpace mitigation,” noted eco-activist Ayaan Dixit during a recent seminar in Bhopal."
+    ],
+    "imageSrc": "/assets/img/your-image.jpg",
+    "imageAlt": "Young tech team brainstorming in a startup hub",
+    "author": "Ultimatrix News Team",
+    "sourceURL": "https://example-news-source.com",
+    "sourceName": "Example News Source",
+    "imageCredit": "StartupHub Media / CC BY-SA 4.0",
+    "category": "environment",
+    "date": "2025-08-01"
+  },
+  {
+    "title": "Tech Startup Boom in 2025",
+    "shortDesc": "India’s tech ecosystem experiences unprecedented growth.",
+    "timestamp": "2025-07-22T21:00:00",
+    "synopsis": "Startups across India are raising record-breaking funding and expanding into Tier-II cities.",
+    "fullStory": [
+      "In an unprecedented wave of entrepreneurship, India's tech landscape is being reshaped by nimble startups leveraging AI, green technology, and SaaS platforms. This shift comes on the heels of new government incentives, increased VC activity, and a robust talent pipeline from Tier-II cities. Analysts predict this momentum could turn India into a global startup superpower by 2030.",
+      "In an exclusive interview, CEO of TechNova shared, “The appetite for innovation here is unstoppable. We’re hiring weekly and expanding operations faster than ever.”"
+    ],
+    "imageSrc": "/assets/img/your-image.jpg",
+    "imageAlt": "Young tech team brainstorming in a startup hub",
+    "author": "Ultimatrix",
+    "sourceURL": "https://example-news-source.com",
+    "sourceName": "Example News Source",
+    "imageCredit": "StartupHub Media / CC BY-SA 4.0",
+    "category": "tech",
+    "date": "2025-07-29"
+  }
+]

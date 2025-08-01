@@ -12,6 +12,16 @@
     box-shadow: 0 2px 12px rgba(44, 62, 80, 0.07);
 
   }
+.section-main {
+  background: linear-gradient(90deg, #ade9f4 0%, #57c4ff 100%);
+  border-radius: 12px;
+  /* padding: 1.2em 0.5em; */
+  margin-bottom: 0.7em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.07);
+}
   /* Reset & Base Styles */
 * {
   margin: 0;

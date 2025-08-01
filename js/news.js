@@ -94,10 +94,10 @@ const searchBar = document.getElementById("searchBar");
                             const parser = new DOMParser();
                             const doc = parser.parseFromString(html, "text/html");
 
-                            const title = doc.querySelector(".news-title")?.textContent || "Untitled";
-                            const desc = doc.querySelector(".short-desc")?.textContent || "";
-                            const timestampRaw = doc.querySelector(".timestamp")?.textContent || "";
-                            const synopsis = doc.querySelector(".synopsis p")?.textContent || "";
+                            const title = doc.querySelector("#news-title")?.textContent || "Untitled";
+                            const desc = doc.querySelector("#news-short-desc")?.textContent || "";
+                            const timestampRaw = doc.querySelector("#news-timestamp")?.textContent || "";
+                            const synopsis = doc.querySelector("#news-synopsis")?.textContent || "";
                             const articleTag = doc.querySelector("#news-article");
                             const isHeadline = articleTag?.getAttribute("data-headline") === "true";
                             const publishedDate = getDateOnly(timestampRaw);
