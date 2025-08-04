@@ -24,10 +24,12 @@ function generateHTML(article) {
   <title>${article.title} | Ultimatix</title>
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/blogs.css" />
-    <link rel="stylesheet" href="/css/news-sports.css" />
-    <link rel="stylesheet" href="/css/news-sports-pages.css" />
+  <link rel="stylesheet" href="/css/news-sports.css" />
+  <link rel="stylesheet" href="/css/news-sports-pages.css" />
+  <script src="/js/script.js" defer></script>
 </head>
 <body>
+  <div id="header"></div>
   <main>
     <section class="section-main">
       <article>
@@ -42,30 +44,46 @@ function generateHTML(article) {
       <section class="news-full-story">
         <h2>Full Story</h2>
         ${article.fullStory.map(p => `<p>${p}</p>`).join('\n')}
+        <p><a href="${article.author}">Read Here: ${article.author}</a></p>
       </section>
       <section class="article-footer">
-        <p><strong>${article.author}</strong></p>
-        <p><a href="${article.sourceURL}">${article.sourceURL}</a></p>
+        <p>🖊️ Written by: <strong>${article.author}</strong></p>
+        <p>📡 Source: <a href="${article.sourceURL}">${article.sourceURL}</a></p>
+        <p>🎓 Image Credit: <em>${article.imageCredit}</em></p>
+        <p>📜 Legal Disclaimer: This article is for informational purposes only. All facts are accurate to the best of our knowledge at time of publication. Reproduction without permission is prohibited.</p>
       </section>
     </section>
   </main>
+  <div id="footer"></div>
 </body>
 </html>`;
 }
-
+const pageIndex = [];
 // Write each file
 articles.forEach((article, index) => {
   const category = article.category.toLowerCase();
-const date = article.date; // Format: YYYY-MM-DD
-const slug = slugify(article.title);
-const folderPath = path.join(__dirname, 'news', category, date);
-fs.mkdirSync(folderPath, { recursive: true });
+  const date = article.date; // Format: YYYY-MM-DD
+  const slug = slugify(article.title);
+  const folderPath = path.join(__dirname, 'news', category, date);
+  fs.mkdirSync(folderPath, { recursive: true });
 
-const filePath = path.join(folderPath, `${slug}.html`);
-fs.writeFileSync(filePath, generateHTML(article));
+  const filePath = path.join(folderPath, `${slug}.html`);
+  fs.writeFileSync(filePath, generateHTML(article));
+
+
+  pageIndex.push({
+    url: `/news/${category}/${date}/${slug}.html`
+  });
 
   // const filename = `article-${index + 1}.html`;
   // const htmlContent = generateHTML(article);
   // fs.writeFileSync(path.join(__dirname, 'static', filename), htmlContent);
   // console.log(`✅ ${filename} created`);
 });
+
+fs.writeFileSync(
+  JSON_FILE = path.join('data', 'news', 'news-urls.json'),
+  // path.join(__dirname, 'news-pages.json'),
+  JSON.stringify(pageIndex, null, 2)
+);
+console.log('news-urls.json created');
