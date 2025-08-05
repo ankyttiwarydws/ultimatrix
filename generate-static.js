@@ -32,24 +32,18 @@ function generateHTML(article) {
   <div id="header"></div>
   <main>
     <section class="section-main">
-      <article>
-        <h1>${article.title}</h1>
-        <h2>${article.shortDesc}</h2>
-        <p class="timestamp">${article.timestamp}</p>
-        <p>${article.synopsis}</p>
+      <article id="news-article" data-headline="false">
+        <h1 id="news-title">${article.title}</h1>
+        <h2 id="news-short-desc">${article.shortDesc}</h2>
+        <p id="news-timestamp" class="timestamp">${article.timestamp}</p>
       </article>
-      <section class="news-media">
-        <img src="${article.imageSrc}" alt="${article.imageAlt}" />
-      </section>
       <section class="news-full-story">
         <h2>Full Story</h2>
-        ${article.fullStory.map(p => `<p>${p}</p>`).join('\n')}
-        <p><a href="${article.author}">Read Here: ${article.author}</a></p>
+        <p id="news-link"><a href="${article.link}">Read Here: ${article.link}</a></p>        
       </section>
       <section class="article-footer">
         <p>🖊️ Written by: <strong>${article.author}</strong></p>
         <p>📡 Source: <a href="${article.sourceURL}">${article.sourceURL}</a></p>
-        <p>🎓 Image Credit: <em>${article.imageCredit}</em></p>
         <p>📜 Legal Disclaimer: This article is for informational purposes only. All facts are accurate to the best of our knowledge at time of publication. Reproduction without permission is prohibited.</p>
       </section>
     </section>
