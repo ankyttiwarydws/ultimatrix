@@ -1,6 +1,6 @@
 const searchBar = document.getElementById("searchBar");
 const categoryButtons = document.querySelectorAll(".category-btn");
-const newsFeed = document.querySelector(".news-feed");
+const newsFeed = document.querySelector(".dynamic-news-feed");
 const articles = Array.from(document.querySelectorAll(".news-item"));
 
 // Sort by newest first
@@ -45,23 +45,38 @@ searchBar.addEventListener("input", () => {
         const match = title.includes(query) || description.includes(query);// || timestamp.includes(query)
         article.style.display = match ? "block" : "none";
     });
+    console.log(`Search query: ${query}`);
 });
-const articleList = [];
-// const articleList = require('./data/news/news-urls.json');
-// import fs from 'fs/promises';
 
-// const rawData = await fs.readFile('/data/news/news-urls.json', 'utf-8');
-// const articleList = JSON.parse(rawData);
-// print( articleList)
-fetch('/data/news/news-urls.json')
-  .then(response => response.json())
-  .then(urlsData => {
-    articleList = urlsData.map(item => item.url);
-    console.log(articleList); // You can render these or load content dynamically
-  })
-  .catch(err => console.error('Fetch error:', err));
-  
-// print( articleList)
+let articleList = [];
+
+async function loadArticleList(callback) {
+    try {
+        const articleList = await getUrlList();
+        // console.log(articleList);
+        if (typeof callback === 'function') {
+            callback(articleList);
+        }
+    } catch (err) {
+        console.error('Error loading articles:', err);
+    }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    loadArticleList(lazyLoadArticlesFromJSON);
+});
+
+function getUrlList() {
+    return fetch('/data/news/news-urls.json')
+        .then(response => response.json())
+        .then(articleList1 => {
+            return articleList1;
+        })
+        .catch(err => {
+            console.error('Fetch error:', err);
+            return []; // Graceful fallback
+        });
+}
 
 const renderedArticles = [];
 const headlinesSection = document.getElementById("headlines-section");
@@ -75,10 +90,12 @@ function getDateOnly(dateStr) {
 
 function lazyLoadArticlesFromJSON(articleData) {
     const today = getDateOnly(new Date());
+
     const yesterday = getDateOnly(new Date(Date.now() - 86400000));
 
     // Step 1: Create placeholders
     articleData.forEach(item => {
+        console.log("Loading article:", item);
         const placeholder = document.createElement("article");
         placeholder.classList.add("news-placeholder");
         placeholder.setAttribute("data-url", item.url);
@@ -105,7 +122,7 @@ function lazyLoadArticlesFromJSON(articleData) {
                         const title = doc.querySelector("#news-title")?.textContent || "Untitled";
                         const desc = doc.querySelector("#news-short-desc")?.textContent || "";
                         const timestampRaw = doc.querySelector("#news-timestamp")?.textContent || "";
-                        const synopsis = doc.querySelector("#news-synopsis")?.textContent || "";
+                        // const synopsis = doc.querySelector("#news-synopsis")?.textContent || "";
                         const articleTag = doc.querySelector("#news-article");
                         const isHeadline = articleTag?.getAttribute("data-headline") === "true";
                         const publishedDate = getDateOnly(timestampRaw);
@@ -117,7 +134,6 @@ function lazyLoadArticlesFromJSON(articleData) {
                 <p class="timestamp">${timestampRaw}</p>
                 <p class="summary">${desc}</p>
                 <div class="extra-content" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.5s ease;">
-                  <p>${synopsis}</p>
                   <a href="${url}" target="_blank"><button class="read-full-btn">Read Full Story</button></a>
                 </div>
                 <button class="read-more-btn">Read More</button>
