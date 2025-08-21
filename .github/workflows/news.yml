@@ -38,3 +38,14 @@ jobs:
           git add data/news/news-data.json
           git commit -m "chore: update news $(date -u +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
           git push
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'  # or whatever version you need
+
+      - name: Install dependencies
+        run: npm install   # (or pnpm/yarn if you use that)
+
+      - name: Run script
+        run: node generate-static.js
