@@ -1,0 +1,10 @@
+{
+  "name": "news-generator",
+  "version": "1.0.0",
+  "description": "Generates HTML pages and news-urls.json from news-data.json",
+  "main": "generate-static.js",
+  "scripts": {
+    "start": "node generate-static.js"
+  },
+  "license": "MIT"
+}
