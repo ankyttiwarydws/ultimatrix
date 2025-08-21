@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 10 * * *'  # every 2 hours
+    - cron: '30 4 * * *'  # Github timezone is UTC, this will be 10 AM IST everyday 
   workflow_dispatch: {}     # allow manual trigger
 
 jobs:
