@@ -1,0 +1,102 @@
+/* ===== RELATED ARTICLES SECTION STYLES ===== */
+
+.related-articles {
+    margin: 3rem 0 2rem 0;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #f7fcfc 0%, #e3f6fd 100%);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+}
+
+.related-articles h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2e8b57;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.related-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.related-article-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 4px solid #50a7c2;
+}
+
+.related-article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.15);
+}
+
+.related-article-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.related-article-title a {
+    color: #0077cc;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.related-article-title a:hover {
+    color: #005fa3;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .related-articles {
+        margin: 2rem 0 1rem 0;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .related-articles h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .related-articles-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .related-article-card {
+        padding: 1rem;
+    }
+
+    .related-article-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .related-articles {
+        margin: 1rem 0;
+        padding: 1rem 0.3rem;
+    }
+
+    .related-articles h2 {
+        font-size: 1.3rem;
+    }
+
+    .related-article-card {
+        padding: 0.8rem;
+    }
+
+    .related-article-title {
+        font-size: 0.95rem;
+    }
+}

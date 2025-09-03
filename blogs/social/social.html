@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social | Blogs</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/blogs.css" />
+  <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <main>
+    <section class="blogs-main-category">
+      <h3>Social</h3>
+      <p>Explore social media trends, content creation, and digital culture shaping our world.</p>
+      <nav class="blogs-main-category-menu">
+        <ul>
+          <li><a href="#" class="howto-tab-btn active" data-tab="content">Content Creation</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="trends">Trends & Culture</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="entertainment">Entertainment</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section>
+      <div id="howto-tabs">
+        <div id="tab-content" class="howto-tab-content" style="display:block;">
+          <p class="blogs-amazon-subheading">Content Creation</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color1">
+              <a href="/blogs/social/behind-the-scenes-of-viral-content-creation-secret.html">
+                <h4>Viral Content Secrets</h4>
+                <p>Discover the untold secrets behind viral content creation and expert strategies.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/blogs/social/how-to-become-a-micro-influencer-in-your-niche-ste.html">
+                <h4>Become a Micro-Influencer</h4>
+                <p>Learn actionable steps to build influence, trust, and engagement in your niche.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/blogs/social/viral-youtube-shorts-how-to-create--monetize-them-.html">
+                <h4>YouTube Shorts Mastery</h4>
+                <p>Create viral YouTube Shorts and monetize them effectively in 2025.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="tab-trends" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Trends & Culture</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color4">
+              <a href="/blogs/social/tiktok-and-instagram-trends-shaping-culture-in-202.html">
+                <h4>TikTok & Instagram Trends</h4>
+                <p>Explore social media trends shaping global culture in 2025.</p>
+              </a>
+            </div>
+            <div class="howto-card color5">
+              <a href="/blogs/social/top-trending-travel-destinations-for-indian-creato.html">
+                <h4>Trending Travel Destinations</h4>
+                <p>Top travel spots for Indian creators and content makers.</p>
+              </a>
+            </div>
+            <div class="howto-card color6">
+              <a href="/blogs/social/trending-diy-crafts-and-home-projects-for-2025.html">
+                <h4>DIY Crafts & Home Projects</h4>
+                <p>Trending DIY crafts and home projects taking social media by storm.</p>
+              </a>
+            </div>
+            <div class="howto-card color1">
+              <a href="/blogs/social/eco-friendly-travel-ideas-in-india--abroad-sustain.html">
+                <h4>Eco-Friendly Travel</h4>
+                <p>Sustainable travel ideas in India and abroad for conscious creators.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/blogs/social/capsule-wardrobes-and-minimalist-fashion-a-guide-t.html">
+                <h4>Capsule Wardrobes & Fashion</h4>
+                <p>Build a minimalist wardrobe with sustainable style and simple elegance.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="tab-entertainment" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Entertainment</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color2">
+              <a href="/blogs/social/popular-ott-shows-in-india-and-globally-2025-guide.html">
+                <h4>Popular OTT Shows 2025</h4>
+                <p>Discover trending web series on Netflix, Hotstar, Amazon Prime, and more.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/blogs/social/the-rise-of-romantasy-novels-what-to-read-in-2025.html">
+                <h4>Romantasy Novels Rising</h4>
+                <p>Explore the romance-fantasy blend dominating 2025's bestseller lists.</p>
+              </a>
+            </div>
+            <div class="howto-card color4">
+              <a href="/blogs/social/exploring-indias-food-startups--cloud-kitchens-tre.html">
+                <h4>India's Food Startups</h4>
+                <p>Explore trending food startups and cloud kitchens reshaping dining.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="blogs-amazon-subheading">Want to see more blogs?</p>
+      <div class="blogs-btn-wrapper">
+        <a class="btn" href="/blogs/blogs.html">← Go to Blogs</a>
+      </div>
+      <!-- <button onclick="window.location.href='/blogs/blogs.html'" class="btn">← Go Back</button> -->
+    </section>
+  </main>
+  <div id="footer"></div>
+
+</body>
+<script>
+  // Tab switching logic for Social section
+  document.querySelectorAll('.howto-tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('.howto-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var tab = btn.getAttribute('data-tab');
+      document.querySelectorAll('.howto-tab-content').forEach(function (tc) {
+        tc.style.display = 'none';
+      });
+      document.getElementById('tab-' + tab).style.display = 'block';
+    });
+  });
+</script>
+
+</html>
