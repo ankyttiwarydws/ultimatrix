@@ -1,0 +1,96 @@
+<div class="carousel-container">
+  <div class="carousel-track">
+    <div class="carousel-tile active">
+      <img src="image1.jpg" alt="Tile 1">
+      <h3>Tile Title 1</h3>
+      <p>Description or CTA.</p>
+    </div>
+    <div class="carousel-tile">
+      <img src="image2.jpg" alt="Tile 2">
+      <h3>Tile Title 2</h3>
+      <p>Description or CTA.</p>
+    </div>
+    <div class="carousel-tile">
+      <img src="image3.jpg" alt="Tile 3">
+      <h3>Tile Title 3</h3>
+      <p>Description or CTA.</p>
+    </div>
+  </div>
+</div>
+<style>
+.carousel-container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-tile {
+  flex: 0 0 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: #d79a9a;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.carousel-tile img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.carousel-tile.active {
+  opacity: 1;
+  position: relative;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: #982323;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+</style>
+<script>
+const tiles = document.querySelectorAll('.carousel-tile');
+let currentIndex = 0;
+
+function showTile(index) {
+  tiles.forEach((tile, i) => {
+    tile.classList.toggle('active', i === index);
+  });
+}
+
+function nextTile() {
+  currentIndex = (currentIndex + 1) % tiles.length;
+  showTile(currentIndex);
+}
+
+// Initial display
+showTile(currentIndex);
+
+// Auto-rotate every 4 seconds
+setInterval(nextTile, 4000);
+</script>
