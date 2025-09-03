@@ -472,6 +472,120 @@
     </section>
   </main>
   <div id="footer"></div>
+  <!-- Place this script just before the closing </body> tag -->
+
+<script>
+  // List of blog pages and their titles (add more as needed)
+  const blogPages = [
+    { title: "How To Use Git", url: "/blogs/howto/coding/how-to-use-git.html" },
+    { title: "How To Use Git (Advanced)", url: "/blogs/howto/coding/how-to-use-git2.html" },
+    { title: "Cucumber Cheatsheet", url: "/blogs/howto/coding/how-to-cucumber-cheatsheet.html" },
+    { title: "Git Clone Existing Project", url: "/blogs/howto/coding/how-to-git-clone-existing-project.html" },
+    { title: "Java Principles", url: "/blogs/howto/coding/how-to-java-principles.html" },
+    { title: "QA Interview Questions", url: "/blogs/howto/coding/how-to-qa-interview-questions-1.html" },
+    { title: "Selenium Cheatsheet", url: "/blogs/howto/coding/how-to-selenium-cheatsheet.html" },
+    { title: "Setup Java Maven", url: "/blogs/howto/coding/how-to-setup-java-maven.html" },
+    { title: "SSH Setup Bitbucket", url: "/blogs/howto/coding/how-to-ssh-setup-bitbucket.html" },
+    { title: "TypeScript Guide", url: "/blogs/howto/coding/how-to-typescript.html" },
+    { title: "Bake a Cake", url: "/blogs/howto/cooking/how-to-bake-a-cake-the-complete-beginners-guide.html" },
+    { title: "Boil Eggs Perfectly", url: "/blogs/howto/cooking/how-to-boil-eggs-perfectly-step-by-step-guide-for-.html" },
+    { title: "Make Pasta", url: "/blogs/howto/cooking/how-to-make-pasta-a-step-by-step-guide-to-perfect-.html" },
+    { title: "Build a PC", url: "/blogs/howto/hardware/how-to-build-a-pc-a-step-by-step-guide-for-beginne.html" },
+    { title: "Clean Your Laptop", url: "/blogs/howto/hardware/how-to-clean-your-laptop-step-by-step-guide-for-sa.html" },
+    { title: "Upgrade RAM", url: "/blogs/howto/hardware/how-to-upgrade-ram-in-your-pc-and-laptop-step-by-s.html" },
+    { title: "Keyboard Shortcuts", url: "/blogs/howto/tools/keyboard-shortcuts.html" },
+    { title: "Notepad Tool", url: "/blogs/howto/tools/notepad.html" },
+    { title: "PDF Splitter Tool", url: "/blogs/howto/tools/pdf-splitter.html" },
+    { title: "Word Counter Tool", url: "/blogs/howto/tools/word-counter.html" },
+    { title: "Design Basics", url: "/blogs/howto/design/design-basics.html" },
+    { title: "Color Theory", url: "/blogs/howto/design/color-theory.html" },
+    { title: "Typography Guide", url: "/blogs/howto/design/typography-guide.html" },
+    { title: "Everyday Fitness", url: "/blogs/howto/everyday/everyday-fitness.html" },
+    { title: "Home Organization", url: "/blogs/howto/everyday/home-organization.html" },
+    { title: "Time Management", url: "/blogs/howto/everyday/time-management.html" },
+    { title: "Dancing with The Fireflies", url: "/blogs/travel/fireflies.html" },
+    { title: "The Peaceful Shores of Goa", url: "/blogs/travel/goa.html" },
+    { title: "Mystery of Clouds in Lonavala", url: "/blogs/travel/lonavala.html" },
+    { title: "Beaches", url: "/blogs/travel/beaches/beaches.html" },
+    { title: "Mountains", url: "/blogs/travel/mountains/mountains.html" },
+    { title: "Wilderness", url: "/blogs/travel/wilderness/wilderness.html" },
+    { title: "Rivers", url: "/blogs/travel/rivers/rivers.html" },
+    { title: "Historic", url: "/blogs/travel/historic/historic.html" },
+    { title: "Romantic", url: "/blogs/travel/romantic/romantic.html" },
+    { title: "Romantic", url: "/blogs/edu/academic-writing-structure-and-style-guide.html" },
+    { title: "Sustainable Living", url: "/blogs/nature/sustainable-living.html" },
+    { title: "Eco-Friendly Products", url: "/blogs/nature/eco-friendly-products.html" },
+    { title: "Conservation Tips", url: "/blogs/nature/conservation-tips.html" },
+    { title: "Mental Health Awareness", url: "/blogs/health/mental-health-awareness.html" },
+    { title: "Healthy Eating Habits", url: "/blogs/health/healthy-eating-habits.html" },
+    { title: "Fitness Routines", url: "/blogs/health/fitness-routines.html" },
+    { title: "Personal Finance Basics", url: "/blogs/finance/personal-finance-basics.html" },
+    { title: "Investment Strategies", url: "/blogs/finance/investment-strategies.html" },
+    { title: "Budgeting Tips", url: "/blogs/finance/budgeting-tips.html" },
+    { title: "Latest Tech Trends", url: "/blogs/tech/latest-tech-trends.html" },
+    { title: "Gadget Reviews", url: "/blogs/tech/gadget-reviews.html" },
+    { title: "Software Tutorials", url: "/blogs/tech/software-tutorials.html" },
+    { title: "Social Media Tips", url: "/blogs/social/social-media-tips.html" },
+    { title: "Building Online Communities", url: "/blogs/social/building-online-communities.html" },
+    { title: "Digital Etiquette", url: "/blogs/social/digital-etiquette.html" },
+    { title: "Inspiration for Daily Life", url: "/blogs/inspiration/inspiration-for-daily-life.html" },
+    { title: "Motivational Stories", url: "/blogs/inspiration/motivational-stories.html" },
+    { title: "Creative Thinking", url: "/blogs/inspiration/creative-thinking.html" },
+    { title: "Amazon Picks", url: "/blogs/amazon/amaz.html" }
+    // Add more blog pages here as needed
+  ];
+
+  // Create a container for search results
+  const searchBar = document.getElementById('searchBar');
+  const resultContainer = document.createElement('div');
+  resultContainer.id = 'searchResults';
+  resultContainer.style.position = 'absolute';
+  resultContainer.style.background = '#fff';
+  resultContainer.style.border = '1px solid #ccc';
+  resultContainer.style.width = searchBar.offsetWidth + 'px';
+  resultContainer.style.zIndex = '1000';
+  resultContainer.style.display = 'none';
+  searchBar.parentNode.appendChild(resultContainer);
+
+  searchBar.addEventListener('input', function (e) {
+    const query = e.target.value.toLowerCase();
+    resultContainer.innerHTML = '';
+    if (query.length < 2) {
+      resultContainer.style.display = 'none';
+      return;
+    }
+    const matches = blogPages.filter(page => page.title.toLowerCase().includes(query));
+    if (matches.length > 0) {
+      matches.forEach(page => {
+        const link = document.createElement('a');
+        link.href = page.url;
+        link.textContent = page.title;
+        link.style.display = 'block';
+        link.style.padding = '0.5em 1em';
+        link.style.color = '#0077cc';
+        link.style.textDecoration = 'none';
+        link.style.borderBottom = '1px solid #eee';
+        link.addEventListener('mouseover', () => link.style.background = '#f0f8ff');
+        link.addEventListener('mouseout', () => link.style.background = 'transparent');
+        resultContainer.appendChild(link);
+      });
+      resultContainer.style.display = 'block';
+    } else {
+      const noResult = document.createElement('div');
+      noResult.textContent = 'No results found';
+      noResult.style.padding = '0.5em 1em';
+      resultContainer.appendChild(noResult);
+      resultContainer.style.display = 'block';
+    }
+  });
+
+  // Hide results when clicking outside
+  document.addEventListener('click', function (e) {
+    if (!searchBar.contains(e.target) && !resultContainer.contains(e.target)) {
+      resultContainer.style.display = 'none';
+    }
+  });
+  </script>
 </body>
 
 </html>
