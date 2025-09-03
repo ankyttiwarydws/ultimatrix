@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meme Generator</title>
+  <style>
+    body { text-align: center; }
+    canvas { border: 1px solid black; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Meme Generator</h2>
+  <input type="file" id="upload">
+  <br><br>
+  Top Text: <input id="top" placeholder="Top text">
+  <br><br>
+  Bottom Text: <input id="bottom" placeholder="Bottom text">
+  <br><br>
+  <button onclick="generate()">Generate</button>
+  <button onclick="download()">Download</button>
+  <br>
+  <canvas id="canvas" width="500" height="400"></canvas>
+
+  <script>
+    const c = document.getElementById('canvas');
+    const ctx = c.getContext('2d');
+    let img = new Image();
+
+    document.getElementById('upload').onchange = e => {
+      const reader = new FileReader();
+      reader.onload = () => { img.src = reader.result; };
+      reader.readAsDataURL(e.target.files[0]);
+    };
+
+    function generate() {
+      ctx.clearRect(0,0,c.width,c.height);
+      ctx.drawImage(img, 0, 0, c.width, c.height);
+      ctx.font = "30px Impact";
+      ctx.fillStyle = "white";
+      ctx.strokeStyle = "black";
+      ctx.textAlign = "center";
+      ctx.lineWidth = 3;
+      ctx.fillText(document.getElementById('top').value, c.width/2, 40);
+      ctx.strokeText(document.getElementById('top').value, c.width/2, 40);
+      ctx.fillText(document.getElementById('bottom').value, c.width/2, c.height - 20);
+      ctx.strokeText(document.getElementById('bottom').value, c.width/2, c.height - 20);
+    }
+
+    function download() {
+      const link = document.createElement('a');
+      link.download = 'meme.png';
+      link.href = c.toDataURL();
+      link.click();
+    }
+  </script>
+</body>
+</html>

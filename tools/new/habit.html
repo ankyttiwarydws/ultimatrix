@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Habit Tracker</title>
+  <style>
+    body { font-family: sans-serif; max-width: 500px; margin: 40px auto; }
+    .habit { display: flex; justify-content: space-between; margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h2>Habit Tracker</h2>
+  <input id="habit" placeholder="New habit">
+  <button onclick="addHabit()">Add</button>
+  <div id="list"></div>
+
+  <script>
+    let habits = JSON.parse(localStorage.getItem('habits')) || [];
+    function render() {
+      const list = document.getElementById('list');
+      list.innerHTML = '';
+      habits.forEach((h,i)=>{
+        list.innerHTML += `<div class="habit">
+          <span>${h.name} ✅ ${h.streak}</span>
+          <button onclick="mark(${i})">Mark</button>
+        </div>`;
+      });
+    }
+    function addHabit() {
+      const val = document.getElementById('habit').value;
+      if (val) { habits.push({name: val, streak: 0}); save(); }
+    }
+    function mark(i) { habits[i].streak++; save(); }
+    function save() { localStorage.setItem('habits', JSON.stringify(habits)); render(); }
+    render();
+  </script>
+</body>
+</html>

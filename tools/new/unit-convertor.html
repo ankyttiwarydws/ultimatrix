@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>Unit Converter</title></head>
+<body>
+  <h2>Unit Converter</h2>
+  <input id="val" type="number" placeholder="Value">
+  <select id="type">
+    <option value="km-mi">Km → Miles</option>
+    <option value="mi-km">Miles → Km</option>
+    <option value="kg-lb">Kg → Lbs</option>
+    <option value="lb-kg">Lbs → Kg</option>
+    <option value="c-f">Celsius → Fahrenheit</option>
+    <option value="f-c">Fahrenheit → Celsius</option>
+  </select>
+  <button onclick="convert()">Convert</button>
+  <h3 id="res"></h3>
+
+  <script>
+    function convert(){
+      let v=+document.getElementById('val').value;
+      let t=document.getElementById('type').value,r;
+      if(t==='km-mi')r=v*0.621;
+      if(t==='mi-km')r=v/0.621;
+      if(t==='kg-lb')r=v*2.204;
+      if(t==='lb-kg')r=v/2.204;
+      if(t==='c-f')r=v*9/5+32;
+      if(t==='f-c')r=(v-32)*5/9;
+      document.getElementById('res').innerText="Result: "+r.toFixed(2);
+    }
+  </script>
+</body>
+</html>

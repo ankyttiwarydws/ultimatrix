@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Breathing Exercise</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; margin-top: 100px; }
+    #circle { width: 100px; height: 100px; margin: auto; border-radius: 50%; background: lightblue; transition: all 4s ease; }
+  </style>
+</head>
+<body>
+  <h2>Breathing Exercise</h2>
+  <div id="circle"></div>
+  <p id="text">Click Start</p>
+  <button onclick="start()">Start</button>
+
+  <script>
+    let phase = 0;
+    function start() {
+      setInterval(()=>{
+        const circle = document.getElementById('circle');
+        const text = document.getElementById('text');
+        if (phase % 2 === 0) { circle.style.transform = "scale(2)"; text.innerText="Inhale"; }
+        else { circle.style.transform = "scale(1)"; text.innerText="Exhale"; }
+        phase++;
+      },4000);
+    }
+  </script>
+</body>
+</html>

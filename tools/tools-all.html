@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools | Ultimatrix</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/games.css" />
+  <link rel="stylesheet" href="/css/blogs.css" />
+  <script src="/js/script.js" defer></script>
+  <script src="/js/tools.js" defer></script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <main>
+    <section class="blogs-main-category">
+      <h3>Tools</h3>
+      <p>Find daily use tools to make life easy. Still doing the boring chores manually, NO more!</p>
+      <nav class="blogs-main-category-menu">
+        <ul>
+          <li><a href="#" class="howto-tab-btn active" data-tab="date">Date & Time</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="calculators">Calculators</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="codeeditors">Code Editors</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="productivity">Productivity</a></li>
+          <li><a href="#" class="howto-tab-btn" data-tab="creativity">Creativity</a></li>
+        </ul>
+      </nav>
+    </section>
+    <!-- Search Section -->
+    <section class="section-search">
+      <div>
+        <p class="search-bar-text">Searching for something?</p>
+      </div>
+      <div>
+        <input class="search-bar" type="text" id="searchBar" placeholder="Search tools..." />
+      </div>
+    </section>
+    <!-- <section class="hero">
+      <img class="hero-img" src="/assets/img/your-image.jpg" alt="Passion fruit and floral drink on a surface" />
+    </section> -->
+
+    <!-- Tools -->
+    <section>
+      <div id="howto-tabs">
+        <div id="tab-date" class="howto-tab-content" style="display:block;">
+          <p class="blogs-amazon-subheading">Discover coding tutorials, tips, and resources for developers.</p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color1">
+              <a href="/tools/dateAndTime/clock.html">
+                <h4>Clock</h4>
+                <p>View the current time in your timezone.</p>
+              </a>
+            </div>
+            <div class="howto-card color2">
+              <a href="/tools/dateAndTime/date-adder.html">
+                <h4>Date Adder</h4>
+                <p>Add days, months, or years to any date.</p>
+              </a>
+            </div>
+            <div class="howto-card color3">
+              <a href="/tools/dateAndTime/date-duration.html">
+                <h4>Date Duration</h4>
+                <p>Calculate the duration between two dates.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="tab-calculators" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Discover handy tools, utilities, and productivity boosters.
+          </p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color4">
+              <a href="/tools/calculators/age-calculator.html">
+                <h4>Age Calculator</h4>
+                <p>Calculate your age from your birthdate.</p>
+              </a>
+            </div>
+            <div class="howto-card color5">
+              <a href="/tools/calculators/word-counter.html">
+                <h4>Word Counter</h4>
+                <p>Count words, characters, and paragraphs in your text.</p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <div id="tab-codeeditors" class="howto-tab-content" style="display:none;">
+          <p class="howto-tab-title blogs-amazon-subheading">Easy Code Editing Solutions.
+          </p>
+          <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+            <div class="howto-card color6">
+              <a href="/tools/codeEditors/code-editor.html">
+                <h4>Code Editor</h4>
+                <p>Write and edit code directly in your browser.</p>
+              </a>
+            </div>
+            <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+              <div class="howto-card color6">
+                <a href="/tools/codeEditors/json-formatter.html">
+                  <h4>JSON Formattor</h4>
+                  <p>Format and play with JSON code.</p>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <div id="tab-productivity" class="howto-tab-content" style="display:none;">
+            <p class="howto-tab-title blogs-amazon-subheading">Hardware guides, setup tips, and troubleshooting help.
+            </p>
+            <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+              <div class="howto-card color1">
+                <a href="/tools/productivity/case-convertor.html">
+                  <h4>Case Convertor</h4>
+                  <p>Change text between uppercase, lowercase, and more.</p>
+                </a>
+              </div>
+              <div class="howto-card color2">
+                <a href="/tools/productivity/notepad.html">
+                  <h4>Notepad</h4>
+                  <p>Take quick notes and save them online.</p>
+                </a>
+              </div>
+              <div class="howto-card color3">
+                <a href="/tools/productivity/pdf-splitter.html">
+                  <h4>PDF Splitter</h4>
+                  <p>Split PDF files into separate pages.</p>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <div id="tab-creativity" class="howto-tab-content" style="display:none;">
+            <p class="howto-tab-title blogs-amazon-subheading">Hardware guides, setup tips, and troubleshooting help.
+            </p>
+            <div style="margin-top:0.5em; display: flex; flex-wrap: wrap; gap: 1em; justify-content: flex-start;">
+              <div class="howto-card color4">
+                <a href="/tools/creativity/forlater-countdown.html">
+                  <h4>ForLater Countdown</h4>
+                  <p>Set a countdown for important events.</p>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <p class="blogs-amazon-subheading">Want to see more tools?</p>
+        <div class="blogs-btn-wrapper">
+          <a class="btn" href="#">See All</a>
+        </div>
+        <!-- <button onclick="window.location.href='/blogs/blogs.html'" class="btn">← Go Back</button> -->
+    </section>
+
+  </main>
+  <div id="footer"></div>
+</body>
+<script>
+  // Enhanced search: show matching cards and switch to the correct tab if needed
+  document.getElementById('searchBar').addEventListener('input', function (e) {
+    const query = e.target.value.toLowerCase();
+    const cards = document.querySelectorAll('.howto-card');
+    let foundTab = null;
+
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      if (text.includes(query)) {
+        card.style.display = '';
+        // Find parent tab for the first match
+        if (!foundTab) {
+          let tabContent = card.closest('.howto-tab-content');
+          if (tabContent && tabContent.id) {
+            foundTab = tabContent.id.replace('tab-', '');
+          }
+        }
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // If a match is found in another tab, switch to that tab
+    if (foundTab) {
+      // Hide all tabs
+      document.querySelectorAll('.howto-tab-content').forEach(tab => {
+        tab.style.display = 'none';
+      });
+      // Remove active class from all tab buttons
+      document.querySelectorAll('.howto-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      // Show the found tab
+      const showTab = document.getElementById('tab-' + foundTab);
+      if (showTab) showTab.style.display = 'block';
+      // Set active class on the corresponding tab button
+      const activeBtn = document.querySelector('.howto-tab-btn[data-tab="' + foundTab + '"]');
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+  });
+</script>
+
+</html>
