@@ -19,13 +19,7 @@
 
 <body>
   <div id="header"></div>
-  <script>
-    fetch('/header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
-  </script>
+
 
   <main>
     <section class="blogs-section"
@@ -143,13 +137,7 @@ This video guide (published in April 2024) includes mission breakdowns, commenta
   </main>
 
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      });
-  </script>
+
 </body>
 
 </html>
