@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Palette Generator</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; }
+    .palette { display: flex; justify-content: center; margin-top: 20px; }
+    .color { width: 100px; height: 100px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Color Palette Generator</h2>
+  <button onclick="generate()">Generate</button>
+  <div id="palette" class="palette"></div>
+
+  <script>
+    function randomColor() {
+      return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');
+    }
+    function generate() {
+      const palette = document.getElementById('palette');
+      palette.innerHTML = '';
+      for (let i=0;i<5;i++) {
+        let col = randomColor();
+        let div = document.createElement('div');
+        div.className = 'color';
+        div.style.background = col;
+        div.innerText = col;
+        div.onclick = () => navigator.clipboard.writeText(col);
+        palette.appendChild(div);
+      }
+    }
+    generate();
+  </script>
+</body>
+</html>

@@ -103,6 +103,108 @@
         .reset-btn {
             background: rgba(244, 67, 54, 0.3);
         }
+
+        .time-controls {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .time-preset {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .time-preset:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        .time-preset.active {
+            background: rgba(255, 255, 255, 0.4);
+            font-weight: bold;
+        }
+
+        .custom-time {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .time-input {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 8px 12px;
+            color: white;
+            font-size: 16px;
+            width: 60px;
+            text-align: center;
+        }
+
+        .time-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .timer-display {
+            position: relative;
+            overflow: hidden;
+            height: 1.2em;
+            display: inline-block;
+        }
+
+        .digit {
+            display: inline-block;
+            position: relative;
+            width: 0.6em;
+            text-align: center;
+        }
+
+        .digit-roll {
+            animation: rollDown 0.6s ease-out;
+        }
+
+        @keyframes rollDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .separator {
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0.3;
+            }
+        }
     </style>
 </head>
 
@@ -114,7 +216,21 @@
                 stroke-dashoffset="0" id="progress"></circle>
         </svg>
 
-        <h1 id="timer">25:00</h1>
+        <h1 id="timer" class="timer-display">25:00</h1>
+
+        <div class="time-controls">
+            <div class="time-preset active" onclick="setTime(1500)">25 min</div>
+            <div class="time-preset" onclick="setTime(900)">15 min</div>
+            <div class="time-preset" onclick="setTime(600)">10 min</div>
+            <div class="time-preset" onclick="setTime(300)">5 min</div>
+        </div>
+
+        <div class="custom-time">
+            <input type="number" class="time-input" id="minutes" placeholder="25" min="1" max="99">
+            <span>:</span>
+            <input type="number" class="time-input" id="seconds" placeholder="00" min="0" max="59">
+            <button onclick="setCustomTime()">Set</button>
+        </div>
 
         <div class="controls">
             <button class="start-btn" onclick="start()">▶ Start</button>
@@ -125,13 +241,43 @@
 
     <script>
         let time = 1500, timer, running = false;
-        const totalTime = 1500;
+        let totalTime = 1500;
+        let previousTime = '';
         const circumference = 2 * Math.PI * 90; // radius = 90
+
+        function createDigitElement(digit) {
+            return `<span class="digit">${digit}</span>`;
+        }
+
+        function animateTimeChange(newTimeStr) {
+            const timerElement = document.getElementById('timer');
+
+            // Split time into individual characters
+            const newChars = newTimeStr.split('');
+            const oldChars = previousTime.split('');
+
+            let html = '';
+            for (let i = 0; i < newChars.length; i++) {
+                if (newChars[i] === ':') {
+                    html += '<span class="separator">:</span>';
+                } else if (oldChars[i] !== newChars[i]) {
+                    html += `<span class="digit digit-roll">${newChars[i]}</span>`;
+                } else {
+                    html += `<span class="digit">${newChars[i]}</span>`;
+                }
+            }
+
+            timerElement.innerHTML = html;
+            previousTime = newTimeStr;
+        }
 
         function update() {
             const m = String(Math.floor(time / 60)).padStart(2, '0');
             const s = String(time % 60).padStart(2, '0');
-            document.getElementById('timer').innerText = `${m}:${s}`;
+            const timeStr = `${m}:${s}`;
+
+            // Animate time change
+            animateTimeChange(timeStr);
 
             // Update progress ring
             const progress = ((totalTime - time) / totalTime) * circumference;
@@ -186,6 +332,54 @@
             update();
         }
 
+        function setTime(seconds) {
+            if (running) return; // Don't allow time change while running
+
+            time = seconds;
+            totalTime = seconds;
+
+            // Update active preset
+            document.querySelectorAll('.time-preset').forEach(preset => {
+                preset.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            update();
+        }
+
+        function setCustomTime() {
+            if (running) return; // Don't allow time change while running
+
+            const minutes = parseInt(document.getElementById('minutes').value) || 0;
+            const seconds = parseInt(document.getElementById('seconds').value) || 0;
+
+            if (minutes === 0 && seconds === 0) return;
+
+            const totalSeconds = minutes * 60 + seconds;
+            time = totalSeconds;
+            totalTime = totalSeconds;
+
+            // Remove active class from presets
+            document.querySelectorAll('.time-preset').forEach(preset => {
+                preset.classList.remove('active');
+            });
+
+            // Clear inputs
+            document.getElementById('minutes').value = '';
+            document.getElementById('seconds').value = '';
+
+            update();
+        }
+
+        // Allow Enter key to set custom time
+        document.getElementById('minutes').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') setCustomTime();
+        });
+
+        document.getElementById('seconds').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') setCustomTime();
+        });
+
         // Initialize progress ring
         document.getElementById('progress').style.strokeDasharray = circumference;
         document.getElementById('progress').style.strokeDashoffset = circumference;
@@ -200,6 +394,8 @@
     `;
         document.head.appendChild(style);
 
+        // Initialize
+        previousTime = '25:00';
         update();
     </script>
 </body>

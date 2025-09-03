@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Idea Generator</title>
+</head>
+<body>
+  <h2>Idea Generator</h2>
+  <button onclick="generate()">Get Idea</button>
+  <p id="idea"></p>
+
+  <script>
+    const ideas = [
+      "Write a short story about a future city",
+      "Invent a new gadget that solves a problem",
+      "Design a superhero with unusual powers",
+      "Think of a startup idea for students",
+      "Create a workout challenge for 7 days"
+    ];
+    function generate() {
+      document.getElementById('idea').innerText = ideas[Math.floor(Math.random()*ideas.length)];
+    }
+  </script>
+</body>
+</html>
+

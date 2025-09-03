@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sketch Pad</title>
+  <style>
+    body { text-align: center; }
+    canvas { border: 1px solid black; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Sketch Pad</h2>
+  <input type="color" id="color" value="#000000">
+  <input type="range" id="size" min="1" max="20" value="5">
+  <button onclick="clearCanvas()">Clear</button>
+  <button onclick="download()">Download</button>
+  <br>
+  <canvas id="canvas" width="1000" height="1000"></canvas>
+
+  <script>
+    const c = document.getElementById('canvas');
+    const ctx = c.getContext('2d');
+    let drawing = false;
+
+    c.addEventListener('mousedown', () => drawing = true);
+    c.addEventListener('mouseup', () => drawing = false);
+    c.addEventListener('mousemove', draw);
+
+    function draw(e) {
+      if (!drawing) return;
+      ctx.fillStyle = document.getElementById('color').value;
+      ctx.beginPath();
+      ctx.arc(e.offsetX, e.offsetY, document.getElementById('size').value, 0, Math.PI*2);
+      ctx.fill();
+    }
+    function clearCanvas() { ctx.clearRect(0,0,c.width,c.height); }
+    function download() {
+      const link = document.createElement('a');
+      link.download = 'sketch.png';
+      link.href = c.toDataURL();
+      link.click();
+    }
+  </script>
+</body>
+</html>

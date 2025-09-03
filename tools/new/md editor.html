@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown Editor</title>
+  <style>
+    body { display: flex; height: 100vh; margin: 0; font-family: sans-serif; }
+    textarea { width: 50%; padding: 10px; border: none; outline: none; font-size: 16px; }
+    #preview { width: 50%; padding: 10px; overflow-y: auto; border-left: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <textarea id="editor"># Hello Markdown</textarea>
+  <div id="preview"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const editor=document.getElementById('editor'),preview=document.getElementById('preview');
+    function update(){ preview.innerHTML=marked.parse(editor.value); localStorage.setItem('md',editor.value); }
+    editor.value=localStorage.getItem('md')||editor.value;
+    editor.addEventListener('input',update);
+    update();
+  </script>
+</body>
+</html>
