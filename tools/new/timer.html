@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pomodoro Timer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .timer-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .timer-running {
+            animation: pulse 2s infinite;
+            color: #ff6b6b;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .progress-ring {
+            transform: rotate(-90deg);
+            margin: 20px 0;
+        }
+
+        .progress-ring-circle {
+            stroke: rgba(255, 255, 255, 0.3);
+            stroke-width: 8;
+            fill: transparent;
+            transition: stroke-dasharray 1s ease;
+        }
+
+        .progress-ring-progress {
+            stroke: #ff6b6b;
+            stroke-width: 8;
+            fill: transparent;
+            stroke-linecap: round;
+        }
+
+        button {
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .start-btn {
+            background: rgba(76, 175, 80, 0.3);
+        }
+
+        .pause-btn {
+            background: rgba(255, 193, 7, 0.3);
+        }
+
+        .reset-btn {
+            background: rgba(244, 67, 54, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timer-container">
+        <svg class="progress-ring" width="200" height="200">
+            <circle class="progress-ring-circle" cx="100" cy="100" r="90"></circle>
+            <circle class="progress-ring-progress" cx="100" cy="100" r="90" stroke-dasharray="565.48"
+                stroke-dashoffset="0" id="progress"></circle>
+        </svg>
+
+        <h1 id="timer">25:00</h1>
+
+        <div class="controls">
+            <button class="start-btn" onclick="start()">▶ Start</button>
+            <button class="pause-btn" onclick="pause()">⏸ Pause</button>
+            <button class="reset-btn" onclick="reset()">⏹ Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let time = 1500, timer, running = false;
+        const totalTime = 1500;
+        const circumference = 2 * Math.PI * 90; // radius = 90
+
+        function update() {
+            const m = String(Math.floor(time / 60)).padStart(2, '0');
+            const s = String(time % 60).padStart(2, '0');
+            document.getElementById('timer').innerText = `${m}:${s}`;
+
+            // Update progress ring
+            const progress = ((totalTime - time) / totalTime) * circumference;
+            document.getElementById('progress').style.strokeDashoffset = circumference - progress;
+
+            // Add pulsing animation when running
+            const timerElement = document.getElementById('timer');
+            if (running) {
+                timerElement.classList.add('timer-running');
+            } else {
+                timerElement.classList.remove('timer-running');
+            }
+
+            // Change color based on time remaining
+            const progressElement = document.getElementById('progress');
+            if (time < 300) { // Last 5 minutes
+                progressElement.style.stroke = '#ff4757';
+            } else if (time < 600) { // Last 10 minutes
+                progressElement.style.stroke = '#ffa502';
+            } else {
+                progressElement.style.stroke = '#2ed573';
+            }
+        }
+
+        function start() {
+            if (running) return;
+            running = true;
+            timer = setInterval(() => {
+                if (time > 0) {
+                    time--;
+                    update();
+                } else {
+                    pause();
+                    // Timer finished animation
+                    document.body.style.animation = 'flash 0.5s ease-in-out 3';
+                    setTimeout(() => {
+                        document.body.style.animation = '';
+                    }, 1500);
+                }
+            }, 1000);
+        }
+
+        function pause() {
+            clearInterval(timer);
+            running = false;
+            update();
+        }
+
+        function reset() {
+            pause();
+            time = totalTime;
+            update();
+        }
+
+        // Initialize progress ring
+        document.getElementById('progress').style.strokeDasharray = circumference;
+        document.getElementById('progress').style.strokeDashoffset = circumference;
+
+        // Add flash animation for timer completion
+        const style = document.createElement('style');
+        style.textContent = `
+      @keyframes flash {
+        0%, 100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        50% { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); }
+      }
+    `;
+        document.head.appendChild(style);
+
+        update();
+    </script>
+</body>
+
+</html>
