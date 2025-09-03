@@ -2,9 +2,10 @@ import requests
 import datetime
 import os
 import json
+from datetime import date
 
 JSON_FILE = os.path.join('data', 'news', 'news-data.json')  # You can change this to any filename you want
-API_KEY = 'pub_29a24501e65546a183c11fb52dea5171'  # Replace this with your actual key
+API_KEY = os.getenv("NEWS_API_KEY")  # Replace this with your actual key
 OUTPUT_DIR = 'data\news\news_articles'
 
 def fetch_news(category='business', country='in', language='en', max_articles=10):
