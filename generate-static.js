@@ -22,6 +22,7 @@ function generateHTML(article) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${article.title} | Ultimatix</title>
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/blogs.css" />
   <link rel="stylesheet" href="/css/news-sports.css" />
