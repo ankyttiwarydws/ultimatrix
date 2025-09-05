@@ -1,15 +1,86 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Chart Maker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+    .tool-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    input[type="file"] {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin: 10px 0 20px 0;
+      width: 100%;
+      background: #f8f9fa;
+    }
+    canvas {
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 1px 8px rgba(33,147,176,0.10);
+      background: #fff;
+    }
+    footer {
+      text-align: center;
+      background: #f9f9f9;
+      border-top: 1px solid #ddd;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      color: #0d6efd;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h2>CSV Chart Maker</h2>
-  <input type="file" id="file"><br><br>
-  <canvas id="chart" width="600" height="400"></canvas>
-
+  <div id="header"></div>
+  <div class="tool-container">
+    <div class="tool-box">
+      <div class="title">CSV Chart Maker</div>
+      <input type="file" id="file">
+      <canvas id="chart" width="400" height="300"></canvas>
+    </div>
+  </div>
   <script>
     document.getElementById('file').onchange = e=>{
       const file=e.target.files[0];
@@ -25,5 +96,6 @@
       reader.readAsText(file);
     };
   </script>
+  <div id="footer"></div>
 </body>
 </html>

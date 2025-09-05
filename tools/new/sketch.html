@@ -1,22 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+</head>
   <meta charset="UTF-8">
   <title>Sketch Pad</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css"/>
+  <script src="/js/script.js" defer></script>
   <style>
-    body { text-align: center; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #d4fc79, #96e6a1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+    .tool-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .intro {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    input[type="color"], input[type="range"] {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin: 5px;
+    }
     canvas { border: 1px solid black; margin-top: 20px; }
+    .output {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #333;
+      margin-top: 20px;
+    }
+    footer {
+      text-align: center;
+      background: #f9f9f9;
+      border-top: 1px solid #ddd;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      color: #0d6efd;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <h2>Sketch Pad</h2>
-  <input type="color" id="color" value="#000000">
-  <input type="range" id="size" min="1" max="20" value="5">
-  <button onclick="clearCanvas()">Clear</button>
-  <button onclick="download()">Download</button>
-  <br>
-  <canvas id="canvas" width="1000" height="1000"></canvas>
-
+  <div id="header"></div>
+  <div class="tool-container">
+    <div class="tool-box" style="max-width:1000px;">
+      <div class="title">Sketch Pad</div>
+      <div class="intro">Draw anything you like. Change color and brush size, clear or download your sketch.</div>
+      <div class="d-flex flex-wrap justify-content-center align-items-center mb-3 gap-2">
+        <input type="color" id="color" value="#000000">
+        <input type="range" id="size" min="1" max="20" value="5">
+        <button onclick="clearCanvas()" class="btn btn-warning">Clear</button>
+        <button onclick="download()" class="btn btn-success">Download</button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <canvas id="canvas" width="800" height="600" style="max-width:100%;height:auto;border:1px solid #222;margin-top:20px;"></canvas>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
   <script>
     const c = document.getElementById('canvas');
     const ctx = c.getContext('2d');
