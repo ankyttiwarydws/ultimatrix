@@ -1,13 +1,95 @@
-<!DOCTYPE html>
-<html>
-<head><title>Dice Roller</title></head>
-<body>
-  <h2>Dice Roller</h2>
-  <button onclick="roll()">Roll Dice</button>
-  <h1 id="result">🎲</h1>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dice Roller</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+    .tool-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+      transition: background 0.3s;
+      margin-bottom: 18px;
+    }
+    button:hover {
+      background: linear-gradient(to right, #6dd5ed, #2193b0);
+    }
+    #result {
+      font-size: 3rem;
+      margin-top: 18px;
+      color: #2193b0;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      background: #f9f9f9;
+      border-top: 1px solid #ddd;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      color: #0d6efd;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <div class="tool-container">
+    <div class="tool-box">
+      <div class="title">Dice Roller</div>
+      <button onclick="roll()">Roll Dice</button>
+      <h1 id="result">🎲</h1>
+    </div>
+  </div>
   <script>
     function roll(){ document.getElementById('result').innerText = Math.floor(Math.random()*6)+1; }
   </script>
+  <div id="footer"></div>
 </body>
 </html>

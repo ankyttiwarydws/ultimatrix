@@ -3,23 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <title>Meme Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css"/>
+  <script src="/js/script.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #d4fc79, #96e6a1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+    .tool-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .intro {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    input[type="file"], input[type="text"] {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin: 5px;
+    }
+    .output {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #333;
+      margin-top: 20px;
+    }
+    footer {
+      text-align: center;
+      background: #f9f9f9;
+      border-top: 1px solid #ddd;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      color: #0d6efd;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
   <style>
     body { text-align: center; }
     canvas { border: 1px solid black; margin-top: 20px; }
   </style>
 </head>
 <body>
-  <h2>Meme Generator</h2>
-  <input type="file" id="upload">
-  <br><br>
-  Top Text: <input id="top" placeholder="Top text">
-  <br><br>
-  Bottom Text: <input id="bottom" placeholder="Bottom text">
-  <br><br>
-  <button onclick="generate()">Generate</button>
-  <button onclick="download()">Download</button>
-  <br>
-  <canvas id="canvas" width="500" height="400"></canvas>
+  <div id="header"></div>
+  <div class="tool-container">
+    <div class="tool-box">
+      <div class="title">Meme Generator</div>
+      <div class="intro">Create your own memes. Upload an image, add text, and download!</div>
+      <input type="file" id="upload">
+      <br><br>
+      Top Text: <input id="top" placeholder="Top text">
+      <br><br>
+      Bottom Text: <input id="bottom" placeholder="Bottom text">
+      <br><br>
+      <button onclick="generate()" class="btn btn-primary">Generate</button>
+      <button onclick="download()" class="btn btn-success">Download</button>
+      <br>
+      <canvas id="canvas" width="500" height="400"></canvas>
+    </div>
+  </div>
+  <div id="footer"></div>
 
   <script>
     const c = document.getElementById('canvas');
