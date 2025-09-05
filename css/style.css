@@ -271,7 +271,36 @@
   .color6 {
     background: linear-gradient(135deg, #f3acb3 0%, #72363e 100%);
   }
-
+.color7 {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+.color8 {
+  background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+}
+.color9 {
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+.color10 {
+  background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+}
+.color11 {
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+}
+.color12 {
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+}
+.color13 {
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+}
+.color14 {
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+}
+.color15 {
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+}
+.color16 {
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+}
   .category-card {
     /* Remove background-image if present */
     background-size: cover;

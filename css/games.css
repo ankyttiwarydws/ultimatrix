@@ -10,14 +10,32 @@
 }
 .games-card{
   border-radius: 8px;
-  padding: 0.5em 0.8em;
+  padding: 0.5em 0.8em; 
+  width: 280px;
+  /* height: 120px;  */
 }
 
 .games-card-desc {
   border-radius: 16px;
-  width: 220px;
-  height: 70px;
+  width: 260px;
+  height: 60px;
   /* padding: 0.5em 0.8em; */
   box-shadow: 0 4px 18px rgba(80,167,194,0.13);
   transition: transform 0.2s, box-shadow 0.2s;
 }
+.games-section-menu-home {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: space-between;
+    /* align-items: stretch; */
+    margin: 1rem auto 1rem auto;
+  }
+  .games-section-img{
+    width: 40px;
+    height: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(80,167,194,0.13);
+    margin: 2em 2em 2em 2em;
+    padding: 1%;
+  }
