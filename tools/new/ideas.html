@@ -1,15 +1,93 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Get creative inspiration with this free Idea Generator tool. Instantly discover random ideas for stories, startups, projects, challenges, and more. Perfect for writers, students, entrepreneurs, and anyone seeking fresh ideas.">
+  <meta name="keywords" content="idea generator, random ideas, creative inspiration, story ideas, startup ideas, project ideas, challenge ideas, brainstorming, creativity tool, inspiration app">
+  <link rel="stylesheet" href="/css/style.css"/>
+  <script src="/js/script.js" defer></script>
   <title>Idea Generator</title>
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+    .tool-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: none;
+      background: #8ec5fc;
+      color: #333;
+      font-size: 1rem;
+      margin: 5px 0;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #e0c3fc;
+    }
+    #idea {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #333;
+      margin-top: 20px;
+    }
+    footer {
+      text-align: center;
+      background: #f9f9f9;
+      border-top: 1px solid #ddd;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      color: #0d6efd;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h2>Idea Generator</h2>
-  <button onclick="generate()">Get Idea</button>
-  <p id="idea"></p>
-
+  <div id="header"></div>
+  <div class="tool-container">
+    <div class="tool-box">
+      <div class="title">Idea Generator</div>
+      <button onclick="generate()">Get Idea</button>
+      <p id="idea"></p>
+    </div>
+  </div>
   <script>
     const ideas = [
       "Write a short story about a future city",
@@ -22,6 +100,7 @@
       document.getElementById('idea').innerText = ideas[Math.floor(Math.random()*ideas.length)];
     }
   </script>
+  <div id="footer"></div>
 </body>
 </html>
 
