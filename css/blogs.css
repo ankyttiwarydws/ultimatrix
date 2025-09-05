@@ -9,6 +9,13 @@
   line-height: 1.3;
 }
 
+.howto-tabs-cards {
+  margin-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: flex-start;
+}
 
 .blogs-main-category {
   background: linear-gradient(90deg, #ade9f4 0%, #57c4ff 100%);
@@ -22,55 +29,15 @@
 }
 
 /* Blogs category menu bar */
-.blogs-main-category-menu {
-  /* width: 100%;
-  background:  #ffffff;
-  /* border-radius: 8px; */
-  /* margin: 0 auto 0 auto; 
-  box-shadow: 0 2px 8px rgba(44,62,80,0.07);
-  max-width: 700px; */
-}
-
-/* .blogs-main-category-menu ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.2em;
-  list-style: none;
-  margin: 0;
-  padding: 0 0;
-}
-
-.blogs-main-category-menu li {
-  margin: 0;
-}
-
-.blogs-main-category-menu a {
-  color: #0077cc;
-  background: #d7edf3;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  padding: 0.3em 1em;
-  border-radius: 60px;
-  transition: background 0.18s, color 0.18s;
-}
-*/
-.blogs-main-category-menu a:hover, 
-.blogs-main-category-menu a:focus {
-  background: #fff;
-  color: #0077cc;
-  outline: none;
-} 
-
 .blogs-main-category-menu ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
-  padding: 0;
+  padding: 0 0;
   margin: 0;
   list-style: none;
   justify-content: center;
+  align-items: center;
 }
 
 .blogs-main-category-menu li {
@@ -80,15 +47,26 @@
 
 .blogs-main-category-menu a {
   display: block;
-  padding: 0.5em 1em;
-  border-radius: 18px;
-  background: #f5f8fa;
+  padding: 0.3em 1em;
   color: #0077cc;
+  background: #d7edf3;
+  font-weight: 600;
+  font-size: 1rem;
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s, color 0.2s;
-  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+  border-radius: 60px;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.07);
   white-space: nowrap;
+}
+
+.blogs-main-category-menu a:hover,
+.blogs-main-category-menu a:focus {
+  color: #d7edf3;
+  background: #0077cc;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  outline: none;
 }
 
 .howto-tab-btn.active {
@@ -112,7 +90,6 @@
   z-index: 2;
   position: relative;
 } */
-
 
 .blogs-month-heading {
   font-size: 2rem;
@@ -444,8 +421,76 @@
   .blogs-main-category {
     max-width: 98vw;
   }
+
+  .howto-card {
+    min-width: 160px;
+    max-width: 98vw;
+    padding: 0.7em 0.7em 0.5em 0.7em;
+  }
+
+  #howto-tabs>div {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
 }
 
+@media (max-width: 800px) {
+  .blogs-main-category-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 0.5em;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .howto-card {
+    min-width: 120px;
+    max-width: 98vw;
+    padding: 0.5em 0.3em 0.3em 0.3em;
+    font-size: 0.95rem;
+  }
+
+  .blogs-main-category {
+    padding: 0.5em 0.1em;
+    font-size: 0.98rem;
+  }
+
+  .blogs-main-category-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 0.5em;
+    padding: 0;
+    margin: 0;
+  }
+
+  .blogs-main-category-menu li {
+    flex: 0 1 auto;
+    margin: 0.2em 0.4em;
+    padding: 0;
+  }
+
+  .blogs-main-category-menu a {
+    /* display: block; */
+    font-size: 0.92rem;
+    padding: 0.15em 0.5em;
+  }
+
+  .howto-tab-title,
+  .blogs-amazon-subheading {
+    font-size: 1rem;
+    padding: 0.15em 0.5em;
+  }
+}
 
 @media (max-width: 600px) {
   .blogs-main-category {
@@ -453,35 +498,34 @@
     max-width: 98vw;
   }
 
-  .blogs-main-category-menu {
-    max-width: 98vw;
-    /* border-radius: 6px; */
-  }
-
-  /* .blogs-main-category-menu ul {
-    gap: 0.5em;
-    flex-wrap: wrap;
-    padding: 0.3em 0.1em;
-  }
-
-  .blogs-main-category-menu a {
-    font-size: 0.95rem;
-    padding: 0.2em 0.7em;
-  } */
-
   .blogs-main-category-menu ul {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.3em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 0.5em;
+    padding: 0;
+    margin: 0;
   }
+
   .blogs-main-category-menu li {
-    margin: 0.1em 0;
+    flex: 0 1 auto;
+    margin: 0.2em 0.4em;
+    padding: 0;
+    /* padding: 0.3em 0.1em;
+    margin: .1em .5em; */
   }
+
   .blogs-main-category-menu a {
-    width: 100%;
-    text-align: center;
+    /* width: 100%;
+    text-align: center; */
+    font-size: 0.95rem;
+    padding: 1em 7em;
+    margin: .1em .5em;
   }
-  
+
   .blogs-amazon-heading {
     font-size: 1.2rem;
     padding: 0.2em 0.5em;
@@ -530,59 +574,6 @@
     height: 80px;
   }
 
-}
-
-@media (max-width: 800px) {
-  .blogs-main-category-menu ul {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.2em;
-  }
-}
-
-/* Responsive improvements for cards, tabs, and layout */
-@media (max-width: 900px) {
-  .howto-card {
-    min-width: 160px;
-    max-width: 98vw;
-    padding: 0.7em 0.7em 0.5em 0.7em;
-  }
-
-  #howto-tabs>div {
-    flex-direction: column !important;
-    align-items: stretch !important;
-  }
-}
-
-@media (max-width: 700px) {
-  .howto-card {
-    min-width: 120px;
-    max-width: 98vw;
-    padding: 0.5em 0.3em 0.3em 0.3em;
-    font-size: 0.95rem;
-  }
-
-  .blogs-main-category {
-    padding: 0.5em 0.1em;
-    font-size: 0.98rem;
-  }
-
-  .blogs-main-category-menu ul {
-    gap: 0.2em;
-    flex-wrap: wrap;
-    padding: 0.2em 0.1em;
-  }
-
-  .blogs-main-category-menu a {
-    font-size: 0.92rem;
-    padding: 0.15em 0.5em;
-  }
-
-  .howto-tab-title,
-  .blogs-amazon-subheading {
-    font-size: 1rem;
-    padding: 0.15em 0.5em;
-  }
 }
 
 @media (max-width: 500px) {
