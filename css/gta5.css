@@ -19,9 +19,9 @@
 .gta5-video {
     width: 70%;
     height: auto;
-    border-radius: 10px;  
+    border-radius: 10px;
     margin: 0.5em auto;
-  display: block;
+    display: block;
 
 }
 
@@ -48,3 +48,13 @@
 .color6 {
     background: linear-gradient(135deg, #f3acb3 0%, #72363e 100%);
 } */
+@media (min-width: 600px) {
+
+    .gta5-card iframe,
+    .gta5-card video {
+        max-width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+}

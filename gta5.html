@@ -5,11 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GTA 5 | Ultimatrix</title>
-  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/blogs.css" />
     <link rel="stylesheet" href="/css/gta5.css" />
     <script src="/js/script.js" defer></script>
+    <script src="/js/gta5.js" defer></script>
 </head>
 
 <body>
@@ -21,13 +22,15 @@
                 of Los Santos! 🎮</p>
             <nav class="blogs-main-category-menu">
                 <ul>
-                    <li><a id="videos" href="#" class="howto-tab-btn" data-tab="videos">Videos</a></li>
-                    <li><a id="shorts" href="#" class="howto-tab-btn active" data-tab="shorts">Shorts</a></li>
+                    <li><a id="videos" href="#" class="howto-tab-btn active" data-tab="videos">Videos</a></li>
+                    <li><a id="shorts" href="#" class="howto-tab-btn" data-tab="shorts">Shorts</a></li>
                     <li><a id="playlists" href="#" class="howto-tab-btn" data-tab="playlists">Playlists</a></li>
                     <li><a id="tricks" href="#" class="howto-tab-btn" data-tab="tricks">Tricks</a></li>
-                    <li><a id="tricks" href="/blogs/gta/bloggta.html" >Blog</a></li>
-                    <!-- <li><a href="#" class="howto-tab-btn" data-tab="creativity">Creativity</a></li> -->
+                    <li><a id="blogs" href="/blogs/gta/bloggta.html" class="howto-tab-btn" data-tab="blogs">Blogs</a></li>
                 </ul>
+                <!-- <ul>
+                    <li><a id="blogs" href="/blogs/gta/bloggta.html">Blogs</a></li>
+                </ul> -->
             </nav>
         </section>
         <!-- Search Section -->
@@ -43,8 +46,8 @@
         <!-- GTA5 -->
         <section>
             <div id="howto-tabs">
-                <div id="tab-videos" class="howto-tab-content" style="display:none;">
-                    <p class="blogs-amazon-subheading">New videos every day</p>
+                <div id="tab-videos" class="howto-tab-content" style="display:block;">
+                    <p class="blogs-amazon-subheading">New videos every day!</p>
                     <div class="flex-wrap-start">
                         <div class="gta5-card color1">
                             <a href=#>
@@ -95,8 +98,6 @@
                     </div>
                 </div>
 
-                <!-- </div> -->
-                <!-- <div id="howto-tabs"> -->
                 <div id="tab-shorts" class="howto-tab-content" style="display:none;">
                     <p class="howto-tab-title blogs-amazon-subheading">Enjoy high-action gameplay with no filter</p>
                     <div class="flex-wrap-start">
@@ -167,8 +168,8 @@
                     </div>
                     <!-- </div> -->
                 </div>
-                <!-- <div id="howto-tabs"> -->
-                <div id="tab-playlists" class="howto-tab-content">
+
+                <div id="tab-playlists" class="howto-tab-content" style="display:none;">
                     <p class="blogs-amazon-subheading">Watch story missions unfold</p>
                     <div class="flex-wrap-start">
                         <div class="gta5-card color1">
@@ -257,10 +258,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- </div> -->
-                <!-- <div id="howto-tabs"> -->
+
                 <div id="tab-tricks" class="howto-tab-content" style="display:none;">
-                    <p class="howto-tab-title blogs-amazon-subheading">Quick GTA 5 tips & tricks to level up your gameplay instantly.</p>
+                    <p class="howto-tab-title blogs-amazon-subheading">Quick GTA 5 tips & tricks to level up your
+                        gameplay instantly.</p>
                     <div class="flex-wrap-start">
                         <div class="gta5-card color1">
                             <a href=#>
