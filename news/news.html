@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>News | Ultimatrix</title>
-  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/blogs.css" />
     <link rel="stylesheet" href="/css/news-sports.css" />
@@ -21,13 +21,14 @@
             <p>Your daily window into headlines, stories and curated news of the world."</p>
             <nav class="blogs-main-category-menu">
                 <ul>
-                    <li><a id="new" href="#" class="howto-tab-btn active" data-tab="new" data-category="Tech">Tech</a>
+                    <li><a id="tech" href="#" class="howto-tab-btn active" data-tab="tech" data-category="tech">Tech</a>
                     </li>
-                    <li><a id="eco" href="#" class="howto-tab-btn" data-tab="eco" data-category="Sports">Sports</a></li>
-                    <li><a id="gadgets" href="#" class="howto-tab-btn" data-tab="gadgets"
-                            data-category="Weather">Weather</a></li>
-                    <li><a id="gadgets" href="#" class="howto-tab-btn" data-tab="gadgets"
-                            data-category="Finance">Finance</a></li>
+                    <li><a id="business" href="#" class="howto-tab-btn" data-tab="business"
+                            data-category="business">Sports</a></li>
+                    <li><a id="weather" href="#" class="howto-tab-btn" data-tab="weather"
+                            data-category="weather">Weather</a></li>
+                    <li><a id="world" href="#" class="howto-tab-btn" data-tab="world" data-category="world">World</a>
+                    </li>
                 </ul>
             </nav>
         </section>
@@ -63,25 +64,51 @@
                 <p>Humidity: 78%</p>
             </div>
             <div class="tile sports color3">
-                <h3>🏏 Sports</h3>
-                <p>India vs SA: Match tomorrow at 5PM</p>
+                <h3>🏏 Trending</h3>
+                <p>iPhone 17 Pro: Launch event trending worldwide</p>
+                <p>iPhone Air: Ultra-thin model with A19 Pro chip unveiled</p>
             </div>
         </section>
-        <section id="dynamic-news-feed">
-            <section id="headlines-section" class="sports-section">
-                <p class="sports-section-heading">Top Headlines</p>
+        <section id="trending-news-feed">
+            <section id="trending-section" class="sports-section">
+                <p class="sports-section-heading">Trending</p>
+                <p>iPhone 17 Pro: Launch event trending worldwide</p>
+                <p>iPhone Air: Ultra-thin model with A19 Pro chip unveiled</p>
+                <p>Miss America 2026: Cassie Donegan crowned winner</p>
+                <p>Gel Nail Polish Ban: EU bans TPO ingredient over safety concerns</p>
+                <p>Nepal Political Crisis: President and PM resign after violent protests</p>
+                <p>Afghanistan vs Hong Kong: Asia Cup win by 94 runs</p>
+                <p>France vs Iceland: FIFA Qualifier tonight at 12:15AM IST</p>
+                <p>Sonu Nigam: Viral reaction to “Bijuria” remix</p>
+                <p>Super Bowl LIX: Chiefs vs Eagles — 10 days to kickoff</p>
+                <p>Ekta Kapoor: Fan poll for Naagin 7 lead actress</p>
             </section>
+
+        </section>
+        <section id="dynamic-news-feed">
+            <!-- <section id="headlines-section" class="sports-section">
+                <p class="sports-section-heading">Top Headlines</p>
+            </section> -->
 
             <section id="today-section" class="sports-section">
                 <p class="sports-section-heading">Today’s News</p>
+                <div class="news-fallback" id="today-fallback">
+                    <p>Loading today’s news...</p>
+                </div>
             </section>
 
             <section id="yesterday-section" class="sports-section">
                 <p class="sports-section-heading">Yesterday’s News</p>
+                <div class="news-fallback" id="yesterday-fallback">
+                    <p>Loading yesterday’s news...</p>
+                </div>
             </section>
 
             <section id="earlier-section" class="sports-section">
                 <p class="sports-section-heading">Earlier News</p>
+                <div class="news-fallback" id="earlier-fallback">
+                    <p>Loading earlier news...</p>
+                </div>
             </section>
         </section>
         <!-- Main News Section -->

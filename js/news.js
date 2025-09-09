@@ -88,6 +88,16 @@ function getDateOnly(dateStr) {
     return new Date(dateStr).toISOString().split("T")[0]; // "YYYY-MM-DD"
 }
 
+function hideFallbackIfArticles(section, fallbackId) {
+    // Hide fallback if the section has any .news-item (not placeholder)
+    const fallback = document.getElementById(fallbackId);
+    if (fallback && section.querySelector('.news-item')) {
+        fallback.style.display = 'none';
+    } else if (fallback) {
+        fallback.style.display = '';
+    }
+}
+
 function lazyLoadArticlesFromJSON(articleData) {
     const today = getDateOnly(new Date());
 
@@ -142,14 +152,26 @@ function lazyLoadArticlesFromJSON(articleData) {
                         renderedArticles.push(el);
 
                         // ✅ Insert into correct section
+                        // if (isHeadline) {
+                        //     headlinesSection.appendChild(el);
+                        // } else if (publishedDate === today) {
+                        //     todaySection.appendChild(el);
+                        // } else if (publishedDate === yesterday) {
+                        //     yesterdaySection.appendChild(el);
+                        // } else {
+                        //     earlierSection.appendChild(el);
+                        // }
                         if (isHeadline) {
                             headlinesSection.appendChild(el);
                         } else if (publishedDate === today) {
                             todaySection.appendChild(el);
+                            hideFallbackIfArticles(todaySection, "today-fallback");
                         } else if (publishedDate === yesterday) {
                             yesterdaySection.appendChild(el);
+                            hideFallbackIfArticles(yesterdaySection, "yesterday-fallback");
                         } else {
                             earlierSection.appendChild(el);
+                            hideFallbackIfArticles(earlierSection, "earlier-fallback");
                         }
                     })
                     .catch(err => {
