@@ -1,9 +1,22 @@
-
-
 // Unified dark mode toggle for all pages
 function toggleDarkMode() {
   const isDark = document.body.classList.toggle('dark-mode');
   localStorage.setItem('ultimatrix-dark-mode', isDark ? 'dark' : 'light');
+  updateToggleIcon(isDark);
+}
+
+function updateToggleIcon(isDark) {
+  const moon = document.getElementById('moon-icon');
+  const sun = document.getElementById('sun-icon');
+  if (moon && sun) {
+    if (isDark) {
+      moon.style.display = 'none';
+      sun.style.display = 'block';
+    } else {
+      moon.style.display = 'block';
+      sun.style.display = 'none';
+    }
+  }
 }
 
 // On page load, apply dark mode if set in localStorage
@@ -18,7 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 fetch('/header.html')
   .then(res => res.text())
-  .then(data => document.getElementById('header').innerHTML = data);
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+    const isDark = document.body.classList.contains('dark-mode');
+    updateToggleIcon(isDark);
+  });
 
 fetch('/footer.html')
   .then(res => res.text())

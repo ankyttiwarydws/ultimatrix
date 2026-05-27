@@ -21,25 +21,15 @@ class SitemapGenerator:
         self.priority_map = {
             'index.html': 1.0,
             '/': 1.0,
-            'games/games.html': 0.9,
-            'news/news.html': 0.9,
-            'blogs/blogs.html': 0.9,
-            'tools/tools.html': 0.9,
-            'sports/sports.html': 0.8,
+            'blogs/tech/tech.html': 0.9,
             'about-us.html': 0.8,
             'contact-us.html': 0.8,
-            'gta5.html': 0.8,
         }
         
         self.changefreq_map = {
             'index.html': 'daily',
             '/': 'daily',
-            'news/': 'daily',
-            'sports/': 'daily',
-            'blogs/blogs.html': 'daily',
-            'games/': 'weekly',
-            'tools/': 'weekly',
-            'blogs/': 'weekly',
+            'blogs/tech/tech.html': 'daily',
             'privacy.html': 'yearly',
         }
         
@@ -76,16 +66,10 @@ class SitemapGenerator:
             return self.priority_map[path_str]
             
         # Check for main section pages
-        if path_str.endswith('/games.html') or path_str.endswith('/news.html') or path_str.endswith('/blogs.html'):
+        if path_str.endswith('/tech.html'):
             return 0.9
-        elif path_str.endswith('/tools.html') or path_str.endswith('/sports.html'):
-            return 0.8
-        elif 'games/' in path_str or 'tools/' in path_str:
-            return 0.7
-        elif 'news/' in path_str or 'sports/' in path_str:
-            return 0.6
         elif 'blogs/' in path_str:
-            return 0.5
+            return 0.7
         else:
             return 0.5
 
@@ -99,12 +83,8 @@ class SitemapGenerator:
                 return freq
                 
         # Default frequencies based on content type
-        if 'news/' in path_str or 'sports/' in path_str:
+        if 'blogs/' in path_str:
             return 'weekly'
-        elif 'games/' in path_str or 'tools/' in path_str:
-            return 'monthly'
-        elif 'blogs/' in path_str:
-            return 'monthly'
         else:
             return 'monthly'
 

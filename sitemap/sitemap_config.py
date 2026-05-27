@@ -11,26 +11,16 @@ OUTPUT_FILE = "sitemap.xml"
 PRIORITY_MAP = {
     'index.html': 1.0,
     '/': 1.0,
-    'games/games.html': 0.9,
-    'news/news.html': 0.9,
-    'blogs/blogs.html': 0.9,
-    'tools/tools.html': 0.9,
-    'sports/sports.html': 0.8,
+    'blogs/tech/tech.html': 0.9,
     'about-us.html': 0.8,
     'contact-us.html': 0.8,
-    'gta5.html': 0.8,
 }
 
 # Change frequency mappings
 CHANGEFREQ_MAP = {
     'index.html': 'daily',
     '/': 'daily',
-    'news/': 'daily',
-    'sports/': 'daily',
-    'blogs/blogs.html': 'daily',
-    'games/': 'weekly',
-    'tools/': 'weekly',
-    'blogs/': 'weekly',
+    'blogs/tech/tech.html': 'daily',
     'privacy.html': 'yearly',
 }
 
@@ -59,18 +49,10 @@ EXCLUDE_PATTERNS = {
 
 # Default priorities by section
 DEFAULT_PRIORITIES = {
-    'games/': 0.7,
-    'tools/': 0.7,
-    'news/': 0.6,
-    'sports/': 0.6,
-    'blogs/': 0.5,
+    'blogs/': 0.7,
 }
 
 # Default change frequencies by section
 DEFAULT_CHANGEFREQ = {
-    'news/': 'weekly',
-    'sports/': 'weekly',
-    'games/': 'monthly',
-    'tools/': 'monthly',
-    'blogs/': 'monthly',
+    'blogs/': 'weekly',
 }

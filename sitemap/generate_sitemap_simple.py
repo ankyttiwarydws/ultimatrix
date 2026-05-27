@@ -24,13 +24,13 @@ def generate_sitemap():
     def get_priority(path):
         if path in ['/', '/index.html']:
             return 1.0
-        elif any(x in path for x in ['/games.html', '/news.html', '/blogs.html', '/tools.html']):
+        elif any(x in path for x in ['/games.html', '/blogs.html', '/tools.html']):
             return 0.9
         elif any(x in path for x in ['/sports.html', '/about-us.html', '/contact-us.html']):
             return 0.8
         elif '/games/' in path or '/tools/' in path:
             return 0.7
-        elif '/news/' in path or '/sports/' in path:
+        elif '/sports/' in path:
             return 0.6
         elif '/blogs/' in path:
             return 0.5
@@ -39,7 +39,7 @@ def generate_sitemap():
     
     # Change frequency rules
     def get_changefreq(path):
-        if path in ['/', '/index.html'] or '/news/' in path or '/sports/' in path:
+        if path in ['/', '/index.html'] or '/sports/' in path:
             return 'daily'
         elif '/games/' in path or '/tools/' in path or '/blogs.html' in path:
             return 'weekly'
