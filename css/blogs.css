@@ -236,3 +236,28 @@ body.dark-mode .howto-tab-btn.active {
   border-color: rgba(0, 242, 254, 0.4);
   box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
 }
+
+/* Mobile Responsiveness for Blogs */
+@media (max-width: 768px) {
+  .blogs-month-heading {
+    font-size: 2rem;
+  }
+  .blogs-month-subheading {
+    font-size: 1.3rem;
+  }
+  .blogs-main-category {
+    padding: 2.5rem 1.5rem;
+  }
+  .blogs-main-category h3 {
+    font-size: 1.8rem;
+  }
+  .blogs-amazon-subheading {
+    font-size: 1.2rem;
+  }
+  .blog-content-paragraph, .blog-content li {
+    font-size: 1.05rem;
+  }
+  .howto-tabs-cards {
+    grid-template-columns: 1fr;
+  }
+}
