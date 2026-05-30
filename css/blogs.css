@@ -1,0 +1,263 @@
+/* Blog Titles */
+.blogs-month-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.5px;
+  margin: 1rem 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+/* Blog Content */
+.blog-content-paragraph {
+  font-size: 1.125rem;
+  color: #374151;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Section Headings inside articles */
+.blogs-month-subheading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 3rem 0 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+/* Blog Lists */
+.blog-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+.blog-content li {
+  font-size: 1.125rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+/* Main Category Headers (About, Contact, etc) */
+.blogs-main-category {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  margin-bottom: 3rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.blogs-main-category h3 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.blogs-main-category p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* Sub Navigation Menu */
+.blogs-main-category-menu {
+  margin-top: 2rem;
+}
+.blogs-main-category-menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+.howto-tab-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #f3f4f6;
+  color: #4b5563;
+  text-decoration: none !important;
+  border-radius: 9999px; /* Pill shape */
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+.howto-tab-btn:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+.howto-tab-btn.active {
+  background: #111827;
+  color: #ffffff;
+}
+
+/* How To Cards (Used in tech.html) */
+.howto-tabs-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.howto-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.howto-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  transform: translateY(-4px);
+}
+
+.howto-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.howto-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.howto-card a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* Related Articles Grid */
+.related-articles {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.related-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.related-article-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.related-article-card:hover {
+  background: #fff;
+  border-color: #d1d5db;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.related-article-title a {
+  color: #2563eb;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Subheadings for Contact / Privacy sections */
+.blogs-amazon-subheading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 2rem 0 0.5rem 0;
+}
+
+/* Dark Mode Overrides for blogs.css */
+body.dark-mode .blogs-month-heading,
+body.dark-mode .blogs-month-subheading,
+body.dark-mode .blogs-main-category h3,
+body.dark-mode .howto-card h4,
+body.dark-mode .blogs-amazon-subheading {
+  color: #ffffff;
+}
+body.dark-mode .blog-content-paragraph,
+body.dark-mode .blog-content li,
+body.dark-mode .blogs-main-category p,
+body.dark-mode .howto-card p {
+  color: #a1a1aa;
+}
+body.dark-mode .blogs-month-subheading,
+body.dark-mode .related-articles {
+  border-color: rgba(255,255,255,0.1);
+}
+body.dark-mode .blogs-main-category,
+body.dark-mode .howto-card {
+  background: #0a0a0c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .related-article-card {
+  background: #0a0a0c;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+body.dark-mode .related-article-card:hover {
+  background: rgba(0, 242, 254, 0.02);
+  border-color: rgba(0, 242, 254, 0.6);
+  box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
+}
+body.dark-mode .related-article-title a {
+  color: #00f2fe;
+}
+body.dark-mode .howto-card:hover {
+  background: rgba(0, 242, 254, 0.02);
+  border-color: rgba(0, 242, 254, 0.6);
+  box-shadow: 0 0 40px rgba(0, 242, 254, 0.15), inset 0 0 20px rgba(0, 242, 254, 0.05);
+}
+
+body.dark-mode .howto-tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #a1a1aa;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .howto-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+body.dark-mode .howto-tab-btn.active {
+  background: rgba(0, 242, 254, 0.1);
+  color: #00f2fe;
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+/* Mobile Responsiveness for Blogs */
+@media (max-width: 768px) {
+  .blogs-month-heading {
+    font-size: 2rem;
+  }
+  .blogs-month-subheading {
+    font-size: 1.3rem;
+  }
+  .blogs-main-category {
+    padding: 2.5rem 1.5rem;
+  }
+  .blogs-main-category h3 {
+    font-size: 1.8rem;
+  }
+  .blogs-amazon-subheading {
+    font-size: 1.2rem;
+  }
+  .blog-content-paragraph, .blog-content li {
+    font-size: 1.05rem;
+  }
+  .howto-tabs-cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /scripts/
+Disallow: /header.html
+Disallow: /footer.html
+Disallow: /blogs/a/
+Allow: /
+
+Sitemap: https://ultimatrix.co.in/sitemap.xml

@@ -1,0 +1,11 @@
+@echo off
+echo Generating sitemap.xml for Ultimatrix.co.in...
+echo.
+
+python generate_sitemap_simple.py
+
+echo.
+echo Sitemap generation complete!
+echo You can now upload sitemap.xml to your website root.
+echo.
+pause
